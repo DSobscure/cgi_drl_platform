@@ -9,7 +9,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("-t", "--template", help="What's the config template you want to use?", default="cgi_drl.configuration_template")
     parser.add_argument("-tc", "--template_class", help="What's the config template class you want to use?", default="ConfigurationTemplate")
-    parser.add_argument("-f", "--config_file", help="What's the config file you want to load?", default="atari.yaml")
+    parser.add_argument("-f", "--config_file", help="What's the config file you want to load?", default="playstyle_metric_uai2021.yaml")
     parser.add_argument("-k", "--config_key", help="What's the config key you want to load?", default="default")
     parser.add_argument("-i", "--run_id", help="What's the id of this run?", default="")
     parser.add_argument("-j", "--json_parameter_string", help="What's the extra parameters with json format?", type=str, default="{}")
