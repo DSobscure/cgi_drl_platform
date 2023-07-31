@@ -5,6 +5,8 @@ Some of algorithms proposed by our lab will also be put at this repo in a specif
 
 ## Publication Implementations
 - Chiu-Chou Lin, Wei-Chen Chiu, I-Chen Wu. An unsupervised video game playstyle metric via state discretization. UAI 2021. [Link](https://proceedings.mlr.press/v161/lin21a.html) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/playstyle_uai2021)
+[Dataset and HSD Models](https://zenodo.org/record/8191453)
+
 
 # Environment Installation (Example for Pommerman)
 ## 1. Get CGI DRL Platform
@@ -37,43 +39,13 @@ podman exec -it cgi_drl bash
 cd cgi_drl_platform/platform
 pip install -e .
 ```
-## 5. Get Pommerman Environment
-```bash
-cd ~
-git clone https://github.com/MultiAgentLearning/playground.git
-cd playground
-python3 setup.py install
-```
-## 6. Start Distributed Server for Parallel Environments
-* create a tmux panel
-```bash
-cd ~/cgi_drl_platform/infrastructure/DistributedServer/netcoreapp2.1
-dotnet Cgi.VideoGame.Distributed.Server.dll
-```
-* you can speficy a specific name of log file as follows
-```bash
-dotnet Cgi.VideoGame.Distributed.Server.dll log_name.txt
-```
-## 7. Run Training or Evaluation
-* for evaluation with provided model, please put version.zip under cgi_drl_platform/cgi_drl and extract it
+## 5. Download Dataset and HSD Models
+[Dataset and HSD Models](https://zenodo.org/record/8191453)
+* upzip playstyle_uai2021.zip at /root/ in the container
 
-### Pommerman bot Training
+# Run Experiemnts
 ```bash
 cd ~/cgi_drl_platform/platform/cgi_drl
-python run.py -f pommerman.yaml -k pommerman_train -i test
+python run.py -k atari-metric-breakout
 ```
-
-### Pommerman bot Evaluation
-```bash
-cd ~/cgi_drl_platform/platform/cgi_drl
-python run.py -f pommerman.yaml -k pommerman_eval -i test
-```
-* all logs are automatically generated in cd cgi_drl_platform/platform/cgi_drl/versions
-    * including AI models
-    * you can use tensorboard to ckeck the result
-
-### modify AI or develop new bot
-* start from check cgi_drl/pommerman.yaml
-    * this file speficy the actual enter point of problem and corresponding configs
-* for change AI model in evaluation, please check cgi_drl/problem/pommerman/ppo_solver/config/solver.yaml
-    * in key "eval", specify the model directory by "load_policy_model_path"
+* do be bone
