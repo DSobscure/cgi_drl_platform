@@ -1,0 +1,15 @@
+breakout:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-breakout]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, UAI2021Template, data_storage/demonstration_memory/config/atari.yaml, uai2021-breakout]
+    
+    version: versions/atari_playstyle_breakout
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Breakout/model1
+
+space_invaders:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-space-invaders]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, UAI2021Template, data_storage/demonstration_memory/config/atari.yaml, uai2021-space-invaders]
+    
+    version: versions/atari_playstyle_space_invaders
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/SpaceInvaders/model1

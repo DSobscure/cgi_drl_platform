@@ -1,0 +1,10 @@
+default:
+    print_message: true
+    # For agent pool, will keep n recent snapshots (like a sliding window)
+    # The capacity is independent of different type of agent (i.e. alice: n, bob: n)
+    pool_capacity: 10
+
+    # For Elo rating
+    default_elo_rating: 1000
+    k_factor: 26
+    use_score_rating: false

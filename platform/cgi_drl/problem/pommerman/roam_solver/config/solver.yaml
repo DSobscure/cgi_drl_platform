@@ -1,0 +1,5 @@
+camp_default:
+    available_actions: [0]
+
+roam_default:
+    available_actions: [0, 1, 2, 3, 4]

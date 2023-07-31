@@ -1,0 +1,188 @@
+default:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                # Subphase
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: roam_solver
+        eval:
+            - # Stage 0
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+
+    single_solvers:
+        ppo_solver:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, DefaultTemplate, problem/pommerman/ppo_solver/config/solver.yaml, default]
+        camp_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        roam_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+
+    multi_agent_solver:
+        training_iteration_count: 200
+        agent_sampling_scheme:
+            train: prioritized
+            eval: uniform
+        subphase_step_period:
+            train: 51200
+            eval: 20480
+        change_agent_step_period:
+            train: 51200
+            eval: 20480
+        start_stage: 0
+        start_iteration: 0
+    version: versions/pommerman_default
+
+strong_exploration:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                # Subphase
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: roam_solver
+        eval:
+            - # Stage 0
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+
+    single_solvers:
+        ppo_solver:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, StrongExploraitonTemplate, problem/pommerman/ppo_solver/config/solver.yaml, large_batch]
+        camp_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        roam_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+
+    multi_agent_solver:
+        training_iteration_count: 200
+        agent_sampling_scheme:
+            train: prioritized
+            eval: uniform
+        subphase_step_period:
+            train: 512000
+            eval: 20480
+        change_agent_step_period:
+            train: 512000
+            eval: 20480
+        start_stage: 0
+        start_iteration: 0
+    version: versions/pommerman_strong_exploration
+
+strong_exploration_selfplay:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+                - Player1: camp_solver
+                  Player2: ppo_solver
+                - Player1: ppo_solver
+                  Player2: roam_solver
+                - Player1: roam_solver
+                  Player2: ppo_solver
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: roam_solver
+                - Player1: roam_solver
+                  Player2: ppo_solver
+                - Player1: ppo_solver
+                  Player2: ppo_solver_#from_agent_pool
+                - Player1: ppo_solver_#from_agent_pool
+                  Player2: ppo_solver
+        eval:
+            - # Stage 0
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+
+                - Player1: ppo_solver
+                  Player2: ppo_solver_#from_agent_pool
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+
+                - Player1: ppo_solver
+                  Player2: ppo_solver_#from_agent_pool
+
+    single_solvers:
+        ppo_solver:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer, PommermanPpoSolver]
+            static_solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, StrongExploraitonTemplate, problem/pommerman/ppo_solver/config/solver.yaml, large_batch]
+        camp_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        roam_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+
+    multi_agent_solver:
+        training_iteration_count: 200
+        agent_sampling_scheme:
+            train: prioritized
+            eval: uniform
+        subphase_step_period:
+            train: 512000
+            eval: 40960
+        change_agent_step_period:
+            train: 128000
+            eval: 10240
+        start_stage: 0
+        start_iteration: 0
+    version: versions/pommerman_strong_exploration_selfplay

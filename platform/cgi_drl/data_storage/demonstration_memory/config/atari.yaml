@@ -1,0 +1,7 @@
+uai2021-breakout:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Breakout
+    action_count: 4
+
+uai2021-space-invaders:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/SpaceInvaders
+    action_count: 6

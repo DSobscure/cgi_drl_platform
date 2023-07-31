@@ -1,0 +1,20 @@
+# Pommerman
+pommerman_train:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, default]
+
+pommerman_eval_test:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.evaluator
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_evaluator_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_evaluator.yaml, default]
+
+pommerman_eval:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.evaluator
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_evaluator_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_evaluator.yaml, eval]
+
+pommerman_train_strong_exploration:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, strong_exploration]
+
+pommerman_train_strong_exploration_selfplay:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, strong_exploration_selfplay]

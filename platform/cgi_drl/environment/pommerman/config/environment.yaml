@@ -1,0 +1,9 @@
+pommerman_1v1:
+    environment_id: OneVsOne-v0 
+    environment_count: 8
+    agent_names : [Player1, Player2]
+
+pommerman_1v1-eval:
+    environment_id: OneVsOne-v0 
+    environment_count: 8
+    agent_names : [Player1, Player2]

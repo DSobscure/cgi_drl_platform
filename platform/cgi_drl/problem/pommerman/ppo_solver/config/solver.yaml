@@ -1,0 +1,77 @@
+default:
+    observation_preprocessor: [cgi_drl.environment.pommerman.config.observation_preprocessor_template, DefaultTemplate, environment/pommerman/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.pommerman.model_template, DefaultTemplate, decision_model/ppo/config/pommerman/model.yaml, default]
+    gae: [cgi_drl.data_storage.gae_sample_memory.config.pommerman_template, DefaultTemplate, data_storage/gae_sample_memory/config/pommerman.yaml, default]
+    
+    version: versions/pommerman_ppo
+    batch_size: 128
+    is_load_policy: false
+    training_steps: 100000000
+    epoch_steps: -1
+    update_sample_count: 5120
+    update_epoch_count: 3
+    max_game_step: 10000 
+    discount_factor_gamma: 0.99
+    discount_factor_lambda: 0.95
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16
+
+eval_test:
+    observation_preprocessor: [cgi_drl.environment.pommerman.config.observation_preprocessor_template, DefaultTemplate, environment/pommerman/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.pommerman.model_template, DefaultTemplate, decision_model/ppo/config/pommerman/model.yaml, default]
+    gae: [cgi_drl.data_storage.gae_sample_memory.config.pommerman_template, DefaultTemplate, data_storage/gae_sample_memory/config/pommerman.yaml, default]
+    
+    version: versions/pommerman_ppo
+    batch_size: 128
+    is_load_policy: true
+    load_policy_model_path: versions/pommerman_defaulttest/agent_pool/ppo_solver_10
+    training_steps: 100000000
+    epoch_steps: -1
+    update_sample_count: 5120
+    update_epoch_count: 3
+    max_game_step: 10000 
+    discount_factor_gamma: 0.99
+    discount_factor_lambda: 0.95
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16
+
+eval:
+    observation_preprocessor: [cgi_drl.environment.pommerman.config.observation_preprocessor_template, DefaultTemplate, environment/pommerman/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.pommerman.model_template, DefaultTemplate, decision_model/ppo/config/pommerman/model.yaml, default]
+    gae: [cgi_drl.data_storage.gae_sample_memory.config.pommerman_template, DefaultTemplate, data_storage/gae_sample_memory/config/pommerman.yaml, default]
+    
+    version: versions/pommerman_ppo
+    batch_size: 128
+    is_load_policy: true
+    load_policy_model_path: versions/ppo_solver_199
+    training_steps: 100000000
+    epoch_steps: -1
+    update_sample_count: 5120
+    update_epoch_count: 3
+    max_game_step: 10000 
+    discount_factor_gamma: 0.99
+    discount_factor_lambda: 0.95
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16
+
+large_batch:
+    observation_preprocessor: [cgi_drl.environment.pommerman.config.observation_preprocessor_template, DefaultTemplate, environment/pommerman/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.pommerman.model_template, DefaultTemplate, decision_model/ppo/config/pommerman/model.yaml, default]
+    gae: [cgi_drl.data_storage.gae_sample_memory.config.pommerman_template, DefaultTemplate, data_storage/gae_sample_memory/config/pommerman.yaml, default]
+    
+    version: versions/pommerman_ppo
+    batch_size: 1024
+    is_load_policy: false
+    training_steps: 100000000
+    epoch_steps: -1
+    update_sample_count: 51200
+    update_epoch_count: 3
+    max_game_step: 10000 
+    discount_factor_gamma: 0.99
+    discount_factor_lambda: 0.95
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16

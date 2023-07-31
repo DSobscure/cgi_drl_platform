@@ -1,0 +1,9 @@
+breakout:
+    environment_name: Breakout
+    environment_count: 4
+    episode_life: True
+
+breakout-eval:
+    environment_name: Breakout
+    environment_count: 4
+    episode_life: False

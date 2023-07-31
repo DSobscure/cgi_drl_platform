@@ -1,0 +1,11 @@
+atari-metric-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+
+atari-metric-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+
+torcs-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]

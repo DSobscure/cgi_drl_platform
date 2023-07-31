@@ -1,0 +1,91 @@
+default:
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                # Subphase
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+        eval:
+            - # Stage 0
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+
+    single_solvers:
+        ppo_solver:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, DefaultTemplate, problem/pommerman/ppo_solver/config/solver.yaml, eval_test]
+        camp_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        roam_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+
+    multi_agent_solver:
+        agent_sampling_scheme:
+            eval: uniform
+        subphase_episode_count:
+            eval: 50
+        change_agent_episode_count:
+            eval: 200
+    version: versions/pommerman_default_eval
+
+eval:
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                # Subphase
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+        eval:
+            - # Stage 0
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+            - # Stage 1
+                # Subphase
+                - Player1: ppo_solver
+                  Player2: camp_solver
+
+                - Player1: ppo_solver
+                  Player2: roam_solver
+
+    single_solvers:
+        ppo_solver:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, DefaultTemplate, problem/pommerman/ppo_solver/config/solver.yaml, eval]
+        camp_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        roam_solver:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+
+    multi_agent_solver:
+        agent_sampling_scheme:
+            eval: uniform
+        subphase_episode_count:
+            eval: 50
+        change_agent_episode_count:
+            eval: 200
+    version: versions/pommerman_eval

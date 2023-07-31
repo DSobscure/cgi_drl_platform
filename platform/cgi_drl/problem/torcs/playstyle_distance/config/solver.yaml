@@ -1,0 +1,7 @@
+torcs-25:
+    hsd: [cgi_drl.representation_model.hsd.config.torcs.model_template, UAI2021Template, representation_model/hsd/config/torcs/model.yaml, uai2021]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.torcs, UAI2021Template, data_storage/demonstration_memory/config/torcs.yaml, uai2021-25]
+    
+    version: versions/torcs_playstyle_25
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/torcs/hsd/torcs/model1
