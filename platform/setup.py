@@ -8,6 +8,7 @@ setup(name='cgi_drl',
             'gym==0.12.0',
             'atari-py==0.2.9',
             'opencv-python',
-            'moviepy'
+            'moviepy',
+            'numpy==1.23.4',
       ]
 )
