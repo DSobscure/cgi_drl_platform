@@ -29,10 +29,10 @@ def launch(problem_config):
     sess = tf.compat.v1.Session(config=tf_config)
     encoder.set_session(sess)
     
-    encoder.load(problem_config["load_encoder_model_path"])
     sess.run([tf.compat.v1.global_variables_initializer(), tf.compat.v1.local_variables_initializer()])
+    encoder.load(problem_config["load_encoder_model_path"])
 
-    sample_count = 512
+    sample_count = 1024
     repeat_count = 100
     code_level = 0
     threshold_count = 2
