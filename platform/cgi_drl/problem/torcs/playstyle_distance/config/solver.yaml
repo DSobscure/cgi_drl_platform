@@ -4,4 +4,4 @@ torcs-25:
     
     version: versions/torcs_playstyle_25
     is_load_encoder: true
-    load_encoder_model_path: /root/playstyle_uai2021/torcs/hsd/torcs/model1
+    load_encoder_model_path: /root/playstyle_uai2021/torcs/hsd/model1
