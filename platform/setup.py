@@ -9,6 +9,6 @@ setup(name='cgi_drl',
             'atari-py==0.2.9',
             'opencv-python',
             'moviepy',
-            'numpy==1.23.4',
+            'numpy',
       ]
 )

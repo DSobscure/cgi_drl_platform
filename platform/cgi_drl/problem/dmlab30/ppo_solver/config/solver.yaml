@@ -1,0 +1,20 @@
+rooms_watermaze:
+    environment: [cgi_drl.environment.dmlab30.config.environment_template, DefaultTemplate, environment/dmlab30/config/environment.yaml, rooms_watermaze]
+    evaluation_environment: [cgi_drl.environment.dmlab30.config.environment_template, DefaultTemplate, environment/dmlab30/config/environment.yaml, rooms_watermaze]
+    observation_preprocessor: [cgi_drl.environment.dmlab30.config.observation_preprocessor_template, DefaultTemplate, environment/dmlab30/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.dmlab30.model_template, DefaultTemplate, decision_model/ppo/config/dmlab30/model.yaml, default]
+    gae: [cgi_drl.data_storage.gae_sample_memory.config.dmlab30_template, DefaultTemplate, data_storage/gae_sample_memory/config/dmlab30.yaml, default]
+    
+    version: versions/dmlab30_ppo_rooms_watermaze
+    batch_size: 128
+    is_load_policy: false
+    training_steps: 10000000
+    epoch_steps: 250000
+    update_sample_count: 5120
+    update_epoch_count: 3
+    max_game_step: 10000 
+    discount_factor_gamma: 0.99
+    discount_factor_lambda: 0.95
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16
