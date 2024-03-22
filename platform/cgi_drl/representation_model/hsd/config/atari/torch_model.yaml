@@ -1,0 +1,28 @@
+torch-breakout:
+    model_define_path: representation_model.hsd.nn_model.shared.torch_encoder_model
+    network_settings:
+        # torch is channel first
+        input_dimensions: [
+            [4, 84, 84],
+            [16, 20, 20],
+            [32, 9, 9],
+            [32, 7, 7]
+        ]
+        # torch is channel first
+        hidden_dimensions: [
+            [32, 7, 7],
+            [25, 20],
+            [25, 20]
+        ]
+        # torch is channel first
+        cnn_cnn_output_dimensions: [
+            [32, 7, 7],
+            [32, 9, 9],
+            [16, 20, 20],
+            [4, 84, 84]
+        ]
+        policy_output_dimensions: [1568, 256, 4]
+        vq_embedding_sizes: [[256, 32], [2, 25]]
+    hierarchy_count: 2
+    vq_beta: 0.25
+    vq_mean_beta: 0.25

@@ -1,5 +1,20 @@
+uai2021-asterix:
+    action_count: 9
+
 uai2021-breakout:
-  action_count: 4
+    action_count: 4
+
+uai2021-mspacman:
+    action_count: 9
+
+uai2021-pong:
+    action_count: 6
+
+uai2021-qbert:
+    action_count: 6
+
+uai2021-seaquest:
+    action_count: 18
 
 uai2021-space-invaders:
-  action_count: 6
+    action_count: 6

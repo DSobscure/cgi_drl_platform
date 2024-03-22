@@ -7,3 +7,7 @@ breakout-eval:
     environment_name: Breakout
     environment_count: 4
     episode_life: False
+
+breakout-simple-eval:
+    environment_id: BreakoutNoFrameskip-v4
+    episode_life: False

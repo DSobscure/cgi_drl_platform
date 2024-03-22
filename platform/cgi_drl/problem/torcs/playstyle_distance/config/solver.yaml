@@ -2,6 +2,26 @@ torcs-25:
     hsd: [cgi_drl.representation_model.hsd.config.torcs.model_template, UAI2021Template, representation_model/hsd/config/torcs/model.yaml, uai2021]
     demo: [cgi_drl.data_storage.demonstration_memory.config.torcs, UAI2021Template, data_storage/demonstration_memory/config/torcs.yaml, uai2021-25]
     
-    version: versions/torcs_playstyle_25
+    result_path: versions/torcs_25_model1
     is_load_encoder: true
     load_encoder_model_path: /root/playstyle_uai2021/torcs/hsd/model1
+
+torcs-25-2:
+    hsd: [cgi_drl.representation_model.hsd.config.torcs.model_template, UAI2021Template, representation_model/hsd/config/torcs/model.yaml, uai2021]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.torcs, UAI2021Template, data_storage/demonstration_memory/config/torcs.yaml, uai2021-25]
+    
+    result_path: versions/torcs_25_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/torcs/hsd/model2
+
+torcs-25-3:
+    hsd: [cgi_drl.representation_model.hsd.config.torcs.model_template, UAI2021Template, representation_model/hsd/config/torcs/model.yaml, uai2021]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.torcs, UAI2021Template, data_storage/demonstration_memory/config/torcs.yaml, uai2021-25]
+    
+    result_path: versions/torcs_25_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/torcs/hsd/model3
+
+torcs-25-lrd:
+    demo: [cgi_drl.data_storage.demonstration_memory.config.torcs, UAI2021Template, data_storage/demonstration_memory/config/torcs.yaml, uai2021-25]
+    result_path: versions/torcs_25_lrd

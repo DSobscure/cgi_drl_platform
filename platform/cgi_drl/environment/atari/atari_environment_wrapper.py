@@ -59,14 +59,14 @@ class AtariEnvironmentWrapper(EnvironmentWrapper):
 # test
 if __name__ == '__main__':
     env = AtariEnvironmentWrapper({
-        "environment_id" : "BreakoutNoFrameskip-v4",
+        "environment_id" : "SeaquestNoFrameskip-v4",
         "episode_life" : False,
     }) 
     env.reset()
     print(env.get_action_space())
-    for i in range(1000):
-        actions = env.sample()
-        obs, rewards, dones, infos = env.step(actions)
-        print(actions, dones, infos)
-        if any(dones):
-            env.reset(reset_settings={"mode":"hard"})
+    # for i in range(1000):
+    #     actions = env.sample()
+    #     obs, rewards, dones, infos = env.step(actions)
+    #     print(actions, dones, infos)
+    #     if any(dones):
+    #         env.reset(reset_settings={"mode":"hard"})
