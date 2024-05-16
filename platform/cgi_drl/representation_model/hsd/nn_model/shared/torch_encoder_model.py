@@ -124,7 +124,7 @@ class EncoderModel(nn.Module):
         cnn_z_q0_high_level = x.view(-1, *self.hidden_dimensions[0])
 
         # cnn decoder
-        cnn_z_e0 = hierarchy_usages[:,0].view(-1, 1, 1, 1) * cnn_z_q0_low_level + (1 - hierarchy_usages[0:].view(-1, 1, 1, 1)) * cnn_z_q0_high_level
+        cnn_z_e0 = hierarchy_usages[:,0].view(-1, 1, 1, 1) * cnn_z_q0_low_level + (1 - hierarchy_usages[:,0].view(-1, 1, 1, 1)) * cnn_z_q0_high_level
         x = cnn_z_e0
         
         for layer in self.cnn_decoder_hidden_layers:
