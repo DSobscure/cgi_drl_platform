@@ -1,0 +1,12 @@
+# Unity ML Agents
+ppo_food_collector:
+    solver: cgi_drl.problem.food_collector.ppo_solver.torch_trainer
+    config: [cgi_drl.problem.food_collector.ppo_solver.config.torch_solver_template, DefaultTemplate, problem/food_collector/ppo_solver/config/torch_solver.yaml, baseline]
+
+constant_cost_ppo_food_collector:
+    solver: cgi_drl.problem.food_collector.ppo_solver.torch_trainer
+    config: [cgi_drl.problem.food_collector.ppo_solver.config.torch_solver_template, ConstantCostTemplate, problem/food_collector/ppo_solver/config/torch_solver.yaml, constant_cost]
+
+abc_rl_ppo_food_collector:
+    solver: cgi_drl.problem.food_collector.ppo_solver.torch_trainer
+    config: [cgi_drl.problem.food_collector.ppo_solver.config.torch_solver_template, AbcRlTemplate, problem/food_collector/ppo_solver/config/torch_solver.yaml, abc_rl_ppo]

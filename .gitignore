@@ -309,3 +309,6 @@ platform/cgi_drl/versions
 .cache/*
 .bash_history
 .viminfo
+
+!infrastructure/GameExecutables/*.zip
+infrastructure/GameExecutables/VisualFoodCollectorSingle/*
