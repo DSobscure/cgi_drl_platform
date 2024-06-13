@@ -10,3 +10,15 @@ constant_cost_ppo_food_collector:
 abc_rl_ppo_food_collector:
     solver: cgi_drl.problem.food_collector.ppo_solver.torch_trainer
     config: [cgi_drl.problem.food_collector.ppo_solver.config.torch_solver_template, AbcRlTemplate, problem/food_collector/ppo_solver/config/torch_solver.yaml, abc_rl_ppo]
+
+ppo_food_collector_inference:
+    solver: cgi_drl.problem.food_collector.ppo_solver.torch_evaluator
+    config: [cgi_drl.problem.food_collector.ppo_solver.config.torch_solver_template, DefaultTemplate, problem/food_collector/ppo_solver/config/torch_solver.yaml, baseline_inference]
+
+constant_cost_ppo_food_collector_inference:
+    solver: cgi_drl.problem.food_collector.ppo_solver.torch_evaluator
+    config: [cgi_drl.problem.food_collector.ppo_solver.config.torch_solver_template, ConstantCostTemplate, problem/food_collector/ppo_solver/config/torch_solver.yaml, constant_cost_inference]
+
+abc_rl_ppo_food_collector_inference:
+    solver: cgi_drl.problem.food_collector.ppo_solver.torch_evaluator
+    config: [cgi_drl.problem.food_collector.ppo_solver.config.torch_solver_template, AbcRlTemplate, problem/food_collector/ppo_solver/config/torch_solver.yaml, abc_rl_ppo_inference]
