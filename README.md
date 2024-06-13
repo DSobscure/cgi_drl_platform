@@ -13,7 +13,7 @@ Some of algorithms proposed by our lab will also be put at this repo in a specif
 * A example environment in [Unity ML Agent](https://github.com/Unity-Technologies/ml-agents/blob/develop/docs/Learning-Environment-Examples.md)
 * Banana Collector is an old version in early version of ML Agents. The new version changed to the name, Food Collector.
     * ![Food Collector](https://github.com/Unity-Technologies/ml-agents/raw/develop/docs/images/foodCollector.png)
-* The corresponding setting can be found in [their offical gitgub repo](https://github.com/Unity-Technologies/ml-agents/blob/develop/docs/Learning-Environment-Examples.md).
+* The corresponding setting can be found in [their offical github repo](https://github.com/Unity-Technologies/ml-agents/blob/develop/docs/Learning-Environment-Examples.md).
     * Our setting
         * Set-up: A single-agent environment where the agent collect food.
         * Goal: The agents must learn to collect as many green food spheres as possible while avoiding red spheres.
@@ -42,7 +42,7 @@ Some of algorithms proposed by our lab will also be put at this repo in a specif
         * Playing in 3D First Person Shooting games, quick shaking and spinning long time are not human-like.
 
 ## Fraework Resource
-* CGI DRL Platform: (public guthub repository)
+* CGI DRL Platform: (public github repository)
     * https://github.com/DSobscure/cgi_drl_platform/tree/human_like_behavior
     * a static version at https://cgi.lab.nycu.edu.tw/~shared_data/BananaCollector/cgi_drl_platform.zip
 * Banana Collector (now, Fodd Collector) model
@@ -83,29 +83,29 @@ cd cgi_drl
 * Extract zip file versions.zip
 * FoodCollecto PPO Baseline
 ```bash
-python -k ppo_food_collector_inference
+python run.py -k ppo_food_collector_inference
 ```
 * FoodCollecto PPO Baseline with constant behavior cost (multi-objective for reducing shaking and spinning behaviors)
 ```bash
-python -k constant_cost_ppo_food_collector_inference
+python run.py -k constant_cost_ppo_food_collector_inference
 ```
 * FoodCollecto with ABC-RL PPO ([ACML 2023 Towards Human-Like RL: Taming Non-Naturalistic Behavior in Deep RL via Adaptive Behavioral Costs in 3D Games](https://proceedings.mlr.press/v222/ho24a.html))
 ```bash
-python -k abc_rl_ppo_food_collector_inference
+python run.py -k abc_rl_ppo_food_collector_inference
 ```
 
 #### Run new training
 * FoodCollecto PPO Baseline
 ```bash
-python -k ppo_food_collector
+python run.py -k ppo_food_collector
 ```
 * FoodCollecto PPO Baseline with constant behavior cost (multi-objective for reducing shaking and spinning behaviors)
 ```bash
-python -k constant_cost_ppo_food_collector
+python run.py -k constant_cost_ppo_food_collector
 ```
 * FoodCollecto with ABC-RL PPO ([ACML 2023 Towards Human-Like RL: Taming Non-Naturalistic Behavior in Deep RL via Adaptive Behavioral Costs in 3D Games](https://proceedings.mlr.press/v222/ho24a.html))
 ```bash
-python -k abc_rl_ppo_food_collector
+python run.py -k abc_rl_ppo_food_collector
 ```
 
 #### Detailed for customized usage

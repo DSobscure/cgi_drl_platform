@@ -78,16 +78,25 @@ class GaeSampleMemory(object):
             return self.transitions["observation"].keys()
 
         def merge(self, key):
-            merged_results = [s for s in self.transitions[key]]
+            trajectory_length = len(self.transitions["action"])
+            cut_off_length = trajectory_length % self.episode_sequence_size
+
+            merged_results = [s for s in self.transitions[key][cut_off_length:]]
             return merged_results
 
         def merge_observations(self, key):
-            merged_results = [s for s in self.transitions["observation"][key]]
+            trajectory_length = len(self.transitions["action"])
+            cut_off_length = trajectory_length % self.episode_sequence_size
+
+            merged_results = [s for s in self.transitions["observation"][key][cut_off_length:]]
             return merged_results
 
         def merge_next_observations(self, key):
+            trajectory_length = len(self.transitions["action"])
+            cut_off_length = trajectory_length % self.episode_sequence_size
+
             merged_results = [s for s in self.transitions["observation"][key]]
-            return merged_results[1:] + [merged_results[-1]]
+            return (merged_results[1:] + [merged_results[-1]])[cut_off_length:]
 
     def __init__(self, config):
         self.config = config

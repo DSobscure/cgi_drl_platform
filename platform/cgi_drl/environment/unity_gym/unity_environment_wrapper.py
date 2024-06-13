@@ -11,8 +11,9 @@ class UnityEnvironmentWrapper(EnvironmentWrapper):
         self.flatten_branched = self.config.get("flatten_branched", False)
         self.allow_multiple_obs = self.config.get("allow_multiple_obs", True)
         self.action_space_seed = self.config.get("action_space_seed", None)
+        self.worker_id = self.config.get("environment_index", 0)
 
-        unity_env = UnityEnvironment(self.executable_path)
+        unity_env = UnityEnvironment(self.executable_path, worker_id=self.worker_id)
         env = UnityToGymWrapper(unity_env, 
             uint8_visual=self.uint8_visual, 
             flatten_branched=self.flatten_branched, 
@@ -20,6 +21,7 @@ class UnityEnvironmentWrapper(EnvironmentWrapper):
             action_space_seed=self.action_space_seed
         )
         self.env = env
+        self.agent_count = 1
 
     def step(self, actions, action_settings=None):
         observation, reward, done, info = self.env.step(actions[0])

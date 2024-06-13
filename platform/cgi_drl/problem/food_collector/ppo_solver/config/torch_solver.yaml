@@ -1,6 +1,7 @@
 baseline:
-    environment: [cgi_drl.default_config, Default, environment/unity_gym/config/environment.yaml, food_collector]
-    ppo: [cgi_drl.decision_model.ppo.config.food_collector.model_template, DefaultTemplate, decision_model/ppo/config/atari/model.yaml, default]
+    environment: [cgi_drl.environment.unity_gym.config.environment_template, DefaultTemplate, environment/unity_gym/config/environment.yaml, food_collector]
+    observation_preprocessor: [cgi_drl.environment.unity_gym.config.observation_preprocessor_template, FoodCollectorTemplate, environment/unity_gym/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.food_collector.model_template_torch, DefaultTemplate, decision_model/ppo/config/food_collector/model_torch.yaml, default]
     gae: [cgi_drl.data_storage.gae_sample_memory.config.unity_gym_template, DefaultTemplate, data_storage/gae_sample_memory/config/unity_gym.yaml, default]
     
     version: versions/food_collector_ppo_baseline
@@ -15,11 +16,12 @@ baseline:
     discount_factor_lambda: 0.95
 
     evaluation_max_game_step: 5000
-    evaluation_episode_count: 5
+    evaluation_episode_count: 8
 
 constant_cost:
-    environment: [cgi_drl.default_config, Default, environment/unity_gym/config/environment.yaml, food_collector]
-    ppo: [cgi_drl.decision_model.ppo.config.food_collector.model_template, DefaultTemplate, decision_model/ppo/config/atari/model.yaml, default]
+    environment: [cgi_drl.environment.unity_gym.config.environment_template, DefaultTemplate, environment/unity_gym/config/environment.yaml, food_collector]
+    observation_preprocessor: [cgi_drl.environment.unity_gym.config.observation_preprocessor_template, FoodCollectorTemplate, environment/unity_gym/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.food_collector.model_template_torch, DefaultTemplate, decision_model/ppo/config/food_collector/model_torch.yaml, default]
     gae: [cgi_drl.data_storage.gae_sample_memory.config.unity_gym_template, DefaultTemplate, data_storage/gae_sample_memory/config/unity_gym.yaml, default]
     
     version: versions/food_collector_ppo_constant_cost
@@ -34,11 +36,12 @@ constant_cost:
     discount_factor_lambda: 0.95
 
     evaluation_max_game_step: 5000
-    evaluation_episode_count: 5
+    evaluation_episode_count: 8
 
 abc_rl_ppo:
-    environment: [cgi_drl.default_config, Default, environment/unity_gym/config/environment.yaml, food_collector]
-    ppo: [cgi_drl.decision_model.ppo.config.food_collector.model_template, DefaultTemplate, decision_model/ppo/config/atari/model.yaml, default]
+    environment: [cgi_drl.environment.unity_gym.config.environment_template, DefaultTemplate, environment/unity_gym/config/environment.yaml, food_collector]
+    observation_preprocessor: [cgi_drl.environment.unity_gym.config.observation_preprocessor_template, FoodCollectorTemplate, environment/unity_gym/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.food_collector.model_template_torch, DefaultTemplate, decision_model/ppo/config/food_collector/model_torch.yaml, default]
     gae: [cgi_drl.data_storage.gae_sample_memory.config.unity_gym_template, DefaultTemplate, data_storage/gae_sample_memory/config/unity_gym.yaml, default]
     
     version: versions/food_collector_abc_rl_ppo
@@ -52,8 +55,5 @@ abc_rl_ppo:
     discount_factor_gamma: 0.99
     discount_factor_lambda: 0.95
 
-    score_threshold_Vth: 32
-    historical_score_window_size_h: 10
-
     evaluation_max_game_step: 5000
-    evaluation_episode_count: 5
+    evaluation_episode_count: 8

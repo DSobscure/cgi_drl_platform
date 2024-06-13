@@ -6,5 +6,8 @@ setup(name='cgi_drl',
             'opencv-python',
             'moviepy',
             'numpy',
+            'tensorboardX',
+			'msgpack',
+			'msgpack_numpy'
       ]
 )

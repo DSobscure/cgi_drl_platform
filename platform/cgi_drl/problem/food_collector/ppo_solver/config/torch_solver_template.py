@@ -1,5 +1,6 @@
 import numpy as np
 from collections import deque
+import math
 
 class DefaultTemplate(dict):
     def __init__(self, config):
@@ -20,7 +21,7 @@ class DefaultTemplate(dict):
         self["value_coefficient_scheduler"] = config.get("value_coefficient_scheduler", value_coefficient_scheduler)
 
         def value_clip_range_scheduler(schedule_infos):
-            return 1
+            return 10
         self["value_clip_range_scheduler"] = config.get("value_clip_range_scheduler", value_clip_range_scheduler)
         
 
@@ -46,7 +47,7 @@ class DefaultTemplate(dict):
                     # move: 0-idle, 1-forward, 2-backword
                     # rotate: 0-idle, 1-left, 2-right
                     current_rotate_action = infos[i_index]["Action"][1]
-                    self.last_rotate_actions[i_index].append(current_action)
+                    self.last_rotate_actions[i_index].append(current_rotate_action)
                     # shaking cost
                     for i_action in range(len(self.last_rotate_actions[i_index]) - 2, -1, -1):
                         # use 1x2=2 or 2x1=2 to detect shaking
@@ -85,14 +86,20 @@ class ConstantCostTemplate(DefaultTemplate):
             return rewards
         self["reward_transformer"] = reward_transformer
 
+def sigmoid(x):
+  return 1 / (1 + math.exp(-x))
+
 class AbcRlTemplate(DefaultTemplate):
     def __init__(self, config):
         super().__init__(config)
-        
+
+        score_threshold_Vth = 10
+        historical_score_window_size_h = 10
+
         def reward_transformer(rewards, infos):
             rewards = np.asarray(rewards)
             for i_index in range(len(rewards)):
-                behavior_cost_coefficient = infos["Behavior Cost Coefficient"]
+                behavior_cost_coefficient = sigmoid(infos[i_index]["Previous Evaluation Mean Score"] - score_threshold_Vth) / historical_score_window_size_h
                 if "Shaking Cost" in infos[i_index]:
                     rewards[i_index] -= behavior_cost_coefficient * infos[i_index]["Shaking Cost"]
                 if "Spinning Cost" in infos[i_index]:
