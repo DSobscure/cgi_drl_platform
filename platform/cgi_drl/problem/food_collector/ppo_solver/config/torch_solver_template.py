@@ -21,7 +21,7 @@ class DefaultTemplate(dict):
         self["value_coefficient_scheduler"] = config.get("value_coefficient_scheduler", value_coefficient_scheduler)
 
         def value_clip_range_scheduler(schedule_infos):
-            return 10
+            return 1
         self["value_clip_range_scheduler"] = config.get("value_clip_range_scheduler", value_clip_range_scheduler)
         
 
@@ -55,10 +55,13 @@ class DefaultTemplate(dict):
                             agent_statistics[i_index]["Shaking Cost"] += 1
                             infos[i_index]["Shaking Cost"] = 1
                             break
+                        elif self.last_rotate_actions[i_index][i_action] * current_rotate_action != 0:
+                            break
                     # spinning cost
-                    if self.last_rotate_actions[i_index].count(current_rotate_action) >= self.action_window_size - 1:
-                        agent_statistics[i_index]["Spinning Cost"] += 1
-                        infos[i_index]["Spinning Cost"] = 1
+                    if current_rotate_action > 0:
+                        if self.last_rotate_actions[i_index].count(current_rotate_action) >= self.action_window_size - 1:
+                            agent_statistics[i_index]["Spinning Cost"] += 1
+                            infos[i_index]["Spinning Cost"] = 1
         self["agent_statistics_aggregator"] = config.get("agent_statistics_aggregator", agent_statistics_aggregator)
 
         def reward_transformer(rewards, infos):

@@ -69,7 +69,7 @@ class PolicyTrainer():
             clipped_value = old_value + torch.clip(value - old_value, -value_clip_range[i_head], value_clip_range[i_head])
             no_clipped_value_loss = torch.square(transformed_return - value)
             clipped_value_loss = torch.square(transformed_return - clipped_value)
-            value_loss = torch.minimum(no_clipped_value_loss, clipped_value_loss).mean()
+            value_loss = torch.max(no_clipped_value_loss, clipped_value_loss).mean()
             value_losses.append(value_loss)
             value_loss_sum += value_coefficient[i] * value_loss
 
