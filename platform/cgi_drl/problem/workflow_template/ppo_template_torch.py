@@ -137,6 +137,7 @@ class PpoSolver(ReinforcementLearningTrainer):
                     self.evaluation_scores.append(self.agent_statistics[is_train][i]["Cumulated Extrinsic Reward"])
 
     def update(self):
+        self.policy.update_old_policy()
         self.total_loss = 0
         self.total_surrogate_loss, self.total_value_loss, self.total_entropy = 0, 0, 0
         self.total_policy_clip_event_ratio = 0

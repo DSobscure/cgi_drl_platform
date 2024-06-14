@@ -25,7 +25,7 @@ class DefaultTemplate(dict):
         self["value_clip_range_scheduler"] = config.get("value_clip_range_scheduler", value_clip_range_scheduler)
         
 
-        self.action_window_size = 20
+        self.action_window_size = 16
         self.last_rotate_actions = []
 
         def agent_statistics_aggregator(agent_statistics, rewards, infos):
@@ -56,7 +56,7 @@ class DefaultTemplate(dict):
                             infos[i_index]["Shaking Cost"] = 1
                             break
                     # spinning cost
-                    if self.last_rotate_actions[i_index].count(current_rotate_action) >= 15:
+                    if self.last_rotate_actions[i_index].count(current_rotate_action) >= self.action_window_size - 1:
                         agent_statistics[i_index]["Spinning Cost"] += 1
                         infos[i_index]["Spinning Cost"] = 1
         self["agent_statistics_aggregator"] = config.get("agent_statistics_aggregator", agent_statistics_aggregator)
@@ -77,7 +77,7 @@ class ConstantCostTemplate(DefaultTemplate):
 
         def reward_transformer(rewards, infos):
             rewards = np.asarray(rewards)
-            behavior_cost_coefficient = 1
+            behavior_cost_coefficient = 0.1
             for i_index in range(len(rewards)):
                 if "Shaking Cost" in infos[i_index]:
                     rewards[i_index] -= behavior_cost_coefficient * infos[i_index]["Shaking Cost"]
@@ -99,7 +99,7 @@ class AbcRlTemplate(DefaultTemplate):
         def reward_transformer(rewards, infos):
             rewards = np.asarray(rewards)
             for i_index in range(len(rewards)):
-                behavior_cost_coefficient = sigmoid(infos[i_index]["Previous Evaluation Mean Score"] - score_threshold_Vth) / historical_score_window_size_h
+                behavior_cost_coefficient = 0.1 * sigmoid(infos[i_index]["Previous Evaluation Mean Score"] - score_threshold_Vth) / historical_score_window_size_h
                 if "Shaking Cost" in infos[i_index]:
                     rewards[i_index] -= behavior_cost_coefficient * infos[i_index]["Shaking Cost"]
                 if "Spinning Cost" in infos[i_index]:

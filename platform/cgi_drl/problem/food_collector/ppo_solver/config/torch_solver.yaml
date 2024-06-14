@@ -7,7 +7,7 @@ baseline:
     version: versions/food_collector_ppo_baseline
     batch_size: 128
     is_load_policy: false
-    training_steps: 10000000
+    training_steps: 5000000
     epoch_steps: 100000
     update_sample_count: 5120
     update_epoch_count: 3

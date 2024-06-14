@@ -35,9 +35,7 @@ class PolicyTrainer():
 
         self.optimizer = torch.optim.Adam(self.policy_model.parameters())
 
-    def update(self, transitions, extra_settings = None):
-        self._update_old_policy()
-        
+    def update(self, transitions, extra_settings = None):       
         if extra_settings == None:
             extra_settings = {}
         observations = self.observation_prodiver(transitions["observations"], self.device)
@@ -116,7 +114,7 @@ class PolicyTrainer():
             actions = np.asarray([act.to('cpu').detach().numpy() for act in network_output["sample_action"]])
             return np.transpose(actions, [1, 0]), [v.to('cpu').detach().numpy() for v in network_output["value"]]
 
-    def _update_old_policy(self):
+    def update_old_policy(self):
         self.old_policy_model.load_state_dict(self.policy_model.state_dict())
 
     def save(self, path, time_step):

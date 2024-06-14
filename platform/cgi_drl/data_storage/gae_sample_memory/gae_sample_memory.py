@@ -24,7 +24,11 @@ class GaeSampleMemory(object):
             return self.trajectories[0].get_observation_keys()
 
         def merge(self, key):
-            results = [t.merge(key) for t in self.trajectories]
+            results = []
+            for t in self.trajectories:
+                merged_t = t.merge(key)
+                if len(merged_t) > 0:
+                    results.append(merged_t)
             if key == "value":
                 if self.trajectories[-1].transitions["done"][-1]:
                     results.append([0])
@@ -33,11 +37,21 @@ class GaeSampleMemory(object):
             return np.concatenate(results)
 
         def merge_observations(self, key):
-            results = np.concatenate([t.merge_observations(key) for t in self.trajectories])
+            results = []
+            for t in self.trajectories:
+                merged_t = t.merge_observations(key)
+                if len(merged_t) > 0:
+                    results.append(merged_t)
+            results = np.concatenate(results)
             return results
 
         def merge_next_observations(self, key):
-            results = np.concatenate([t.merge_next_observations(key) for t in self.trajectories])
+            results = []
+            for t in self.trajectories:
+                merged_t = t.merge_next_observations(key)
+                if len(merged_t) > 0:
+                    results.append(merged_t)
+            results = np.concatenate(results)
             return results
 
         def clear(self):
@@ -81,14 +95,14 @@ class GaeSampleMemory(object):
             trajectory_length = len(self.transitions["action"])
             cut_off_length = trajectory_length % self.episode_sequence_size
 
-            merged_results = [s for s in self.transitions[key][cut_off_length:]]
+            merged_results = [s for s in self.transitions[key]][cut_off_length:]
             return merged_results
 
         def merge_observations(self, key):
             trajectory_length = len(self.transitions["action"])
             cut_off_length = trajectory_length % self.episode_sequence_size
 
-            merged_results = [s for s in self.transitions["observation"][key][cut_off_length:]]
+            merged_results = [s for s in self.transitions["observation"][key]][cut_off_length:]
             return merged_results
 
         def merge_next_observations(self, key):
