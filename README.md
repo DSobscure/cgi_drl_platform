@@ -56,6 +56,7 @@ Some of algorithms proposed by our lab will also be put at this repo in a specif
     * The experiments are run on 
         * Python 3.12
         * Torch 2.3.1 + CUDA 11.8
+        * .Net Standard 2.1+
 * Install Unity ML Agent Gym Environment
     * https://github.com/Unity-Technologies/ml-agents/tree/develop
     * Open Windows PowerShall or CMD in a new project directory
@@ -78,6 +79,12 @@ cd cgi_drl_platform\platform
 pip install -e .
 cd cgi_drl
 ```
+#### Start Distributed Environment Server
+```bash
+cd cgi_drl_platform/infrastructure/DistributedServer/netcoreapp2.1
+dotnet Cgi.VideoGame.Distributed.Server.dll
+```
+* Check "EnvironmentProviderPath" in Server.conf if you need to change the default server port or IP address
 
 #### Inference pretrained training
 * Extract zip file versions.zip
@@ -123,3 +130,11 @@ python run.py -k abc_rl_ppo_food_collector
 *  problem\food_collector
     *  This module is the main workflow of this system
     *  You can add new algorithms or combining other moudles for customized usage
+
+* Released Performance (Evaluation during training, avergae value from 8 games)
+
+| Method | MeanScore | Shaking Cost | Spinning Cost |
+| -------- | -------- | -------- | -------- |
+| Baselin PPO 1.3M Steps | 26.6 | 86.9 | 121.5 |
+| Constant Behavior Cost PPO 1.8M Steps | 28.5 | 210.9 | 2.5 |
+| Adaptive Behavioral Costs PPO 2.0M Steps| 25.5 | 19.4 | 1.6
