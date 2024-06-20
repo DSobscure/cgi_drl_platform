@@ -1,18 +1,14 @@
 import abc
 from time import strftime
 
-class ReinforcementLearningTrainer(abc.ABC):
+class ReinforcementLearningEvaluator(abc.ABC):
     def __init__(self, solver_config):
         # version path
         self.run_id = solver_config.get("run_id", "")
         self.version_path = solver_config["version"] + solver_config.get("run_id", "")
         self.log_path = self._create_path(self.version_path, "log")
-        self.model_path = self._create_path(self.version_path, "model")
         self.video_path = self._create_path(self.log_path, "video")
-        self.training_varaibles_path = self._create_path(self.version_path, "training_varaibles")
-        # training parameter
-        self.total_time_step = 0
-        self.training_steps = solver_config["training_steps"]
+        self.evaluation_episode_count = solver_config["evaluation_episode_count"]
 
     @staticmethod
     def _create_path(parent, dname):
@@ -30,13 +26,13 @@ class ReinforcementLearningTrainer(abc.ABC):
         return open(fname, mode="a", buffering=1)
 
     @abc.abstractmethod
-    def get_agent_count(self, is_train=True):
+    def get_agent_count(self):
         ''' get the simulation count per time step
         '''
         return NotImplemented
 
     @abc.abstractmethod
-    def get_environment(self, is_train=True):
+    def get_environment(self):
         ''' get the simulation environment
         '''
         return NotImplemented
@@ -50,32 +46,37 @@ class ReinforcementLearningTrainer(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def episode_initiate(self, dones, is_valid_agent, is_train=True):
+    def episode_initiate(self, dones, is_valid_agent):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def episode_terminate(self, dones, is_valid_agent, is_train=True):
+    def episode_terminate(self, dones, is_valid_agent):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def decide_agent_actions(self, is_valid_agent, is_train=True):
+    def decide_agent_actions(self, is_valid_agent):
         raise NotImplementedError
     
     @abc.abstractmethod
-    def on_time_step(self, decision, is_valid_agent, is_train=True):
+    def on_time_step(self, decision, is_valid_agent):
         raise NotImplementedError
 
-    def train(self):
+    @abc.abstractmethod
+    def summarize_evaluation(self):
+        raise NotImplementedError
+
+    def evaluate(self):
         self.initialize()
-        training_steps = self.training_steps
         dones = [True for _ in range(self.get_agent_count())]
         is_valid_agent = [True for _ in range(self.get_agent_count())]
-        while self.total_time_step <= training_steps:
+        self.episode_count = 0
+        self.evaluation_scores = []
+        while self.episode_count <= self.evaluation_episode_count:
             dones = self.episode_initiate(dones, is_valid_agent)
             while not any(dones):
                 decision = self.decide_agent_actions(is_valid_agent)
                 dones = self.on_time_step(decision, is_valid_agent)
-                self.total_time_step += self.get_agent_count()
             self.episode_terminate(dones, is_valid_agent)
+        self.summarize_evaluation()
         self.terminate()
 

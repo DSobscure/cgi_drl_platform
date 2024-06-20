@@ -35,7 +35,7 @@ def launch(problem_config):
     
     # setup solver
     problem_config["solver"] = problem_config
-    solver = AtariPpoSolver(problem_config)
+    solver = UnityPpoSolver(problem_config)
     solver.environment = env
     solver.evaluation_environment = env
     solver.gae_replay_buffer = gae_replay_buffer
@@ -44,7 +44,7 @@ def launch(problem_config):
 
     solver.train()
 
-class AtariPpoSolver(PpoSolver):
+class UnityPpoSolver(PpoSolver):
     def __init__(self, solver_config):
         super().__init__(solver_config)
 
