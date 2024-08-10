@@ -34,10 +34,10 @@ def launch(problem_config):
     encoder.load(problem_config["load_encoder_model_path"])
 
     # sample_count = 1024
-    max_sample_count_power = 10
+    max_sample_count_power = 0
     repeat_count = 100
-    code_level = [-2, -1, 0]
-    threshold_count = 2
+    code_level = [0]
+    threshold_count = 1
 
     playstyle_dataset = {}
     for demo_pair in demo_config["demo_pairs"]:
@@ -59,39 +59,39 @@ def launch(problem_config):
     # all_styles = get_compound_style()
 
     result_path = problem_config["result_path"]
-    result_path += "v1_t2"
-    with open(result_path + "_playstyle_distance.csv", "w", newline="") as distance_csvfile:
-        distance_writer = csv.writer(distance_csvfile)
+    # result_path += "v1_t2"
+    # with open(result_path + "_playstyle_distance.csv", "w", newline="") as distance_csvfile:
+    #     distance_writer = csv.writer(distance_csvfile)
 
-        for i_sample_power in range(max_sample_count_power + 1):
-            sample_count = 2 ** i_sample_power
+    for i_sample_power in range(max_sample_count_power + 1):
+        sample_count = 512 # 2 ** i_sample_power
 
-            model_accurate_list = []
+        model_accurate_list = []
 
-            for i in range(repeat_count):
-                model_accurate = 0
-                print("Repated: {}/{}".format(i, repeat_count), end='\r')
+        for i in range(repeat_count):
+            model_accurate = 0
+            print("Repated: {}/{}".format(i, repeat_count), end='\r')
 
-                for test_style in all_styles:
-                    playstyle_distances = {}
-                    double_test_list = sample_a_list_without_replacement(playstyle_dataset[test_style], sample_count * 2)
-                    test_style_info = extract_style_info(double_test_list[sample_count:], len(code_level))
-                    all_style_infos = {}
-                    for candidate_style in all_styles:
-                        if test_style == candidate_style:
-                            all_style_infos[candidate_style] = extract_style_info(double_test_list[:sample_count], len(code_level))
-                        else:
-                            all_style_infos[candidate_style] = extract_style_info(sample_a_list_without_replacement(playstyle_dataset[candidate_style], sample_count), len(code_level))     
-                        playstyle_distance = compute_similarity(test_style_info, all_style_infos[candidate_style], threshold_count, len(code_level))
-                        playstyle_distances[candidate_style] = playstyle_distance
-                    sorted_by_similarity = sorted(playstyle_distances.items(), key=lambda d: d[1]) 
-                    if test_style == sorted_by_similarity[0][0]:
-                        model_accurate += 1
-                model_accurate_list.append(model_accurate / len(all_styles))
+            for test_style in all_styles:
+                playstyle_distances = {}
+                double_test_list = sample_a_list_without_replacement(playstyle_dataset[test_style], sample_count * 2)
+                test_style_info = extract_style_info(double_test_list[sample_count:], len(code_level))
+                all_style_infos = {}
+                for candidate_style in all_styles:
+                    if test_style == candidate_style:
+                        all_style_infos[candidate_style] = extract_style_info(double_test_list[:sample_count], len(code_level))
+                    else:
+                        all_style_infos[candidate_style] = extract_style_info(sample_a_list_without_replacement(playstyle_dataset[candidate_style], sample_count), len(code_level))     
+                    playstyle_distance = compute_similarity(test_style_info, all_style_infos[candidate_style], threshold_count, len(code_level))
+                    playstyle_distances[candidate_style] = playstyle_distance
+                sorted_by_similarity = sorted(playstyle_distances.items(), key=lambda d: d[1]) 
+                if test_style == sorted_by_similarity[0][0]:
+                    model_accurate += 1
+            model_accurate_list.append(model_accurate / len(all_styles))
 
-            print()
-            print("under {} sample size, accuracy: {:.2f}%".format(sample_count, np.mean(model_accurate_list) * 100))
-            distance_writer.writerow(model_accurate_list)
+        print()
+        print("under {} sample size, accuracy: {:.2f}%, std:{:.2f}%".format(sample_count, np.mean(model_accurate_list) * 100, np.std(model_accurate_list) * 100))
+            # distance_writer.writerow(model_accurate_list)
 
     # sample_count = 1024
 

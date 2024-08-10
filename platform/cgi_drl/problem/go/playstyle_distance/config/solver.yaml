@@ -1,0 +1,4 @@
+hsd:
+    hsd: [cgi_drl.default_config, Default, representation_model/hsd/config/go/torch_model.yaml, default]
+    query_demo: [cgi_drl.default_config, Default, data_storage/demonstration_memory/config/go.yaml, query]
+    candidate_demo: [cgi_drl.default_config, Default, data_storage/demonstration_memory/config/go.yaml, candidate]

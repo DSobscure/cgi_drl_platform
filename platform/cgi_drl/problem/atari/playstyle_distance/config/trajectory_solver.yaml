@@ -1,0 +1,167 @@
+asterix80_20:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-asterix]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-asterix]
+    
+    result_path: versions/atari_asterix_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Asterix/model1
+
+asterix80_20-2:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-asterix]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-asterix]
+    
+    result_path: versions/atari_asterix_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Asterix/model2
+
+asterix80_20-3:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-asterix]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-asterix]
+    
+    result_path: versions/atari_asterix_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Asterix/model3
+
+breakout80_20:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-breakout]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-breakout]
+    
+    result_path: versions/atari_breakout_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Breakout/model1
+
+breakout80_20-2:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-breakout]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-breakout]
+    
+    result_path: versions/atari_breakout_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Breakout/model2
+
+breakout80_20-3:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-breakout]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-breakout]
+    
+    result_path: versions/atari_breakout_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Breakout/model3
+
+mspacman80_20:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-mspacman]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-mspacman]
+    
+    result_path: versions/atari_mspacman_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/MsPacman/model1
+
+mspacman80_20-2:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-mspacman]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-mspacman]
+    
+    result_path: versions/atari_mspacman_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/MsPacman/model2
+
+mspacman80_20-3:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-mspacman]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-mspacman]
+    
+    result_path: versions/atari_mspacman_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/MsPacman/model3
+
+pong80_20:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-pong]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-pong]
+    
+    result_path: versions/atari_pong_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Pong/model1
+
+pong80_20-2:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-pong]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-pong]
+    
+    result_path: versions/atari_pong_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Pong/model2
+
+pong80_20-3:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-pong]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-pong]
+    
+    result_path: versions/atari_pong_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Pong/model3
+
+qbert80_20:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-qbert]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-qbert]
+    
+    result_path: versions/atari_qbert_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Qbert/model1
+
+qbert80_20-2:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-qbert]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-qbert]
+    
+    result_path: versions/atari_qbert_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Qbert/model2
+
+qbert80_20-3:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-qbert]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-qbert]
+    
+    result_path: versions/atari_qbert_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Qbert/model3
+
+seaquest80_20:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-seaquest]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-seaquest]
+    
+    result_path: versions/atari_seaquest_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Seaquest/model1
+
+seaquest80_20-2:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-seaquest]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-seaquest]
+    
+    result_path: versions/atari_seaquest_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Seaquest/model2
+
+seaquest80_20-3:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-seaquest]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-seaquest]
+    
+    result_path: versions/atari_seaquest_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/Seaquest/model3
+
+space_invaders80_20:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-space-invaders]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-space-invaders]
+    
+    result_path: versions/atari_space_invaders_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/SpaceInvaders/model1
+
+space_invaders80_20-2:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-space-invaders]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-space-invaders]
+    
+    result_path: versions/atari_space_invaders_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/SpaceInvaders/model2
+
+space_invaders80_20-3:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.model_template, UAI2021Template, representation_model/hsd/config/atari/model.yaml, uai2021-space-invaders]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.atari, ICLR2024Template, data_storage/demonstration_memory/config/atari.yaml, iclr2024-space-invaders]
+    
+    result_path: versions/atari_space_invaders_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/atari/hsd/SpaceInvaders/model3

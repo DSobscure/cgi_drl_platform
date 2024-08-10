@@ -1,0 +1,8 @@
+default:
+    model_define_path: representation_model.hsd.nn_model.go.encoder_model
+    vq_beta: 0.25
+    vq_mean_beta: 0.0
+    hierarchy_count: 3
+    network_settings:
+        hidden_dimension: 256
+        vq_embedding_sizes: [[256, 32], [16, 32], [4, 16]]

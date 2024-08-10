@@ -29,10 +29,10 @@ def launch(problem_config):
     encoder.load(problem_config["load_encoder_model_path"])
 
     # sample_count = 256
-    max_sample_count_power = 9
+    max_sample_count_power = 0
     repeat_count = 100
-    code_level = [0]
-    threshold_count = 1
+    code_level = [-1]
+    threshold_count = 2
 
     playstyle_dataset = {}
     for demo_pair in demo_config["demo_pairs"]:
@@ -44,7 +44,7 @@ def launch(problem_config):
             observation_batch, action_batch = batch[0], batch[1]
             states = []
             for i_level in code_level:
-                s = encoder.get_discrite_latent_codes({"visual" : observation_batch }, i_level)
+                s = encoder.get_discrite_latent_codes({"visual" : observation_batch["observation_2d"] }, i_level)
                 states.append(s)
             for i_state in range(len(action_batch)):
                 playstyle_dataset[demo_pair[1]].append(([state[i_state] for state in states], np.asarray(action_batch[i_state])))
@@ -55,45 +55,45 @@ def launch(problem_config):
 
     result_path = problem_config["result_path"]
     result_path += "code0"
-    with open(result_path + "_playstyle_distance.csv", "w", newline="") as distance_csvfile, open(result_path + "_playstyle_distance_iou.csv", "w", newline="") as iou_csvfile:
-        distance_writer = csv.writer(distance_csvfile)
-        iou_writer = csv.writer(iou_csvfile)
+    # with open(result_path + "_playstyle_distance.csv", "w", newline="") as distance_csvfile, open(result_path + "_playstyle_distance_iou.csv", "w", newline="") as iou_csvfile:
+        # distance_writer = csv.writer(distance_csvfile)
+        # iou_writer = csv.writer(iou_csvfile)
 
-        for i_sample_power in range(max_sample_count_power + 1):
-            sample_count = 2 ** i_sample_power
+    for i_sample_power in range(max_sample_count_power + 1):
+        sample_count = 1024 # 2 ** i_sample_power
 
-            model_accurate_list = []
-            jaccard_index_list = []
+        model_accurate_list = []
+        jaccard_index_list = []
 
-            for i in range(repeat_count):
-                model_accurate = 0
-                print("Repated: {}/{}".format(i, repeat_count), end='\r')
+        for i in range(repeat_count):
+            model_accurate = 0
+            print("Repated: {}/{}".format(i, repeat_count), end='\r')
 
-                for test_style in all_styles:
-                    playstyle_distances = {}
-                    jaccard_indexes = []
-                    double_test_list = sample_a_list_without_replacement(playstyle_dataset[test_style], sample_count * 2)
-                    test_style_info = extract_style_info(double_test_list[sample_count:])
-                    all_style_infos = {}
-                    for candidate_style in all_styles:
-                        if test_style == candidate_style:
-                            all_style_infos[candidate_style] = extract_style_info(double_test_list[:sample_count])
-                        else:
-                            all_style_infos[candidate_style] = extract_style_info(sample_a_list_without_replacement(playstyle_dataset[candidate_style], sample_count))     
-                        playstyle_distance, jaccard_index = compute_similarity(test_style_info, all_style_infos[candidate_style], threshold_count)
-                        playstyle_distances[candidate_style] = playstyle_distance
-                        jaccard_indexes.append(jaccard_index)
-                    sorted_by_similarity = sorted(playstyle_distances.items(), key=lambda d: d[1]) 
-                    if test_style == sorted_by_similarity[0][0]:
-                        model_accurate += 1
-                    # print(test_style, "in", [s[0]for s in sorted_by_similarity])
-                model_accurate_list.append(model_accurate / len(all_styles))
-                jaccard_index_list.append(np.mean(jaccard_indexes))
+            for test_style in all_styles:
+                playstyle_distances = {}
+                jaccard_indexes = []
+                double_test_list = sample_a_list_without_replacement(playstyle_dataset[test_style], sample_count * 2)
+                test_style_info = extract_style_info(double_test_list[sample_count:])
+                all_style_infos = {}
+                for candidate_style in all_styles:
+                    if test_style == candidate_style:
+                        all_style_infos[candidate_style] = extract_style_info(double_test_list[:sample_count])
+                    else:
+                        all_style_infos[candidate_style] = extract_style_info(sample_a_list_without_replacement(playstyle_dataset[candidate_style], sample_count))     
+                    playstyle_distance, jaccard_index = compute_similarity(test_style_info, all_style_infos[candidate_style], threshold_count)
+                    playstyle_distances[candidate_style] = playstyle_distance
+                    jaccard_indexes.append(jaccard_index)
+                sorted_by_similarity = sorted(playstyle_distances.items(), key=lambda d: d[1]) 
+                if test_style == sorted_by_similarity[0][0]:
+                    model_accurate += 1
+                # print(test_style, "in", [s[0]for s in sorted_by_similarity])
+            model_accurate_list.append(model_accurate / len(all_styles))
+            jaccard_index_list.append(np.mean(jaccard_indexes))
 
-            print()
-            print("under {} sample size, accuracy: {:.2f}%, jaccard index: {:.2f}%".format(sample_count, np.mean(model_accurate_list) * 100,  np.mean(jaccard_index_list) * 100))
-            distance_writer.writerow(model_accurate_list)
-            iou_writer.writerow(jaccard_index_list)
+        print()
+        print("under {} sample size, accuracy: {:.2f}%, std:{:.2f}%, jaccard index: {:.2f}%".format(sample_count, np.mean(model_accurate_list) * 100, np.std(model_accurate_list) * 100,  np.mean(jaccard_index_list) * 100))
+            # distance_writer.writerow(model_accurate_list)
+            # iou_writer.writerow(jaccard_index_list)
 
 def calculate_w2(act1, act2):
     mu1 = act1.mean(axis=0)
@@ -101,7 +101,10 @@ def calculate_w2(act1, act2):
     return np.linalg.norm(mu1 - mu2, 2)
 
 def sample_a_list_without_replacement(full_list, size):
-    return random.sample(full_list, k=size)
+    if len(full_list) < size:
+        return random.sample(full_list, k=size//2) + random.sample(full_list, k=size//2)
+    else:
+        return random.sample(full_list, k=size)
 
 def extract_style_info(style_list):
     style_info = {

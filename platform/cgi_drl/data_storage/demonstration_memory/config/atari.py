@@ -45,3 +45,24 @@ class ICLR2024Template(dict):
         self["demo_pairs"] = config.get("demo_pairs", demo_pairs)
 
         super().__init__(config)
+
+class UAI2024Template(dict):
+    def __init__(self, config):
+        self["visual_observation_frame_count"] = config.get("visual_observation_frame_count", 4)
+
+        npz_folder_path_prefix = config.get("npz_folder_path_prefix", "/root/playstyle_uai2021/atari/testing/Breakout")
+        algorithms = ["DQN", "C51", "Rainbow", "IQN"]
+        model_count = 5
+        episdoe_count = 5
+        demo_pairs = []
+
+        for algorithm in algorithms:
+            for i_model in range(model_count):
+                for i_episode in range(episdoe_count):
+                    demo_pairs.append((
+                        "{}/{}/model{}/{}".format(npz_folder_path_prefix, algorithm, i_model + 1, i_episode + 1),
+                        "{}_model{}_episode{}".format(algorithm, i_model + 1, i_episode + 1)
+                    ))
+        self["demo_pairs"] = config.get("demo_pairs", demo_pairs)
+
+        super().__init__(config)

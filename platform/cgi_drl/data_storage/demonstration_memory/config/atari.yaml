@@ -57,3 +57,32 @@ iclr2024-seaquest:
 iclr2024-space-invaders:
     npz_folder_path_prefix: /root/playstyle_iclr2024/atari/SpaceInvaders/IQN/model1
     action_count: 6
+
+# for algorithm diversity
+uai2024-asterix:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Asterix
+    action_count: 9
+
+uai2024-breakout:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Breakout
+    action_count: 4
+
+uai2024-mspacman:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/MsPacman
+    action_count: 9
+
+uai2024-pong:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Pong
+    action_count: 6
+
+uai2024-qbert:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Qbert
+    action_count: 6
+
+uai2024-seaquest:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Seaquest
+    action_count: 18
+
+uai2024-space-invaders:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/SpaceInvaders
+    action_count: 6

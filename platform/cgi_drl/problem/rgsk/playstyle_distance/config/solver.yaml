@@ -1,0 +1,63 @@
+rgsk-24-mix:
+    hsd: [cgi_drl.representation_model.hsd.config.rgsk.model_template, UAI2021Template, representation_model/hsd/config/rgsk/model.yaml, uai2021-rgsk]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-24]
+    
+    result_path: versions/rgsk_model1
+    is_load_encoder: true
+    load_encoder_model_paths: [
+        /root/playstyle_uai2021/rgsk/hsd/model1,
+        /root/playstyle_uai2021/rgsk/hsd/model2,
+        /root/playstyle_uai2021/rgsk/hsd/model3
+    ]
+
+rgsk-24:
+    hsd: [cgi_drl.representation_model.hsd.config.rgsk.model_template, UAI2021Template, representation_model/hsd/config/rgsk/model.yaml, uai2021-rgsk]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-24]
+    
+    result_path: versions/rgsk_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/rgsk/hsd/model1
+
+rgsk-24-2:
+    hsd: [cgi_drl.representation_model.hsd.config.rgsk.model_template, UAI2021Template, representation_model/hsd/config/rgsk/model.yaml, uai2021-rgsk]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-24]
+    
+    result_path: versions/rgsk_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/rgsk/hsd/model2
+
+rgsk-24-3:
+    hsd: [cgi_drl.representation_model.hsd.config.rgsk.model_template, UAI2021Template, representation_model/hsd/config/rgsk/model.yaml, uai2021-rgsk]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-24]
+    
+    result_path: versions/rgsk_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/rgsk/hsd/model3
+
+rgsk-24-lrd:
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-24]
+    result_path: versions/rgsk_lrd
+
+rgsk-29:
+    hsd: [cgi_drl.representation_model.hsd.config.rgsk.model_template, UAI2021Template, representation_model/hsd/config/rgsk/model.yaml, uai2021-rgsk]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template29, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-29]
+    
+    result_path: versions/rgsk_model1
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/rgsk/hsd/model1
+
+rgsk-29-2:
+    hsd: [cgi_drl.representation_model.hsd.config.rgsk.model_template, UAI2021Template, representation_model/hsd/config/rgsk/model.yaml, uai2021-rgsk]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template29, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-29]
+    
+    result_path: versions/rgsk_model2
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/rgsk/hsd/model2
+
+rgsk-29-3:
+    hsd: [cgi_drl.representation_model.hsd.config.rgsk.model_template, UAI2021Template, representation_model/hsd/config/rgsk/model.yaml, uai2021-rgsk]
+    demo: [cgi_drl.data_storage.demonstration_memory.config.rgsk, UAI2021Template29, data_storage/demonstration_memory/config/rgsk.yaml, uai2021-29]
+    
+    result_path: versions/rgsk_model3
+    is_load_encoder: true
+    load_encoder_model_path: /root/playstyle_uai2021/rgsk/hsd/model3

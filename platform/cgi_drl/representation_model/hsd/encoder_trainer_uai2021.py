@@ -75,11 +75,13 @@ class EncoderTrainer():
                 with tf.variable_scope("cnn_encoder") as cnn_enc_parm_scope:
                     cnn_output = autoencoder.build_cnn_encoder(visual_observation_input, self.is_train_mode)
                     cnn_k, cnn_z_decoder = vq(tf.expand_dims(cnn_output, axis=-2), cnn_embed, self.is_train_mode)
+                    self.cnn_latent_codes = cnn_output
                 encoder_inputs = []
                 encoder_outputs = []
                 ks = []
                 z_decoders = []
                 self.hierarchy_usages = []
+                self.continuous_latent_codes = []
                 encoder_input = cnn_output
                 enc_parm_scopes = []
 
@@ -91,6 +93,7 @@ class EncoderTrainer():
                         encoder_inputs.append(encoder_input)
                         encoder_output = autoencoder.build_hierarchy_encoder(encoder_input, i, self.is_train_mode)
                         encoder_outputs.append(encoder_output)
+                        self.continuous_latent_codes.append(encoder_output)
                         _k, _z_decoder = vq(tf.expand_dims(encoder_output, axis=-2), embeds[i], self.is_train_mode)
                         ks.append(_k)
                         z_decoders.append(_z_decoder)
@@ -238,6 +241,29 @@ class EncoderTrainer():
         for x in range(self.cnn_latent_block_sizes):
             code = "{},{}".format(code, k[x])
         return code
+
+    def get_continuous_latent_codes(self, observations, code_level, extra_settings = None):
+        if extra_settings == None:
+            extra_settings = {}
+        if "feed_dict" not in extra_settings:
+            feed_dict = {}
+            extra_settings["feed_dict"] = feed_dict                 
+        feed_dict = extra_settings["feed_dict"]
+        feed_dict[self.is_train_mode] = False
+
+        if self.visual_observation_dimension != None:
+            feed_dict[self.visual_observation_placeholder] = observations["visual"]
+        batch_size = len(observations["visual"])
+
+        if code_level >= 0:
+            codes = self.session.run(self.continuous_latent_codes[code_level], feed_dict = feed_dict)
+        elif code_level == -1:
+            codes = self.session.run(self.cnn_latent_codes, feed_dict = feed_dict)
+        else:
+            codes = []
+            for i in range(len(observations["visual"])):
+                codes.append("none")
+        return np.reshape(codes, [batch_size, -1]) 
 
     def get_discrite_latent_codes(self, observations, code_level, extra_settings = None):
         if extra_settings == None:

@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='cgi_drl',
-      version='0.1.0',
+      version='0.2.0',
       install_requires=[
             'setuptools==59.4.0',
             'pyyaml==6.0',
@@ -10,5 +10,7 @@ setup(name='cgi_drl',
             'opencv-python',
             'moviepy',
             'numpy==1.23.4',
+            'python-csv',
+            'torch==1.13.1+cu116'
       ]
 )
