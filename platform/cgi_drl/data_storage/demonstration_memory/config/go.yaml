@@ -1,0 +1,12 @@
+query:
+    replay_file_path: /workspace/go_playstyle_data/query.txt
+
+candidate:
+    replay_file_path: /workspace/go_playstyle_data/cand.txt
+
+train_9D:
+    minizero_root_path: "/workspace"
+    minizero_config_path: "/workspace/go.cfg"
+    data_paths: [
+      "/workspace/go_training_data/9D_45000.sgf"
+    ]

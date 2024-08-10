@@ -1,14 +1,4 @@
 # TORCS
-torcs-baselines-25style-mcnemar:
-    solver: cgi_drl.problem.torcs.playstyle_distance.baselines_mcnemar_solver
-    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
-torcs-baselines-25style-mcnemar-2:
-    solver: cgi_drl.problem.torcs.playstyle_distance.baselines_mcnemar_solver
-    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
-torcs-baselines-25style-mcnemar-3:
-    solver: cgi_drl.problem.torcs.playstyle_distance.baselines_mcnemar_solver
-    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
-    
 torcs-cosine-25style:
     solver: cgi_drl.problem.torcs.playstyle_distance.cosine_solver
     config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
@@ -143,17 +133,6 @@ torcs-int-bd-lrd-25style:
     config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-lrd]
 
 # RGSK
-rgsk-baselines-24style-mcnemar:
-    solver: cgi_drl.problem.rgsk.playstyle_distance.baselines_mcnemar_solver
-    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
-rgsk-baselines-24style-mcnemar-2:
-    solver: cgi_drl.problem.rgsk.playstyle_distance.baselines_mcnemar_solver
-    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
-rgsk-cosine-24style-mcnemar-3:
-    baselines: cgi_drl.problem.rgsk.playstyle_distance.baselines_mcnemar_solver
-    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
-
-
 rgsk-cosine-24style:
     solver: cgi_drl.problem.rgsk.playstyle_distance.cosine_solver
     config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
@@ -849,16 +828,6 @@ atari-bc-metric-space_invaders-3:
 
 
 # mix 7 games 
-atari-baselines-mix-mcnemar:
-    solver: cgi_drl.problem.atari.playstyle_distance.mix_baselines_mcnemar_solver
-    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
-atari-baselines-mix-mcnemar-2:
-    solver: cgi_drl.problem.atari.playstyle_distance.mix_baselines_mcnemar_solver
-    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
-atari-baselines-mix-mcnemar-3:
-    solver: cgi_drl.problem.atari.playstyle_distance.mix_baselines_mcnemar_solver
-    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
-
 atari-cosine-mix:
     solver: cgi_drl.problem.atari.playstyle_distance.mix_cosine_solver
     config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
@@ -1374,7 +1343,7 @@ atari-int-metric-space_invaders80_20-3:
 # Go playstyle
 go-hsd-training:
     solver: cgi_drl.problem.go.hsd.solver
-    config: [cgi_drl.default_config, Default, problem/go/hsd/config/solver.yaml, default]
+    config: [cgi_drl.default_config, Default, problem/go/hsd/config/solver.yaml, tmlr_playstyle_similarity]
     
 go-playstyle-distance:
     solver: cgi_drl.problem.go.playstyle_distance.solver
