@@ -6,6 +6,10 @@ Some of algorithms proposed by our lab will also be put at this repo in a specif
 ## Publication Implementations
 - Chiu-Chou Lin, Wei-Chen Chiu, I-Chen Wu. An unsupervised video game playstyle metric via state discretization. UAI 2021. [Link](https://proceedings.mlr.press/v161/lin21a.html) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/playstyle_uai2021)
 [Dataset and HSD Models](https://zenodo.org/record/8191453)
+- Kuo-Hao Ho, Ping-Chun Hsieh, Chiu-Chou Lin, You-Ren Lou, Feng-Jian Wang, I-Chen Wu. Towards Human-Like RL: Taming Non-Naturalistic Behavior in Deep RL via Adaptive Behavioral Costs in 3D Games. ACML 2023. [Link](https://proceedings.mlr.press/v222/ho24a.html) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/human_like_behavior)
+- Chiu-Chou Lin, Wei-Chen Chiu, I-Chen Wu. Perceptual Similarity for Measuring Decision-Making Style and Policy Diversity in Games. TMLR 08/2024. [Link](https://openreview.net/forum?id=30C9AWBW49) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/playstyle_similarity_tmlr)
+    - New Dataset and HSD Models: Coming Soon
+    - This is a backup code repository (the version after the last paper revision). If you have any problems running this code, feel free to create a new issue in this repo.
 
 
 # Environment Installation (Example for Pommerman)
