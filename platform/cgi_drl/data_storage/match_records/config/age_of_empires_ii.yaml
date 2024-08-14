@@ -1,0 +1,7 @@
+train-1:
+    dataset_path: "~/balance/AoE2/aoestats_1v1_random_map_elo_all_1_train.csv"
+test-1:
+    dataset_path: "~/balance/AoE2/aoestats_1v1_random_map_elo_all_1_test.csv"
+
+all:
+    dataset_path: "~/balance/AoE2/aoestats_1v1_random_map_elo_all.csv"

@@ -1,0 +1,7 @@
+train-1:
+    dataset_path: "~/balance/Hearthstone/hearthstone_ranking_gold_1_train.csv"
+test-1:
+    dataset_path: "~/balance/Hearthstone/hearthstone_ranking_gold_1_test.csv"
+
+all:
+    dataset_path: "~/balance/Hearthstone/hearthstone_ranking_gold.csv"
