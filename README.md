@@ -1,5 +1,5 @@
 # CGI DRL Platform
-This repository is the official release of DRL Platform of CGI Lab (https://cgilab.nctu.edu.tw/), Department of Computer Science, National Yang Ming Chiao Tung University.
+This repository is the official release of DRL Platform of CGI Lab (https://cgi.lab.nycu.edu.tw/), Department of Computer Science, National Yang Ming Chiao Tung University.
 We implement some of popular deep reinforcement learning algorithm on some simulator or environemnts, especially, in video games.
 Some of algorithms proposed by our lab will also be put at this repo in a specific branch:
 

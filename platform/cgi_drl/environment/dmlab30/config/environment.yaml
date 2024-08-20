@@ -1,0 +1,4 @@
+rooms_watermaze:
+    environment_name: rooms_watermaze
+    environment_count: 8
+    action_skip: 4
