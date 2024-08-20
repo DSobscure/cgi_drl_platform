@@ -1,0 +1,4 @@
+# DeepMind Lab-30
+ppo_rooms_watermaze:
+    solver: cgi_drl.problem.dmlab30.ppo_solver.trainer
+    config: [cgi_drl.problem.dmlab30.ppo_solver.config.solver_template, DefaultTemplate, problem/dmlab30/ppo_solver/config/solver.yaml, rooms_watermaze]
