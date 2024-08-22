@@ -1,0 +1,23 @@
+fold1_model:
+    record: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, all]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.brawl_stars.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m9]
+    
+    version: versions/brawl_stars_table_m9
+    rating_table_model_path: versions/brawl_stars_nrtv3/model
+    counter_table_model_path: versions/brawl_stars_m9v3/model
+    batch_size: 1024
+    start_epoch_number: 1
+    end_epoch_number : 1
+
+simple_fold1_model:
+    record: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, all]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m9]
+    
+    version: versions/brawl_stars_simple_table_m27
+    rating_table_model_path: versions/brawl_stars_simple_nrt/model
+    counter_table_model_path: versions/brawl_stars_simple_m9/model
+    batch_size: 1024
+    start_epoch_number: 1
+    end_epoch_number : 1
