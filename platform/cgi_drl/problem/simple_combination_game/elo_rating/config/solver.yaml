@@ -1,0 +1,9 @@
+default_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/simple_combination_game.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/simple_combination_game.yaml, test-1]
+    elo_rating: [cgi_drl.default_config, Default, measure_model/elo_rating/config/shared/model.yaml, default]
+    
+    version: versions/simple_combination_elo_rating
+    batch_size: 256
+    start_epoch_number: 1
+    end_epoch_number : 100
