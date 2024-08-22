@@ -1,0 +1,3 @@
+default:
+    initial_rating: 1000
+    update_k: 16
