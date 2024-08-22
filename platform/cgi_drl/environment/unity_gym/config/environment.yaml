@@ -1,0 +1,2 @@
+food_collector:
+    executable_path: r"..\..\infrastructure\GameExecutables\VisualFoodCollectorSingle"

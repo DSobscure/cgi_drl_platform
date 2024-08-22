@@ -1,0 +1,6 @@
+default:
+    model_define_path: decision_model.ppo.nn_model.food_collector.default_model_torch
+    use_rnn: True
+    rnn_sequence_length: 8
+    rnn_burn_in_length: 2
+    memory_size: 256

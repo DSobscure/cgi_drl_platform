@@ -1,4 +1,3 @@
-
 import abc
 from time import strftime
 
