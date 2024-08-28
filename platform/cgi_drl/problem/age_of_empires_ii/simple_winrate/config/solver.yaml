@@ -1,0 +1,10 @@
+default_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    winr: [cgi_drl.measure_model.simple_winrate.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/simple_winrate/config/shared/model.yaml, h128]
+    
+    version: versions/age_of_empires_ii_winr
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100

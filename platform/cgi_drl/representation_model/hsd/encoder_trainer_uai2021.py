@@ -47,13 +47,6 @@ class EncoderTrainer():
                 for i in range(self.hierarchy_layer):
                     embeds.append(tf.get_variable("embd_{}".format(i), [self.Ks[i], self.D // self.latent_block_sizes[i]], initializer=tf.truncated_normal_initializer(stddev=0.02)))
             
-            with tf.variable_scope("fixed_cnn_embd") as fixed_cnn_embd_parm_scope:
-                fixed_cnn_embed = tf.get_variable("cnn_embd", self.cnn_embd_size, initializer=tf.truncated_normal_initializer(stddev=0.02))
-            with tf.variable_scope("fixed_embd") as fixed_embd_parm_scope:
-                fixed_embeds = []
-                for i in range(self.hierarchy_layer):
-                    fixed_embeds.append(tf.get_variable("embd_{}".format(i), [self.Ks[i], self.D // self.latent_block_sizes[i]], initializer=tf.truncated_normal_initializer(stddev=0.02)))
-            
             self.visual_observation_placeholder = tf.placeholder(shape =  [None] + [self.visual_observation_frame_count] + self.visual_observation_dimension, dtype = tf.float32, name = "visual_observation_placeholder")
             self.compressed_visual_observation_placeholder = tf.placeholder(shape =  [None] + [self.visual_observation_frame_count] + self.compressed_visual_observation_dimension, dtype = tf.float32, name = "compressed_visual_observation_placeholder")
 
@@ -73,7 +66,7 @@ class EncoderTrainer():
             with tf.variable_scope("forward") as forward_scope:
                 self.batch_size = tf.shape(self.visual_observation_placeholder)[0]
 
-                def vq(latent_point, embedding_points, k_size, block_size, batch_size, is_train_mode):
+                def vq(latent_point, embedding_points, is_train_mode):
                     vq_distance = tf.norm(embedding_points - latent_point, axis=-1)
                     k = tf.argmin(vq_distance, axis=-1, output_type=tf.int32)
                     z_decoder = tf.gather(embedding_points, k)
@@ -81,12 +74,14 @@ class EncoderTrainer():
 
                 with tf.variable_scope("cnn_encoder") as cnn_enc_parm_scope:
                     cnn_output = autoencoder.build_cnn_encoder(visual_observation_input, self.is_train_mode)
-                    cnn_k, cnn_z_decoder = vq(tf.expand_dims(cnn_output, axis=-2), cnn_embed, self.cnn_embd_size[0], self.output_dimensions[0][0], self.batch_size, self.is_train_mode)
+                    cnn_k, cnn_z_decoder = vq(tf.expand_dims(cnn_output, axis=-2), cnn_embed, self.is_train_mode)
+                    self.cnn_latent_codes = cnn_output
                 encoder_inputs = []
                 encoder_outputs = []
                 ks = []
                 z_decoders = []
                 self.hierarchy_usages = []
+                self.continuous_latent_codes = []
                 encoder_input = cnn_output
                 enc_parm_scopes = []
 
@@ -98,28 +93,12 @@ class EncoderTrainer():
                         encoder_inputs.append(encoder_input)
                         encoder_output = autoencoder.build_hierarchy_encoder(encoder_input, i, self.is_train_mode)
                         encoder_outputs.append(encoder_output)
-                        _k, _z_decoder = vq(tf.expand_dims(encoder_output, axis=-2), embeds[i], self.Ks[i], self.latent_block_sizes[i], self.batch_size, self.is_train_mode)
+                        self.continuous_latent_codes.append(encoder_output)
+                        _k, _z_decoder = vq(tf.expand_dims(encoder_output, axis=-2), embeds[i], self.is_train_mode)
                         ks.append(_k)
                         z_decoders.append(_z_decoder)
                         encoder_input = encoder_output
 
-                with tf.variable_scope("fixed_cnn_encoder") as fixed_cnn_enc_parm_scope:
-                    fixed_cnn_output = autoencoder.build_cnn_encoder(visual_observation_input, self.is_train_mode)
-                    fixed_cnn_k, fixed_cnn_z_decoder = vq(tf.expand_dims(fixed_cnn_output, axis=-2), fixed_cnn_embed, self.cnn_embd_size[0], self.output_dimensions[0][0], self.batch_size, self.is_train_mode)
-                
-                fixed_enc_parm_scopes = []
-                fixed_encoder_outputs = []
-                fixed_ks = []
-                fixed_encoder_input = fixed_cnn_output
-                
-                for i in range(self.hierarchy_layer):
-                    with tf.variable_scope("fixed_encoder_h{}".format(i)) as fixed_enc_parm_scope:
-                        fixed_enc_parm_scopes.append(fixed_enc_parm_scope)
-                        fixed_encoder_output = autoencoder.build_hierarchy_encoder(fixed_encoder_input, i, self.is_train_mode)
-                        fixed_encoder_outputs.append(fixed_encoder_output)
-                        _fixed_k, _fixed_z_decoder = vq(tf.expand_dims(fixed_encoder_output, axis=-2), fixed_embeds[i], self.Ks[i], self.latent_block_sizes[i], self.batch_size, self.is_train_mode)
-                        fixed_ks.append(_fixed_k)
-                        fixed_encoder_input = fixed_encoder_output
                 dec_param_scopes = []
                 decoder_input = z_decoders[-1]
                 decoder_outputs = []
@@ -150,7 +129,8 @@ class EncoderTrainer():
                     l2_loss = tf.losses.get_regularization_loss()
                     policy_loss += l2_loss
                     compressed_loss = tf.compat.v1.losses.huber_loss(compressed_visual_observation_input, self.compressed_x, reduction=tf.losses.Reduction.MEAN)
-
+                    compressed_loss = compressed_loss
+                    
                     # vector quantization loss
                     vq_loss = 0
                     cnn_vq_loss = tf.compat.v1.losses.huber_loss(tf.stop_gradient(cnn_output), cnn_z_decoder, reduction=tf.losses.Reduction.MEAN)
@@ -232,27 +212,7 @@ class EncoderTrainer():
                     decoder_grads = list(zip(tf.gradients(compressed_loss, decoder_vars), decoder_vars))
                     gradients += decoder_grads
 
-            cnn_encoder_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, cnn_enc_parm_scope.name)
-            fixed_cnn_encoder_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, fixed_cnn_enc_parm_scope.name)
-
-            cnn_embd_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, cnn_embd_parm_scope.name)
-            fixed_cnn_embd_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, fixed_cnn_embd_parm_scope.name)
-            embd_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, embd_parm_scope.name)
-            fixed_embd_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, fixed_embd_parm_scope.name)
-  
-            update_fixed_cnn_encoder_op = [oldp.assign(p) for p, oldp in zip(cnn_encoder_vars, fixed_cnn_encoder_vars)]    
-            update_fixed_cnn_embd_op = [oldp.assign(p) for p, oldp in zip(cnn_embd_vars, fixed_cnn_embd_vars)]
-            update_fixed_embd_op = [oldp.assign(p) for p, oldp in zip(embd_vars, fixed_embd_vars)]
-            self.update_fixed_op = update_fixed_cnn_encoder_op + update_fixed_cnn_embd_op + update_fixed_embd_op
-
-            for i in range(self.hierarchy_layer):
-                encoder_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, enc_parm_scopes[i].name)
-                fixed_encoder_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, fixed_enc_parm_scopes[i].name)
-                update_fixed_encoder_op = [oldp.assign(p) for p, oldp in zip(encoder_vars, fixed_encoder_vars)]     
-                self.update_fixed_op += update_fixed_encoder_op
-
         self.ks = ks
-        self.fixed_ks = fixed_ks
         self.cnn_k = cnn_k
 
         extra_update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
@@ -281,6 +241,29 @@ class EncoderTrainer():
         for x in range(self.cnn_latent_block_sizes):
             code = "{},{}".format(code, k[x])
         return code
+
+    def get_continuous_latent_codes(self, observations, code_level, extra_settings = None):
+        if extra_settings == None:
+            extra_settings = {}
+        if "feed_dict" not in extra_settings:
+            feed_dict = {}
+            extra_settings["feed_dict"] = feed_dict                 
+        feed_dict = extra_settings["feed_dict"]
+        feed_dict[self.is_train_mode] = False
+
+        if self.visual_observation_dimension != None:
+            feed_dict[self.visual_observation_placeholder] = observations["visual"]
+        batch_size = len(observations["visual"])
+
+        if code_level >= 0:
+            codes = self.session.run(self.continuous_latent_codes[code_level], feed_dict = feed_dict)
+        elif code_level == -1:
+            codes = self.session.run(self.cnn_latent_codes, feed_dict = feed_dict)
+        else:
+            codes = []
+            for i in range(len(observations["visual"])):
+                codes.append("none")
+        return np.reshape(codes, [batch_size, -1]) 
 
     def get_discrite_latent_codes(self, observations, code_level, extra_settings = None):
         if extra_settings == None:
@@ -315,9 +298,7 @@ class EncoderTrainer():
                 codes.append("none")
         return codes
 
-    def get_compressed_x(self, transitions, extra_settings = None):
-        if extra_settings == None:
-            extra_settings = {}
+    def get_compressed_x(self, transitions, extra_settings = {}):
         observation_batch = transitions["observation"]
         if "feed_dict" not in extra_settings:
             feed_dict = {}
@@ -333,21 +314,19 @@ class EncoderTrainer():
                 
         return self.session.run(self.compressed_x, feed_dict = feed_dict)
 
-    def update(self, transitions, extra_settings = None):
-        if extra_settings == None:
-            extra_settings = {}
-        observations = transitions["observations"]
-        compressed_observations = transitions["compressed_observations"]
+    def update(self, transitions, extra_settings = {}):
+        observation_batch = transitions["observation"]
+        compressed_observation_batch = transitions["compressed_observation"]
         action_batch = transitions["action"]
         if "feed_dict" not in extra_settings:
             feed_dict = {}
             extra_settings["feed_dict"] = feed_dict                 
         feed_dict = extra_settings["feed_dict"]
 
-        for key in self.observation_placeholders:
-            feed_dict[self.observation_placeholders[key]] = observations[key]
-        for key in self.compressed_observation_placeholders:
-            feed_dict[self.compressed_observation_placeholders[key]] = compressed_observations[key]
+        if self.visual_observation_dimension != None:
+            feed_dict[self.visual_observation_placeholder] = observation_batch["visual"]
+        if self.visual_observation_dimension != None:
+            feed_dict[self.compressed_visual_observation_placeholder] = compressed_observation_batch["visual"]
         feed_dict[self.is_train_mode] = True
         feed_dict[self.action_placeholder] = action_batch
         feed_dict[self.learning_rate_placeholder] = extra_settings["learning_rate"]
@@ -359,18 +338,16 @@ class EncoderTrainer():
         _, policy_loss, compressed_loss, vq_loss, commit_loss = self.session.run([self.train_op, self.policy_loss, self.compressed_loss, self.vq_loss, self.commit_loss], feed_dict=feed_dict)
         return policy_loss, compressed_loss, vq_loss, commit_loss
 
-    def get_accuracy(self, transitions, extra_settings = None):
-        if extra_settings == None:
-            extra_settings = {}
-        observations = transitions["observations"]
+    def get_accuracy(self, transitions, extra_settings = {}):
+        observation_batch = transitions["observation"]
         action_batch = transitions["action"]
         if "feed_dict" not in extra_settings:
             feed_dict = {}
             extra_settings["feed_dict"] = feed_dict                 
         feed_dict = extra_settings["feed_dict"]
 
-        for key in self.observation_placeholders:
-            feed_dict[self.observation_placeholders[key]] = observations[key] 
+        if self.visual_observation_dimension != None:
+            feed_dict[self.visual_observation_placeholder] = observation_batch["visual"]     
         feed_dict[self.is_train_mode] = False
         feed_dict[self.action_placeholder] = action_batch   
 

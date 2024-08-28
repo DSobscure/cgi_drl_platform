@@ -10,9 +10,10 @@ Some of algorithms proposed by our lab will also be put at this repo in a specif
 - Chiu-Chou Lin, Wei-Chen Chiu, I-Chen Wu. Perceptual Similarity for Measuring Decision-Making Style and Policy Diversity in Games. TMLR 08/2024. [Link](https://openreview.net/forum?id=30C9AWBW49) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/playstyle_similarity_tmlr)
     - New Dataset and HSD Models: Coming Soon
     - This is a backup code repository (the version after the last paper revision). If you have any problems running this code, feel free to create a new issue in this repo.
+- Chiu-Chou Lin, Yu-Wei Shih, Kuei-Ting Kuo, Yu-Cheng Chen, Chien-Hua Chen, Wei-Chen Chiu, I-Chen Wu. Identifying and Clustering Counter Relationships of Team Compositions in PvP Games for Efficient Balance Analysis. TMLR 09/2024. [Link](https://openreview.net/forum?id=2D36otXvBE) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/game_balance_measures_tmlr) [dataset and models](https://zenodo.org/records/13383407)
+    - This is a backup code repository (the version after the last paper revision). If you have any problems running this code, feel free to create a new issue in this repo.
 
-
-# Environment Installation (Example for Pommerman)
+# Environment Installation
 ## 1. Get CGI DRL Platform
 ```bash
 cd ~
@@ -46,10 +47,12 @@ pip install -e .
 ## 5. Download Dataset and HSD Models
 [Dataset and HSD Models](https://zenodo.org/record/8191453)
 * upzip playstyle_uai2021.zip at /root/ in the container
+* New Dataset and HSD in TMLR 08/2024 will be updated in the future
+    * For Go experiments, the dataset will not be uploaed due to the privacy issue.
 
 # Run Experiemnts
 ```bash
 cd ~/cgi_drl_platform/platform/cgi_drl
-python run.py -k atari-metric-breakout
+python run.py -k rgsk-metric-24style
 ```
 * do be bone

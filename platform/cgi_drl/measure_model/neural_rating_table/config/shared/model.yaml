@@ -1,0 +1,8 @@
+linear:
+    network_settings:
+        hidden_dimension: 128
+    model_define_path: measure_model.neural_rating_table.nn_model.shared.linear_model
+
+h128:
+    network_settings:
+        hidden_dimension: 128

@@ -1,0 +1,731 @@
+# mElo rating
+simple_combination_game_elo_m2:
+    solver: cgi_drl.problem.simple_combination_game.elo_rating.m2_solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/elo_rating/config/solver.yaml, default_1]
+rock_paper_scissors_elo_m2:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rating.m2_solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rating/config/solver.yaml, default_1]
+advanced_combination_game_elo_m2:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rating.m2_solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rating/config/solver.yaml, default_1]
+age_of_empires_ii_elo_m2:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rating.m2_solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rating/config/solver.yaml, default_1]
+hearthstone_elo_m2:
+    solver: cgi_drl.problem.hearthstone.elo_rating.m2_solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rating/config/solver.yaml, default_1]
+brawl_stars_elo_m2:
+    solver: cgi_drl.problem.brawl_stars.elo_rating.m2_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/elo_rating/config/solver.yaml, default_1]
+league_of_legends_elo_m2:
+    solver: cgi_drl.problem.league_of_legends.elo_rating.m2_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/elo_rating/config/solver.yaml, default_1]
+
+# Elo rating
+simple_combination_game_elo:
+    solver: cgi_drl.problem.simple_combination_game.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/elo_rating/config/solver.yaml, default_1]
+rock_paper_scissors_elo:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rating/config/solver.yaml, default_1]
+advanced_combination_game_elo:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rating/config/solver.yaml, default_1]
+age_of_empires_ii_elo:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rating/config/solver.yaml, default_1]
+hearthstone_elo:
+    solver: cgi_drl.problem.hearthstone.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rating/config/solver.yaml, default_1]
+brawl_stars_elo:
+    solver: cgi_drl.problem.brawl_stars.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/elo_rating/config/solver.yaml, default_1]
+league_of_legends_elo:
+    solver: cgi_drl.problem.league_of_legends.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/elo_rating/config/solver.yaml, default_1]
+
+# simple win rate
+simple_combination_game_winr:
+    solver: cgi_drl.problem.simple_combination_game.simple_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/simple_winrate/config/solver.yaml, default_1]
+
+rock_paper_scissors_winr:
+    solver: cgi_drl.problem.rock_paper_scissors.simple_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/simple_winrate/config/solver.yaml, default_1]
+
+advanced_combination_game_winr:
+    solver: cgi_drl.problem.advanced_combination_game.simple_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/simple_winrate/config/solver.yaml, default_1]
+
+age_of_empires_ii_winr:
+    solver: cgi_drl.problem.age_of_empires_ii.simple_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/simple_winrate/config/solver.yaml, default_1]
+
+hearthstone_winr:
+    solver: cgi_drl.problem.hearthstone.simple_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/simple_winrate/config/solver.yaml, default_1]
+
+brawl_stars_winr:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, default_1]
+brawl_stars_simple_winr:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, simple_default_1]
+brawl_stars_simple_winr_2:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, simple_default_2]
+brawl_stars_simple_winr_3:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, simple_default_3]
+brawl_stars_simple_winr_4:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, simple_default_4]
+brawl_stars_simple_winr_5:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, simple_default_5]
+
+brawl_stars_single_winr:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, single_default_1]
+brawl_stars_single_winr_2:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, single_default_2]
+brawl_stars_single_winr_3:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, single_default_3]
+brawl_stars_single_winr_4:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, single_default_4]
+brawl_stars_single_winr_5:
+    solver: cgi_drl.problem.brawl_stars.simple_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/simple_winrate/config/solver.yaml, single_default_5]
+
+league_of_legends_winr:
+    solver: cgi_drl.problem.league_of_legends.simple_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/simple_winrate/config/solver.yaml, default_1]
+league_of_legends_simple_winr:
+    solver: cgi_drl.problem.league_of_legends.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/simple_winrate/config/solver.yaml, simple_default_1]
+league_of_legends_simple_winr_2:
+    solver: cgi_drl.problem.league_of_legends.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/simple_winrate/config/solver.yaml, simple_default_2]
+league_of_legends_simple_winr_3:
+    solver: cgi_drl.problem.league_of_legends.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/simple_winrate/config/solver.yaml, simple_default_3]
+league_of_legends_simple_winr_4:
+    solver: cgi_drl.problem.league_of_legends.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/simple_winrate/config/solver.yaml, simple_default_4]
+league_of_legends_simple_winr_5:
+    solver: cgi_drl.problem.league_of_legends.simple_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/simple_winrate/config/solver.yaml, simple_default_5]
+
+# simple pairwise win rate
+simple_combination_game_pairwin:
+    solver: cgi_drl.problem.simple_combination_game.pairwise_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/pairwise_winrate/config/solver.yaml, pairwin_1]
+
+rock_paper_scissors_pairwin:
+    solver: cgi_drl.problem.rock_paper_scissors.pairwise_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/pairwise_winrate/config/solver.yaml, pairwin_1]
+
+advanced_combination_pairwin:
+    solver: cgi_drl.problem.advanced_combination_game.pairwise_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/pairwise_winrate/config/solver.yaml, pairwin_1]
+
+age_of_empires_ii_pairwin:
+    solver: cgi_drl.problem.age_of_empires_ii.pairwise_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/pairwise_winrate/config/solver.yaml, pairwin_1]
+
+hearthstone_pairwin:
+    solver: cgi_drl.problem.hearthstone.pairwise_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/pairwise_winrate/config/solver.yaml, pairwin_1]
+
+brawl_stars_pairwin:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, pairwin_1]
+brawl_stars_simple_pairwin:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, simple_pairwin_1]
+brawl_stars_simple_pairwin_2:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, simple_pairwin_2]
+brawl_stars_simple_pairwin_3:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, simple_pairwin_3]
+brawl_stars_simple_pairwin_4:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, simple_pairwin_4]
+brawl_stars_simple_pairwin_5:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, simple_pairwin_5]
+
+brawl_stars_single_pairwin:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, single_pairwin_1]
+brawl_stars_single_pairwin_2:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, single_pairwin_2]
+brawl_stars_single_pairwin_3:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, single_pairwin_3]
+brawl_stars_single_pairwin_4:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, single_pairwin_4]
+brawl_stars_single_pairwin_5:
+    solver: cgi_drl.problem.brawl_stars.pairwise_winrate.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/pairwise_winrate/config/solver.yaml, single_pairwin_5]
+
+league_of_legends_pairwin:
+    solver: cgi_drl.problem.league_of_legends.pairwise_winrate.tabular_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/pairwise_winrate/config/solver.yaml, pairwin_1]
+league_of_legends_simple_pairwin:
+    solver: cgi_drl.problem.league_of_legends.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/pairwise_winrate/config/solver.yaml, simple_pairwin_1]
+league_of_legends_simple_pairwin_2:
+    solver: cgi_drl.problem.league_of_legends.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/pairwise_winrate/config/solver.yaml, simple_pairwin_2]
+league_of_legends_simple_pairwin_3:
+    solver: cgi_drl.problem.league_of_legends.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/pairwise_winrate/config/solver.yaml, simple_pairwin_3]
+league_of_legends_simple_pairwin_4:
+    solver: cgi_drl.problem.league_of_legends.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/pairwise_winrate/config/solver.yaml, simple_pairwin_4]
+league_of_legends_simple_pairwin_5:
+    solver: cgi_drl.problem.league_of_legends.pairwise_winrate.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/pairwise_winrate/config/solver.yaml, simple_pairwin_5]
+
+# linear BT
+simple_combination_game_linear_bt:
+    solver: cgi_drl.problem.simple_combination_game.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/neural_rating_table/config/solver.yaml, linear_1]
+
+rock_paper_scissors_linear_bt:
+    solver: cgi_drl.problem.rock_paper_scissors.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/neural_rating_table/config/solver.yaml, linear_1]
+
+advanced_combination_linear_bt:
+    solver: cgi_drl.problem.advanced_combination_game.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/neural_rating_table/config/solver.yaml, linear_1]
+
+age_of_empires_ii_linear_bt:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_rating_table/config/solver.yaml, linear_1]
+
+hearthstone_linear_bt:
+    solver: cgi_drl.problem.hearthstone.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/neural_rating_table/config/solver.yaml, linear_1]
+
+brawl_stars_linear_bt:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, linear_1]
+brawl_stars_simple_linear_bt:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_linear_1]
+brawl_stars_simple_linear_bt_2:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_linear_2]
+brawl_stars_simple_linear_bt_3:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_linear_3]
+brawl_stars_simple_linear_bt_4:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_linear_4]
+brawl_stars_simple_linear_bt_5:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_linear_5]
+
+brawl_stars_single_linear_bt:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_linear_1]
+brawl_stars_single_linear_bt_2:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_linear_2]
+brawl_stars_single_linear_bt_3:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_linear_3]
+brawl_stars_single_linear_bt_4:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_linear_4]
+brawl_stars_single_linear_bt_5:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_linear_5]
+
+league_of_legends_linear_bt:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, linear_1]
+league_of_legends_simple_linear_bt:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_linear_1]
+league_of_legends_simple_linear_bt_2:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_linear_2]
+league_of_legends_simple_linear_bt_3:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_linear_3]
+league_of_legends_simple_linear_bt_4:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_linear_4]
+league_of_legends_simple_linear_bt_5:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_linear_5]
+
+# NRT
+simple_combination_game_nrt:
+    solver: cgi_drl.problem.simple_combination_game.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/neural_rating_table/config/solver.yaml, nrt_1]
+
+rock_paper_scissors_nrt:
+    solver: cgi_drl.problem.rock_paper_scissors.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/neural_rating_table/config/solver.yaml, nrt_1]
+
+advanced_combination_nrt:
+    solver: cgi_drl.problem.advanced_combination_game.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/neural_rating_table/config/solver.yaml, nrt_1]
+
+age_of_empires_ii_nrt:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_rating_table/config/solver.yaml, nrt_1]
+
+hearthstone_nrt:
+    solver: cgi_drl.problem.hearthstone.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/neural_rating_table/config/solver.yaml, nrt_1]
+
+brawl_stars_nrt:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, nrt_1]
+brawl_stars_simple_nrt:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_nrt_1]
+brawl_stars_simple_nrt_2:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_nrt_2]
+brawl_stars_simple_nrt_3:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_nrt_3]
+brawl_stars_simple_nrt_4:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_nrt_4]
+brawl_stars_simple_nrt_5:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, simple_nrt_5]
+
+brawl_stars_single_nrt:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_nrt_1]
+brawl_stars_single_nrt_2:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_nrt_2]
+brawl_stars_single_nrt_3:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_nrt_3]
+brawl_stars_single_nrt_4:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_nrt_4]
+brawl_stars_single_nrt_5:
+    solver: cgi_drl.problem.brawl_stars.neural_rating_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_rating_table/config/solver.yaml, single_nrt_5]
+
+league_of_legends_nrt:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, nrt_1]
+league_of_legends_simple_nrt:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_nrt_1]
+league_of_legends_simple_nrt_2:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_nrt_2]
+league_of_legends_simple_nrt_3:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_nrt_3]
+league_of_legends_simple_nrt_4:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_nrt_4]
+league_of_legends_simple_nrt_5:
+    solver: cgi_drl.problem.league_of_legends.neural_rating_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_rating_table/config/solver.yaml, simple_nrt_5]
+
+# neural counter table m=3
+simple_combination_game_m3:
+    solver: cgi_drl.problem.simple_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/neural_counter_table/config/solver.yaml, m3_1]
+
+rock_paper_scissors_m3:
+    solver: cgi_drl.problem.rock_paper_scissors.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/neural_counter_table/config/solver.yaml, m3_1]
+
+advanced_combination_m3:
+    solver: cgi_drl.problem.advanced_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/neural_counter_table/config/solver.yaml, m3_1]
+
+age_of_empires_ii_m3:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m3_1]
+
+hearthstone_m3:
+    solver: cgi_drl.problem.hearthstone.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/neural_counter_table/config/solver.yaml, m3_1]
+
+brawl_stars_m3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, m3_1]
+brawl_stars_simple_m3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m3_1]
+brawl_stars_simple_m3_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m3_2]
+brawl_stars_simple_m3_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m3_3]
+brawl_stars_simple_m3_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m3_4]
+brawl_stars_simple_m3_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m3_5]
+
+brawl_stars_single_m3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m3_1]
+brawl_stars_single_m3_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m3_2]
+brawl_stars_single_m3_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m3_3]
+brawl_stars_single_m3_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m3_4]
+brawl_stars_single_m3_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m3_5]
+
+league_of_legends_m3:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, m3_1]
+
+league_of_legends_simple_m3:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m3_1]
+league_of_legends_simple_m3_2:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m3_2]
+league_of_legends_simple_m3_3:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m3_3]
+league_of_legends_simple_m3_4:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m3_4]
+league_of_legends_simple_m3_5:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m3_5]
+
+# neural counter table m=9
+simple_combination_game_m9:
+    solver: cgi_drl.problem.simple_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/neural_counter_table/config/solver.yaml, m9_1]
+
+rock_paper_scissors_m9:
+    solver: cgi_drl.problem.rock_paper_scissors.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/neural_counter_table/config/solver.yaml, m9_1]
+
+advanced_combination_m9:
+    solver: cgi_drl.problem.advanced_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/neural_counter_table/config/solver.yaml, m9_1]
+
+age_of_empires_ii_m9:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m9_1]
+
+hearthstone_m9:
+    solver: cgi_drl.problem.hearthstone.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/neural_counter_table/config/solver.yaml, m9_1]
+
+brawl_stars_m9:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, m9_1]
+brawl_stars_simple_m9:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m9_1]
+brawl_stars_simple_m9_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m9_2]
+brawl_stars_simple_m9_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m9_3]
+brawl_stars_simple_m9_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m9_4]
+brawl_stars_simple_m9_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m9_5]
+
+brawl_stars_single_m9:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m9_1]
+brawl_stars_single_m9_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m9_2]
+brawl_stars_single_m9_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m9_3]
+brawl_stars_single_m9_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m9_4]
+brawl_stars_single_m9_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m9_5]
+
+league_of_legends_m9:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, m9_1]
+
+league_of_legends_simple_m9:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m9_1]
+league_of_legends_simple_m9_2:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m9_2]
+league_of_legends_simple_m9_3:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m9_3]
+league_of_legends_simple_m9_4:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m9_4]
+league_of_legends_simple_m9_5:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m9_5]
+
+# neural counter table m=27
+simple_combination_game_m27:
+    solver: cgi_drl.problem.simple_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/neural_counter_table/config/solver.yaml, m27_1]
+
+rock_paper_scissors_m27:
+    solver: cgi_drl.problem.rock_paper_scissors.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/neural_counter_table/config/solver.yaml, m27_1]
+
+advanced_combination_m27:
+    solver: cgi_drl.problem.advanced_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/neural_counter_table/config/solver.yaml, m27_1]
+
+age_of_empires_ii_m27:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m27_1]
+
+hearthstone_m27:
+    solver: cgi_drl.problem.hearthstone.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/neural_counter_table/config/solver.yaml, m27_1]
+
+brawl_stars_m27:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, m27_1]
+brawl_stars_simple_m27:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m27_1]
+brawl_stars_simple_m27_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m27_2]
+brawl_stars_simple_m27_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m27_3]
+brawl_stars_simple_m27_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m27_4]
+brawl_stars_simple_m27_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m27_5]
+
+brawl_stars_single_m27:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m27_1]
+brawl_stars_single_m27_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m27_2]
+brawl_stars_single_m27_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m27_3]
+brawl_stars_single_m27_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m27_4]
+brawl_stars_single_m27_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m27_5]
+
+league_of_legends_m27:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, m27_1]
+
+league_of_legends_simple_m27:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m27_1]
+league_of_legends_simple_m27_2:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m27_2]
+league_of_legends_simple_m27_3:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m27_3]
+league_of_legends_simple_m27_4:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m27_4]
+league_of_legends_simple_m27_5:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m27_5]
+
+# neural counter table m=81
+simple_combination_game_m81:
+    solver: cgi_drl.problem.simple_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/neural_counter_table/config/solver.yaml, m81_1]
+
+rock_paper_scissors_m81:
+    solver: cgi_drl.problem.rock_paper_scissors.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/neural_counter_table/config/solver.yaml, m81_1]
+
+advanced_combination_m81:
+    solver: cgi_drl.problem.advanced_combination_game.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/neural_counter_table/config/solver.yaml, m81_1]
+
+age_of_empires_ii_m81:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m81_1]
+
+hearthstone_m81:
+    solver: cgi_drl.problem.hearthstone.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/neural_counter_table/config/solver.yaml, m81_1]
+
+brawl_stars_m81:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, m81_1]
+brawl_stars_simple_m81:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m81_1]
+brawl_stars_simple_m81_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m81_2]
+brawl_stars_simple_m81_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m81_3]
+brawl_stars_simple_m81_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m81_4]
+brawl_stars_simple_m81_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, simple_m81_5]
+    
+brawl_stars_single_m81:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m81_1]
+brawl_stars_single_m81_2:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m81_2]
+brawl_stars_single_m81_3:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m81_3]
+brawl_stars_single_m81_4:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m81_4]
+brawl_stars_single_m81_5:
+    solver: cgi_drl.problem.brawl_stars.neural_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/neural_counter_table/config/solver.yaml, single_m81_5]
+
+league_of_legends_m81:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, m81_1]
+
+league_of_legends_simple_m81:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m81_1]
+league_of_legends_simple_m81_2:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m81_2]
+league_of_legends_simple_m81_3:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m81_3]
+league_of_legends_simple_m81_4:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m81_4]
+league_of_legends_simple_m81_5:
+    solver: cgi_drl.problem.league_of_legends.neural_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/neural_counter_table/config/solver.yaml, simple_m81_5]
+
+
+age_of_empires_ii_m27_beta025:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m27_beta025]
+age_of_empires_ii_m27_beta0125:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m27_beta0125]
+age_of_empires_ii_m27_mean_0:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m27_mean_0]
+age_of_empires_ii_m27_mean_0125:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m27_mean_0125]
+age_of_empires_ii_m27_mean_05:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m27_mean_05]
+age_of_empires_ii_m27_mean_1:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m27_mean_1]
+
+age_of_empires_ii_m81_beta025:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m81_beta025]
+age_of_empires_ii_m81_beta0125:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m81_beta0125]
+age_of_empires_ii_m81_mean_0:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m81_mean_0]
+age_of_empires_ii_m81_mean_0125:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m81_mean_0125]
+age_of_empires_ii_m81_mean_05:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m81_mean_05]
+age_of_empires_ii_m81_mean_1:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/solver.yaml, m81_mean_1]
+
+# dump rating and counter table
+simple_combination_game_dump:
+    solver: cgi_drl.problem.simple_combination_game.enumerate_rating_and_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/simple_combination_game/enumerate_rating_and_counter_table/config/solver.yaml, fold1_model]
+
+rock_paper_scissors_dump:
+    solver: cgi_drl.problem.rock_paper_scissors.enumerate_rating_and_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/enumerate_rating_and_counter_table/config/solver.yaml, fold1_model]
+
+advanced_combination_dump:
+    solver: cgi_drl.problem.advanced_combination_game.enumerate_rating_and_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/enumerate_rating_and_counter_table/config/solver.yaml, fold1_model]
+
+age_of_empires_ii_dump:
+    solver: cgi_drl.problem.age_of_empires_ii.enumerate_rating_and_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/enumerate_rating_and_counter_table/config/solver.yaml, fold1_model]
+
+hearthstone_dump:
+    solver: cgi_drl.problem.hearthstone.enumerate_rating_and_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/enumerate_rating_and_counter_table/config/solver.yaml, fold1_model]
+
+brawl_stars_dump:
+    solver: cgi_drl.problem.brawl_stars.enumerate_rating_and_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/enumerate_rating_and_counter_table/config/solver.yaml, fold1_model]
+brawl_stars_simple_dump:
+    solver: cgi_drl.problem.brawl_stars.enumerate_rating_and_counter_table.simple_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/enumerate_rating_and_counter_table/config/solver.yaml, simple_fold1_model]
+brawl_stars_single_dump:
+    solver: cgi_drl.problem.brawl_stars.enumerate_rating_and_counter_table.single_solver
+    config: [cgi_drl.default_config, Default, problem/brawl_stars/enumerate_rating_and_counter_table/config/solver.yaml, single_fold5_model]
+
+league_of_legends_dump:
+    solver: cgi_drl.problem.league_of_legends.enumerate_rating_and_counter_table.solver
+    config: [cgi_drl.default_config, Default, problem/league_of_legends/enumerate_rating_and_counter_table/config/solver.yaml, fold1_model]
+
+# torch test
+age_of_empires_ii_nrt_torch:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_rating_table.torch_solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_rating_table/config/torch_solver.yaml, nrt_1]
+age_of_empires_ii_m81_torch:
+    solver: cgi_drl.problem.age_of_empires_ii.neural_counter_table.torch_solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/neural_counter_table/config/torch_solver.yaml, m81_1]

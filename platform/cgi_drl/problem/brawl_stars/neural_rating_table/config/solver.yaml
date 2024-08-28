@@ -1,0 +1,123 @@
+linear_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, linear]
+    
+    version: versions/brawl_stars_linear_bt
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+simple_linear_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, linear]
+    
+    version: versions/brawl_stars_simple_linear_bt
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_linear_2:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-2]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-2]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, linear]
+    
+    version: versions/brawl_stars_simple_linear_bt_fold2
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_linear_3:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-3]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-3]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, linear]
+    
+    version: versions/brawl_stars_simple_linear_bt_fold3
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_linear_4:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-4]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-4]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, linear]
+    
+    version: versions/brawl_stars_simple_linear_bt_fold4
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_linear_5:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-5]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-5]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, linear]
+    
+    version: versions/brawl_stars_simple_linear_bt_fold5
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+nrt_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    
+    version: versions/brawl_stars_nrt
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+simple_nrt_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    
+    version: versions/brawl_stars_simple_nrt
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_nrt_2:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-2]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-2]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    
+    version: versions/brawl_stars_simple_nrt_fold2
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_nrt_3:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-3]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-3]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    
+    version: versions/brawl_stars_simple_nrt_fold3
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_nrt_4:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-4]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-4]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    
+    version: versions/brawl_stars_simple_nrt_fold4
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+simple_nrt_5:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, train-5]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/brawl_stars.yaml, test-5]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.brawl_stars.model_template, SimpleTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    
+    version: versions/brawl_stars_simple_nrt_fold5
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100

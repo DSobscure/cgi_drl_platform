@@ -1,0 +1,111 @@
+h128m3:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [3, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.25
+
+h128m9:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [9, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.25
+
+h128m27:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [27, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.25
+
+h128m81:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [81, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.25
+
+h128m27_beta025:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [27, 128]
+    vq_beta: 0.25
+    vq_mean_beta: 0.25
+
+h128m81_beta025:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [81, 128]
+    vq_beta: 0.25
+    vq_mean_beta: 0.25
+
+h128m27_beta0125:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [27, 128]
+    vq_beta: 0.125
+    vq_mean_beta: 0.25
+
+h128m81_beta0125:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [81, 128]
+    vq_beta: 0.125
+    vq_mean_beta: 0.25
+
+h128m27_mean_0:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [27, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.0
+
+h128m81_mean_0:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [81, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.0
+
+h128m27_mean_0125:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [27, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.125
+
+h128m81_mean_0125:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [81, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.125
+
+h128m27_mean_05:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [27, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.5
+
+h128m81_mean_05:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [81, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 0.5
+
+h128m27_mean_1:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [27, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 1.0
+
+h128m81_mean_1:
+    network_settings:
+        hidden_dimension: 128
+    vq_embedding_size: [81, 128]
+    vq_beta: 0.01
+    vq_mean_beta: 1.0

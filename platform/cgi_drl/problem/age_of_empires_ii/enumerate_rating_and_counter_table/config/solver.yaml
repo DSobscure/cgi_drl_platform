@@ -1,0 +1,11 @@
+fold1_model:
+    record: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, all]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m9]
+    
+    version: versions/age_of_empires_ii_table_m3
+    rating_table_model_path: versions/age_of_empires_ii_nrtv3_fold1/model
+    counter_table_model_path: versions/age_of_empires_ii_m9v3_fold1/model
+    batch_size: 1024
+    start_epoch_number: 1
+    end_epoch_number : 1

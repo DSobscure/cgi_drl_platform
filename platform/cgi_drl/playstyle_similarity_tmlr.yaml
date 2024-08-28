@@ -1,0 +1,1454 @@
+# TORCS
+torcs-cosine-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-cosine-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-cosine-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-fid-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-fid-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-fid-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-metric-25style-state-space-mcnemar:
+    solver: cgi_drl.problem.torcs.playstyle_distance.state_space_mcnemar_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-metric-25style-state-space-mcnemar-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.state_space_mcnemar_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-metric-25style-state-space-mcnemar-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.state_space_mcnemar_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-metric-25style-perceptual-mcnemar:
+    solver: cgi_drl.problem.torcs.playstyle_distance.perceptual_mcnemar_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-metric-25style-perceptual-mcnemar-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.perceptual_mcnemar_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-metric-25style-perceptual-mcnemar-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.perceptual_mcnemar_solver
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-new-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_new
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-new-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_new
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-new-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_new
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-iou-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-iou-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-iou-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-int-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-int-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-int-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-bc-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-bc-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-bc-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-bd-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_bd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-bd-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_bd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-bd-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_bd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-int-bc-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-int-bc-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-int-bc-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-int-bd-metric-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int_bd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25]
+torcs-int-bd-metric-25style-2:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int_bd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-2]
+torcs-int-bd-metric-25style-3:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_int_bd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-3]
+
+torcs-metric-lrd-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_lrd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-lrd]
+torcs-int-lrd-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_lrd_int
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-lrd]
+torcs-int-bc-lrd-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_lrd_int_bc
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-lrd]
+torcs-int-bd-lrd-25style:
+    solver: cgi_drl.problem.torcs.playstyle_distance.solver_lrd_int_bd
+    config: [cgi_drl.problem.torcs.playstyle_distance.config.solver_template, DefaultTemplate, problem/torcs/playstyle_distance/config/solver.yaml, torcs-25-lrd]
+
+# RGSK
+rgsk-cosine-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-cosine-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-cosine-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+rgsk-fid-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-fid-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-fid-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+
+rgsk-metric-24style-mix:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.mix_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-mix]
+rgsk-metric-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-metric-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-metric-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+rgsk-metric-24style-perceptual-mcnemar:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.perceptual_mcnemar_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-metric-24style-perceptual-mcnemar-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.perceptual_mcnemar_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-metric-24style-perceptual-mcnemar-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.perceptual_mcnemar_solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+
+rgsk-new-metric-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_new
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-new-metric-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_new
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-new-metric-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_new
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+rgsk-int-metric-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-int-metric-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-int-metric-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+
+rgsk-iou-metric-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-iou-metric-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-iou-metric-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+rgsk-bc-metric-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-bc-metric-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-bc-metric-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+rgsk-int-bc-metric-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-int-bc-metric-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-int-bc-metric-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+rgsk-int-bd-metric-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_bd
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24]
+rgsk-int-bd-metric-24style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_bd
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-2]
+rgsk-int-bd-metric-24style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_bd
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-3]
+
+rgsk-metric-lrd-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_lrd
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-lrd]
+rgsk-int-lrd-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_lrd_int
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-lrd]
+rgsk-int-bc-lrd-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_lrd_int_bc
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-lrd]
+rgsk-int-bd-lrd-24style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_lrd_int_bd
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-24-lrd]
+
+# Atari
+# asterix*
+atari-cosine-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-cosine-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-cosine-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+atari-fid-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-fid-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-fid-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+atari-metric-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-metric-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-metric-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+atari-new-metric-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-new-metric-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-new-metric-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+atari-iou-metric-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-iou-metric-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-iou-metric-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+atari-int-metric-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-int-metric-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-int-metric-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+atari-int-bc-metric-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-int-bc-metric-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-int-bc-metric-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+atari-bc-metric-asterix:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix]
+atari-bc-metric-asterix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-2]
+atari-bc-metric-asterix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, asterix-3]
+
+
+# breakout*
+atari-cosine-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-cosine-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-cosine-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+atari-fid-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-fid-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-fid-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+atari-metric-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-metric-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-metric-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+atari-new-metric-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-new-metric-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-new-metric-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+atari-iou-metric-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-iou-metric-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-iou-metric-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+atari-int-metric-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-int-metric-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-int-metric-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+atari-int-bc-metric-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-int-bc-metric-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-int-bc-metric-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+atari-bc-metric-breakout:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout]
+atari-bc-metric-breakout-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-2]
+atari-bc-metric-breakout-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, breakout-3]
+
+
+# mspacman*
+atari-cosine-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-cosine-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+atari-cosine-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+atari-fid-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-fid-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+atari-fid-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+atari-metric-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+atari-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+atari-new-metric-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-new-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+
+atari-new-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+atari-iou-metric-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-iou-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+atari-iou-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+atari-int-metric-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-int-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+atari-int-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+atari-int-bc-metric-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-int-bc-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+atari-int-bc-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+atari-bc-metric-mspacman:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman]
+atari-bc-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-2]
+atari-bc-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mspacman-3]
+
+
+# pong*
+atari-cosine-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-cosine-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-cosine-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+atari-fid-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-fid-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-fid-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+atari-metric-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-metric-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-metric-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+atari-new-metric-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-new-metric-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-new-metric-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+atari-iou-metric-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-iou-metric-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-iou-metric-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+atari-int-metric-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-int-metric-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-int-metric-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+atari-int-bc-metric-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-int-bc-metric-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-int-bc-metric-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+atari-bc-metric-pong:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong]
+atari-bc-metric-pong-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-2]
+atari-bc-metric-pong-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, pong-3]
+
+# qbert*
+atari-cosine-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-cosine-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-cosine-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+atari-fid-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-fid-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-fid-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+atari-metric-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-metric-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-metric-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+atari-new-metric-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-new-metric-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-new-metric-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+atari-iou-metric-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-iou-metric-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-iou-metric-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+atari-int-metric-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-int-metric-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-int-metric-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+atari-int-bc-metric-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-int-bc-metric-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-int-bc-metric-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+atari-bc-metric-qbert:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert]
+atari-bc-metric-qbert-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-2]
+atari-bc-metric-qbert-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, qbert-3]
+
+
+# seaquest*
+atari-cosine-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-cosine-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-cosine-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+atari-fid-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-fid-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-fid-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+atari-metric-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+atari-new-metric-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-new-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-new-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+atari-iou-metric-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-iou-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-iou-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+atari-int-metric-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-int-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-int-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+atari-int-bc-metric-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-int-bc-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-int-bc-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+atari-bc-metric-seaquest:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest]
+atari-bc-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-2]
+atari-bc-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, seaquest-3]
+
+
+# space_invaders*
+atari-cosine-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-cosine-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-cosine-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+atari-fid-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-fid-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-fid-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+atari-metric-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+atari-new-metric-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-new-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-new-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+atari-iou-metric-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-iou-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-iou-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+atari-int-metric-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-int-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-int-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+atari-int-bc-metric-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-int-bc-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-int-bc-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+atari-bc-metric-space_invaders:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders]
+atari-bc-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-2]
+atari-bc-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, space_invaders-3]
+
+
+# mix 7 games 
+atari-cosine-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-cosine-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-cosine-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_cosine_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+atari-fid-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-fid-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-fid-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_fid_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+atari-metric-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-metric-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-metric-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+atari-new-metric-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-new-metric-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-new-metric-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_new
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+atari-iou-metric-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-iou-metric-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-iou-metric-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_iou
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+atari-int-metric-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-int-metric-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-int-metric-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_int
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+atari-int-bc-metric-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-int-bc-metric-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-int-bc-metric-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_int_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+atari-bc-metric-mix:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix]
+atari-bc-metric-mix-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-2]
+atari-bc-metric-mix-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.mix_solver_bc
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/solver.yaml, mix-3]
+
+
+# atari diversity
+atari-diversity-metric-asterix:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, asterix]
+atari-diversity-metric-asterix-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, asterix-2]
+atari-diversity-metric-asterix-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, asterix-3]
+
+atari-diversity-metric-breakout:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, breakout]
+atari-diversity-metric-breakout-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, breakout-2]
+atari-diversity-metric-breakout-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, breakout-3]
+
+atari-diversity-metric-mspacman:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, mspacman]
+atari-diversity-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, mspacman-2]
+atari-diversity-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, mspacman-3]
+
+atari-diversity-metric-pong:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, pong]
+atari-diversity-metric-pong-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, pong-2]
+atari-diversity-metric-pong-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, pong-3]
+
+atari-diversity-metric-qbert:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, qbert]
+atari-diversity-metric-qbert-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, qbert-2]
+atari-diversity-metric-qbert-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, qbert-3]
+
+atari-diversity-metric-seaquest:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, seaquest]
+atari-diversity-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, seaquest-2]
+atari-diversity-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, seaquest-3]
+
+atari-diversity-metric-space_invaders:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, space_invaders]
+atari-diversity-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, space_invaders-2]
+atari-diversity-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver.yaml, space_invaders-3]
+
+# continuous playstyle spectrum 
+torcs-playstyle-distance-s60n0:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_distance_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s60n0]
+torcs-playstyle-int-similarity-s60n0:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_int_similarity_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s60n0]
+torcs-playstyle-jaccrad-index-s60n0:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_jaccrad_index_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s60n0]
+torcs-playstyle-similarity-s60n0:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_similarity_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s60n0]
+
+torcs-playstyle-distance-s70n2:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_distance_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s70n2]
+torcs-playstyle-int-similarity-s70n2:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_int_similarity_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s70n2]
+torcs-playstyle-jaccrad-index-s70n2:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_jaccrad_index_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s70n2]
+torcs-playstyle-similarity-s70n2:
+    solver: cgi_drl.problem.torcs.playstyle_spectrum.playstyle_similarity_solver
+    config: [cgi_drl.problem.torcs.playstyle_spectrum.config.solver_template, DefaultTemplate, problem/torcs/playstyle_spectrum/config/solver.yaml, s70n2]
+
+# RHSK 29
+rgsk-metric-29style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29]
+rgsk-metric-29style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-2]
+rgsk-metric-29style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-3]
+
+rgsk-new-metric-29style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_new_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29]
+rgsk-new-metric-29style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_new_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-2]
+rgsk-new-metric-29style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_new_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-3]
+
+rgsk-int-metric-29style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29]
+rgsk-int-metric-29style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-2]
+rgsk-int-metric-29style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_int_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-3]
+
+
+rgsk-iou-metric-29style:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_iou_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29]
+rgsk-iou-metric-29style-2:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_iou_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-2]
+rgsk-iou-metric-29style-3:
+    solver: cgi_drl.problem.rgsk.playstyle_distance.solver_iou_expected
+    config: [cgi_drl.problem.rgsk.playstyle_distance.config.solver_template, DefaultTemplate, problem/rgsk/playstyle_distance/config/solver.yaml, rgsk-29-3]
+
+# Atari
+# asterix*
+atari-metric-asterix80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20]
+atari-metric-asterix80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-2]
+atari-metric-asterix80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-3]
+
+atari-new-metric-asterix80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20]
+atari-new-metric-asterix80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-2]
+atari-new-metric-asterix80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-3]
+
+atari-iou-metric-asterix80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20]
+atari-iou-metric-asterix80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-2]
+atari-iou-metric-asterix80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-3]
+
+atari-int-metric-asterix80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20]
+atari-int-metric-asterix80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-2]
+atari-int-metric-asterix80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, asterix80_20-3]
+
+# breakout*
+atari-metric-breakout80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20]
+atari-metric-breakout80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-2]
+atari-metric-breakout80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-3]
+
+atari-new-metric-breakout80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20]
+atari-new-metric-breakout80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-2]
+atari-new-metric-breakout80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-3]
+
+atari-iou-metric-breakout80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20]
+atari-iou-metric-breakout80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-2]
+atari-iou-metric-breakout80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-3]
+
+atari-int-metric-breakout80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20]
+atari-int-metric-breakout80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-2]
+atari-int-metric-breakout80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, breakout80_20-3]
+
+# mspacman*
+atari-metric-mspacman80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20]
+atari-metric-mspacman80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-2]
+atari-metric-mspacman80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-3]
+
+atari-new-metric-mspacman80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20]
+atari-new-metric-mspacman80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-2]
+
+atari-new-metric-mspacman80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-3]
+
+atari-iou-metric-mspacman80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20]
+atari-iou-metric-mspacman80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-2]
+atari-iou-metric-mspacman80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-3]
+
+atari-int-metric-mspacman80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20]
+atari-int-metric-mspacman80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-2]
+atari-int-metric-mspacman80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, mspacman80_20-3]
+
+# pong*
+atari-metric-pong80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20]
+atari-metric-pong80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-2]
+atari-metric-pong80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-3]
+
+atari-new-metric-pong80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20]
+atari-new-metric-pong80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-2]
+atari-new-metric-pong80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-3]
+
+atari-iou-metric-pong80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20]
+atari-iou-metric-pong80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-2]
+atari-iou-metric-pong80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-3]
+
+atari-int-metric-pong80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20]
+atari-int-metric-pong80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-2]
+atari-int-metric-pong80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, pong80_20-3]
+
+# qbert*
+atari-metric-qbert80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20]
+atari-metric-qbert80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-2]
+atari-metric-qbert80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-3]
+
+atari-new-metric-qbert80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20]
+atari-new-metric-qbert80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-2]
+atari-new-metric-qbert80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-3]
+
+atari-iou-metric-qbert80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20]
+atari-iou-metric-qbert80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-2]
+atari-iou-metric-qbert80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-3]
+
+atari-int-metric-qbert80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20]
+atari-int-metric-qbert80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-2]
+atari-int-metric-qbert80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, qbert80_20-3]
+
+
+# seaquest*
+atari-metric-seaquest80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20]
+atari-metric-seaquest80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-2]
+atari-metric-seaquest80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-3]
+
+atari-new-metric-seaquest80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20]
+atari-new-metric-seaquest80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-2]
+atari-new-metric-seaquest80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-3]
+
+atari-iou-metric-seaquest80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20]
+atari-iou-metric-seaquest80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-2]
+atari-iou-metric-seaquest80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-3]
+
+atari-int-metric-seaquest80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20]
+atari-int-metric-seaquest80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-2]
+atari-int-metric-seaquest80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, seaquest80_20-3]
+
+
+# space_invaders*
+atari-metric-space_invaders80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20]
+atari-metric-space_invaders80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-2]
+atari-metric-space_invaders80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-3]
+
+atari-new-metric-space_invaders80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20]
+atari-new-metric-space_invaders80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-2]
+atari-new-metric-space_invaders80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_new_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-3]
+
+atari-iou-metric-space_invaders80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20]
+atari-iou-metric-space_invaders80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-2]
+atari-iou-metric-space_invaders80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_iou_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-3]
+
+atari-int-metric-space_invaders80_20:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20]
+atari-int-metric-space_invaders80_20-2:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-2]
+atari-int-metric-space_invaders80_20-3:
+    solver: cgi_drl.problem.atari.playstyle_distance.trajectory_solver_int_expected
+    config: [cgi_drl.problem.atari.playstyle_distance.config.solver_template, DefaultTemplate, problem/atari/playstyle_distance/config/trajectory_solver.yaml, space_invaders80_20-3]
+
+# Go playstyle
+go-hsd-training:
+    solver: cgi_drl.problem.go.hsd.solver
+    config: [cgi_drl.default_config, Default, problem/go/hsd/config/solver.yaml, tmlr_playstyle_similarity]
+    
+go-playstyle-distance:
+    solver: cgi_drl.problem.go.playstyle_distance.solver
+    config: [cgi_drl.default_config, Default, problem/go/playstyle_distance/config/solver.yaml, hsd]
+go-playstyle-int-similarity:
+    solver: cgi_drl.problem.go.playstyle_distance.int_solver
+    config: [cgi_drl.default_config, Default, problem/go/playstyle_distance/config/solver.yaml, hsd]
+go-playstyle-int-bc-similarity:
+    solver: cgi_drl.problem.go.playstyle_distance.int_bc_solver
+    config: [cgi_drl.default_config, Default, problem/go/playstyle_distance/config/solver.yaml, hsd]
+go-playstyle-jaccard-index:
+    solver: cgi_drl.problem.go.playstyle_distance.iou_solver
+    config: [cgi_drl.default_config, Default, problem/go/playstyle_distance/config/solver.yaml, hsd]
+go-playstyle-similarity:
+    solver: cgi_drl.problem.go.playstyle_distance.new_solver
+    config: [cgi_drl.default_config, Default, problem/go/playstyle_distance/config/solver.yaml, hsd]
+go-playstyle-bc-similarity:
+    solver: cgi_drl.problem.go.playstyle_distance.bc_solver
+    config: [cgi_drl.default_config, Default, problem/go/playstyle_distance/config/solver.yaml, hsd]
+
+go-playstyle-bc-similarity-mcnemar:
+    solver: cgi_drl.problem.go.playstyle_distance.mcnemar_bc_solver
+    config: [cgi_drl.default_config, Default, problem/go/playstyle_distance/config/solver.yaml, hsd]
+
+# game 2048
+game2048-playstyle-metric:
+    solver: cgi_drl.problem.game2048.playstyle_distance.solver
+    config: [cgi_drl.default_config, Default, problem/game2048/playstyle_distance/config/solver.yaml, default]
+game2048-playstyle-metric-mcnemar:
+    solver: cgi_drl.problem.game2048.playstyle_distance.mcnemar_solver
+    config: [cgi_drl.default_config, Default, problem/game2048/playstyle_distance/config/solver.yaml, default]
+
+
+# atari breakout test
+atari-hsd-breakout:
+    solver: cgi_drl.problem.atari.hierarchical_state_discretization.torch_solver
+    config: [cgi_drl.default_config, Default, problem/atari/hierarchical_state_discretization/config/solver.yaml, breakout]
+
+# atari drl policy diversity
+atari-algorithm-diversity-metric-asterix:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, asterix]
+atari-algorithm-diversity-metric-asterix-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, asterix-2]
+atari-algorithm-diversity-metric-asterix-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, asterix-3]
+
+atari-algorithm-diversity-metric-breakout:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, breakout]
+atari-algorithm-diversity-metric-breakout-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, breakout-2]
+atari-algorithm-diversity-metric-breakout-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, breakout-3]
+
+atari-algorithm-diversity-metric-mspacman:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, mspacman]
+atari-algorithm-diversity-metric-mspacman-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, mspacman-2]
+atari-algorithm-diversity-metric-mspacman-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, mspacman-3]
+
+atari-algorithm-diversity-metric-pong:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, pong]
+atari-algorithm-diversity-metric-pong-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, pong-2]
+atari-algorithm-diversity-metric-pong-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, pong-3]
+
+atari-algorithm-diversity-metric-qbert:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, qbert]
+atari-algorithm-diversity-metric-qbert-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, qbert-2]
+atari-algorithm-diversity-metric-qbert-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, qbert-3]
+
+atari-algorithm-diversity-metric-seaquest:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, seaquest]
+atari-algorithm-diversity-metric-seaquest-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, seaquest-2]
+atari-algorithm-diversity-metric-seaquest-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, seaquest-3]
+
+atari-algorithm-diversity-metric-space_invaders:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, space_invaders]
+atari-algorithm-diversity-metric-space_invaders-2:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, space_invaders-2]
+atari-algorithm-diversity-metric-space_invaders-3:
+    solver: cgi_drl.problem.atari.diversity_metric.solver2
+    config: [cgi_drl.problem.atari.diversity_metric.config.solver_template, DefaultTemplate, problem/atari/diversity_metric/config/solver2.yaml, space_invaders-3]

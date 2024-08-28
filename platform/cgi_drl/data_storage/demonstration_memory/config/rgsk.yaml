@@ -1,0 +1,7 @@
+uai2021-24:
+    npz_folder_path_prefix: /root/playstyle_uai2021/rgsk/testing
+    action_count: 27
+
+uai2021-29:
+    npz_folder_path_prefix: /root/playstyle_uai2021/rgsk/training
+    action_count: 27

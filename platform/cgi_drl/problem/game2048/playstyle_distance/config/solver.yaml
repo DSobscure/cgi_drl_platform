@@ -1,0 +1,3 @@
+default:
+    demo: [cgi_drl.default_config, Default, data_storage/demonstration_memory/config/game2048.yaml, uai2024-basic_model]
+    result_path: versions/game2048

@@ -1,0 +1,12 @@
+fold1_model:
+    record: [cgi_drl.default_config, Default, data_storage/match_records/config/hearthstone.yaml, all]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.hearthstone.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.hearthstone.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m81]
+    
+    version: versions/hearthstone_table_m27
+    rating_table_model_path: versions/hearthstone_nrtv3/model
+    counter_table_model_path: versions/hearthstone_m81v3/model
+    batch_size: 1024
+    start_epoch_number: 1
+    end_epoch_number : 1
+

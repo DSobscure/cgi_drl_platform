@@ -1,0 +1,13 @@
+uai2024-basic_model:
+    file_paths: [
+        "/root/playstyle_similarity_tmlr/game2048/model_1m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_2m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_3m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_4m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_5m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_6m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_7m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_8m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_9m.json",
+        "/root/playstyle_similarity_tmlr/game2048/model_10m.json"
+    ]

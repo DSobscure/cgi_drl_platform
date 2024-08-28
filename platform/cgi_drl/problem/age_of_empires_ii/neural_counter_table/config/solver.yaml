@@ -1,0 +1,129 @@
+m3_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m3]
+    
+    version: versions/age_of_empires_ii_m3
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m9_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m9]
+    
+    version: versions/age_of_empires_ii_m9
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m27_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m27]
+    
+    version: versions/age_of_empires_ii_m27
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m81_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m81]
+    
+    version: versions/age_of_empires_ii_m81
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m27_beta025:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m27_beta025]
+    
+    version: versions/age_of_empires_ii_m27_beta025
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m27_beta0125:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m27_beta0125]
+    
+    version: versions/age_of_empires_ii_m27_beta0125
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m27_mean_0:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m27_mean_0]
+    
+    version: versions/age_of_empires_ii_m27_mean_0
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m27_mean_0125:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m27_mean_0125]
+    
+    version: versions/age_of_empires_ii_m27_mean_0125
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m27_mean_05:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m27_mean_05]
+    
+    version: versions/age_of_empires_ii_m27_mean_05
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+m27_mean_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/age_of_empires_ii.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    nct: [cgi_drl.measure_model.neural_counter_table.config.age_of_empires_ii.model_template, DefaultTemplate, measure_model/neural_counter_table/config/shared/model.yaml, h128m27_mean_1]
+    
+    version: versions/age_of_empires_ii_m27_mean_1
+    bt_model_path: versions/age_of_empires_ii_nrtv3/model
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100

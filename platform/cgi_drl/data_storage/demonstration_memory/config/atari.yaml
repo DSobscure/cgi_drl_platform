@@ -1,7 +1,88 @@
+uai2021-asterix:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Asterix
+    action_count: 9
+
 uai2021-breakout:
     npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Breakout
     action_count: 4
+uai2021-breakout-training:
+    npz_folder: /root/playstyle_uai2021/atari/training/Breakout
+    action_count: 4
+
+uai2021-mspacman:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/MsPacman
+    action_count: 9
+
+uai2021-pong:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Pong
+    action_count: 6
+
+uai2021-qbert:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Qbert
+    action_count: 6
+
+uai2021-seaquest:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Seaquest
+    action_count: 18
 
 uai2021-space-invaders:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/SpaceInvaders
+    action_count: 6
+
+# for diversity
+iclr2024-asterix:
+    npz_folder_path_prefix: /root/playstyle_iclr2024/atari/Asterix/IQN/model1
+    action_count: 9
+
+iclr2024-breakout:
+    npz_folder_path_prefix: /root/playstyle_iclr2024/atari/Breakout/IQN/model1
+    action_count: 4
+
+iclr2024-mspacman:
+    npz_folder_path_prefix: /root/playstyle_iclr2024/atari/MsPacman/IQN/model1
+    action_count: 9
+
+iclr2024-pong:
+    npz_folder_path_prefix: /root/playstyle_iclr2024/atari/Pong/IQN/model1
+    action_count: 6
+
+iclr2024-qbert:
+    npz_folder_path_prefix: /root/playstyle_iclr2024/atari/Qbert/IQN/model1
+    action_count: 6
+
+iclr2024-seaquest:
+    npz_folder_path_prefix: /root/playstyle_iclr2024/atari/Seaquest/IQN/model1
+    action_count: 18
+
+iclr2024-space-invaders:
+    npz_folder_path_prefix: /root/playstyle_iclr2024/atari/SpaceInvaders/IQN/model1
+    action_count: 6
+
+# for algorithm diversity
+uai2024-asterix:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Asterix
+    action_count: 9
+
+uai2024-breakout:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Breakout
+    action_count: 4
+
+uai2024-mspacman:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/MsPacman
+    action_count: 9
+
+uai2024-pong:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Pong
+    action_count: 6
+
+uai2024-qbert:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Qbert
+    action_count: 6
+
+uai2024-seaquest:
+    npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/Seaquest
+    action_count: 18
+
+uai2024-space-invaders:
     npz_folder_path_prefix: /root/playstyle_uai2021/atari/testing/SpaceInvaders
     action_count: 6

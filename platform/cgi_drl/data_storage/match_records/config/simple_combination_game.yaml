@@ -1,0 +1,7 @@
+train-1:
+    dataset_path: "~/balance/SimpleCombinationGame/simple_combination_game_records_1_train.csv"
+test-1:
+    dataset_path: "~/balance/SimpleCombinationGame/simple_combination_game_records_1_test.csv"
+
+all:
+    dataset_path: "~/balance/SimpleCombinationGame/simple_combination_game_records.csv"

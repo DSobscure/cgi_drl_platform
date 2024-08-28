@@ -1,0 +1,21 @@
+linear_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.advanced_combination_game.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, linear]
+    
+    version: versions/advanced_combination_game_linear_bt
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100
+
+nrt_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, test-1]
+    nrt: [cgi_drl.measure_model.neural_rating_table.config.advanced_combination_game.model_template, DefaultTemplate, measure_model/neural_rating_table/config/shared/model.yaml, h128]
+    
+    version: versions/advanced_combination_game_nrt
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    start_epoch_number: 1
+    end_epoch_number : 100

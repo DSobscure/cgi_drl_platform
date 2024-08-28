@@ -7,7 +7,6 @@ import tensorflow as tf
 def launch(problem_config):
     load = problem_config["load_function"]
     # setup environment
-
     env_config = load(*problem_config["environment"])
     evaluation_env_config = load(*problem_config["evaluation_environment"])
     problem_config["environment"] = env_config

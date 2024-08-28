@@ -1,0 +1,13 @@
+breakout:
+    hsd: [cgi_drl.representation_model.hsd.config.atari.torch_model_template, TorchTemplate, representation_model/hsd/config/atari/torch_model.yaml, torch-breakout]
+    training_demo: [cgi_drl.data_storage.demonstration_memory.config.atari, UAI2021TrainingTemplate, data_storage/demonstration_memory/config/atari.yaml, uai2021-breakout-training]
+    evaluation_environment: [cgi_drl.default_config, Default, environment/atari/config/environment.yaml, breakout-simple-eval]
+    observation_preprocessor: [cgi_drl.environment.atari.config.observation_preprocessor_template, DefaultTemplate, environment/atari/config/observation_preprocessor.yaml, default]
+
+    version: versions/HSD_torch_atari_breakout
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    is_load_encoder: False
+    start_epoch_number: 1
+    end_epoch_number : 100
+    evaluation_episode_count: 3
