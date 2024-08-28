@@ -45,14 +45,14 @@ cd cgi_drl_platform/platform
 pip install -e .
 ```
 ## 5. Download Dataset and HSD Models
-[Dataset and HSD Models](https://zenodo.org/record/8191453)
-* upzip playstyle_uai2021.zip at /root/ in the container
-* New Dataset and HSD in TMLR 08/2024 will be updated in the future
-    * For Go experiments, the dataset will not be uploaed due to the privacy issue.
+[Dataset and Models](https://zenodo.org/records/13383407)
+* upzip balance.zip at /root/ in the container
+    * This is the dataset used in the paper.
+* upzip versions.zip at cgi_drl_platform/platform/cgi_drl/
+    All the models and tensorboard log files used in the paper are provided in this file.
 
 # Run Experiemnts
 ```bash
 cd ~/cgi_drl_platform/platform/cgi_drl
-python run.py -k rgsk-metric-24style
+python run.py -k age_of_empires_ii_nrt
 ```
-* do be bone
