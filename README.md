@@ -6,8 +6,7 @@ Some of algorithms proposed by our lab will also be put at this repo in a specif
 ## Publication Implementations
 - Chiu-Chou Lin, Wei-Chen Chiu, I-Chen Wu. An unsupervised video game playstyle metric via state discretization. UAI 2021. [Link](https://proceedings.mlr.press/v161/lin21a.html) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/playstyle_uai2021)
 [Dataset and HSD Models](https://zenodo.org/record/8191453)
-- Chiu-Chou Lin, Wei-Chen Chiu, I-Chen Wu. Perceptual Similarity for Measuring Decision-Making Style and Policy Diversity in Games. TMLR 08/2024. [Link](https://openreview.net/forum?id=30C9AWBW49) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/playstyle_similarity_tmlr)
-    - New Dataset and HSD Models: Coming Soon
+- Chiu-Chou Lin, Wei-Chen Chiu, I-Chen Wu. Perceptual Similarity for Measuring Decision-Making Style and Policy Diversity in Games. TMLR 08/2024. [Link](https://openreview.net/forum?id=30C9AWBW49) [branch](https://github.com/DSobscure/cgi_drl_platform/tree/playstyle_similarity_tmlr) [New Dataset](https://zenodo.org/records/13439971)
     - This is a backup code repository (the version after the last paper revision). If you have any problems running this code, feel free to create a new issue in this repo.
 
 # Environment Installation
@@ -46,10 +45,13 @@ pip install -e .
 * upzip playstyle_uai2021.zip at /root/ in the container
 * New Dataset and HSD in TMLR 08/2024 will be updated in the future
     * For Go experiments, the dataset will not be uploaed due to the privacy issue.
+[New Dataset](https://zenodo.org/records/13439971)
+* upzip playstyle_similarity_tmlr.zip at /root/ in the container
+    * This dataset including 2048 playing results amd DRL diversity testing with first IQN model.
+    * For Go experiments, the dataset will not be uploaed due to the privacy issue. If you are interesting in that part, please contact the MiniZero team.
 
 # Run Experiemnts
 ```bash
 cd ~/cgi_drl_platform/platform/cgi_drl
 python run.py -k rgsk-metric-24style
 ```
-* do be bone
