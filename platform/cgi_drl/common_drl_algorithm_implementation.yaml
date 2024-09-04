@@ -3,7 +3,7 @@
 # PPO
 ppo_breakout:
     solver: cgi_drl.problem.atari.ppo_solver.trainer
-    config: [cgi_drl.default_config, Default, problem/atari/ppo_solver/config/solver.yaml, breakout]
+    config: [cgi_drl.problem.atari.ppo_solver.config.solver_template, DefaultTemplate, problem/atari/ppo_solver/config/solver.yaml, breakout]
 ppo_breakout_torch:
     solver: cgi_drl.problem.atari.ppo_solver.torch_trainer
     config: [cgi_drl.default_config, Default, problem/atari/ppo_solver/config/solver.yaml, breakout]
