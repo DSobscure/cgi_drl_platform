@@ -175,6 +175,8 @@ class GaeSampleMemory(object):
             values = trajectory.merge("value")
             dones = trajectory.merge("done")
             sample_count = len(rewards)
+            if sample_count == 0:
+                continue
             if trajectory.transitions["done"][-1]:
                 values.append(0)
             else:

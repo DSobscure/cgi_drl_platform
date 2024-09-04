@@ -46,18 +46,22 @@ class PolicyTrainer():
         for i in range(len(self.optimizer.param_groups)): 
             self.optimizer.param_groups[i]['lr'] = extra_settings["learning_rate"]
 
-        clip_epsilon = extra_settings["clip_epsilon"]
-        entropy_coefficient = extra_settings["entropy_coefficient"]
-        value_coefficient = extra_settings["value_coefficient"]
-        value_clip_range = extra_settings["value_clip_range"]
+        clip_epsilon = torch.tensor(extra_settings["clip_epsilon"], dtype=torch.float32).to(self.device)
+        entropy_coefficient = torch.tensor(extra_settings["entropy_coefficient"], dtype=torch.float32).to(self.device)
+        value_coefficient = torch.tensor(extra_settings["value_coefficient"], dtype=torch.float32).to(self.device)
+        value_clip_range = torch.tensor(extra_settings["value_clip_range"], dtype=torch.float32).to(self.device)
 
         self.policy_model.train()
-
         self.optimizer.zero_grad()
 
-        network_output = self.policy_model(observations, self.rnn_sequence_length, self.rnn_burn_in_length)
-        with torch.no_grad():
-            network_old_output = self.old_policy_model(observations, self.rnn_sequence_length, 0)
+        if self.use_rnn:
+            network_output = self.policy_model(observations, self.rnn_sequence_length, self.rnn_burn_in_length)
+            with torch.no_grad():
+                network_old_output = self.old_policy_model(observations, self.rnn_sequence_length, 0)
+        else:
+            network_output = self.policy_model(observations)
+            with torch.no_grad():
+                network_old_output = self.old_policy_model(observations)
 
         # value clipping
         value_losses = []
@@ -90,7 +94,7 @@ class PolicyTrainer():
 
         clipped_ratio = torch.clip(ratio, 1 - clip_epsilon, 1 + clip_epsilon)
         condition = torch.eq(ratio, clipped_ratio)
-        policy_no_clip_event = torch.where(condition, torch.tensor(1.0), torch.tensor(0.0))
+        policy_no_clip_event = torch.where(condition, torch.tensor(1.0, device=self.device), torch.tensor(0.0, device=self.device))
         policy_clip_event_ratio = (1 - policy_no_clip_event).mean()
 
         loss.backward()

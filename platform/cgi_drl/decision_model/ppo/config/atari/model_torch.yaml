@@ -1,0 +1,3 @@
+default:
+    model_define_path: decision_model.ppo.nn_model.atari.default_model_torch
+    use_rnn: False
