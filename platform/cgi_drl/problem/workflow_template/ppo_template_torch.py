@@ -27,7 +27,6 @@ class PpoSolver(ReinforcementLearningTrainer):
         self.clip_epsilon_scheduler = solver_config["clip_epsilon_scheduler"]
         self.entropy_coefficient_scheduler = solver_config["entropy_coefficient_scheduler"]
         self.value_coefficient_scheduler = solver_config["value_coefficient_scheduler"]
-        self.value_clip_range_scheduler = solver_config["value_clip_range_scheduler"]
 
         self.max_game_step = solver_config["max_game_step"]
         self.agent_statistics_aggregator = solver_config["agent_statistics_aggregator"]
@@ -189,10 +188,6 @@ class PpoSolver(ReinforcementLearningTrainer):
                             "total_timestep":self.training_steps}
                             ),
                         "value_coefficient": [self.value_coefficient_scheduler({
-                            "current_timestep":self.total_time_step,
-                            "total_timestep":self.training_steps}
-                            )],
-                        "value_clip_range": [self.value_clip_range_scheduler({
                             "current_timestep":self.total_time_step,
                             "total_timestep":self.training_steps}
                             )],

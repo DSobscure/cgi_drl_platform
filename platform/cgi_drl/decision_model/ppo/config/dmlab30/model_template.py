@@ -19,7 +19,6 @@ class DefaultTemplate(dict):
             self["clip_epsilon_placeholder"] = config.get("clip_epsilon_placeholder", tf.placeholder(dtype=tf.float32, name="clip_epsilon_placeholder"))
             self["entropy_coefficient_placeholder"] = config.get("entropy_coefficient_placeholder", tf.placeholder(dtype=tf.float32, name="entropy_coefficient_placeholder")) 
             self["value_coefficient_placeholder"] = config.get("value_coefficient_placeholder", tf.placeholder(shape=[self["value_head_count"]], dtype=tf.float32, name="value_coefficient_placeholder")) 
-            self["value_clip_range_placeholder"] = config.get("value_clip_range_placeholder", tf.placeholder(shape=[self["value_head_count"]], dtype=tf.float32, name="value_clip_range_placeholder")) 
             self["optimizer"] = config.get("optimizer", tf.keras.optimizers.Adam(self["learning_rate_placeholder"]))
         
             observation_2d_placeholder = tf.placeholder(shape = [None, 4, 72, 96, 3], dtype = tf.float32, name = "observation_2d_placeholder")

@@ -40,7 +40,6 @@ class PolicyTrainer():
             self.clip_epsilon_placeholder = config["clip_epsilon_placeholder"]
             self.entropy_coefficient_placeholder = config["entropy_coefficient_placeholder"]
             self.value_coefficient_placeholder = config["value_coefficient_placeholder"]
-            self.value_clip_range_placeholder = config["value_clip_range_placeholder"]
             self.optimizer = config["optimizer"]
 
             self.observation_placeholders = config["observation_placeholders"]
@@ -92,10 +91,7 @@ class PolicyTrainer():
                     value_losses = []
                     for i in range(self.value_head_count):
                         transformed_return = self.invertible_value_functions[i](tf.reshape(self.return_placeholder[:,i], [-1, 1]), False)
-                        clipped_value = self.old_value[i] + tf.clip_by_value(self.value[i] - self.old_value[i], -self.value_clip_range_placeholder[i], self.value_clip_range_placeholder[i])
-                        no_clipped_value_loss = tf.square(transformed_return - self.value[i])
-                        clipped_value_loss = tf.square(transformed_return - clipped_value)
-                        value_loss = tf.reduce_mean(tf.minimum(no_clipped_value_loss, clipped_value_loss))
+                        value_loss = tf.losses.huber_loss(transformed_return, self.value[i], reduction=tf.losses.Reduction.MEAN)
                         value_losses.append(value_loss)
                     # Policy loss
                     ratio = tf.reduce_prod(
@@ -162,7 +158,6 @@ class PolicyTrainer():
         feed_dict[self.clip_epsilon_placeholder] = extra_settings["clip_epsilon"]
         feed_dict[self.entropy_coefficient_placeholder] = extra_settings["entropy_coefficient"]
         feed_dict[self.value_coefficient_placeholder] = extra_settings["value_coefficient"]
-        feed_dict[self.value_clip_range_placeholder] = extra_settings["value_clip_range"]
 
         for key in self.observation_placeholders:
             feed_dict[self.observation_placeholders[key]] = observations[key]

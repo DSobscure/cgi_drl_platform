@@ -10,11 +10,11 @@ class PolicyModel(nn.Module):
         self.action_space = network_settings["action_space"]
         self.value_head_count = network_settings["value_head_count"]
 
-        self.conv = nn.Conv2d(4, 32, kernel_size=8, padding=2, stride=4)
-        self.conv2 = nn.Conv2d(32, 64, kernel_size=4, padding=2, stride=2)
-        self.conv3 = nn.Conv2d(64, 64, kernel_size=3, padding=1)
-        self.fc = nn.Linear(64*11*11, 512)
-
+        self.conv = nn.Conv2d(4, 32, kernel_size=8, stride=4)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=4, stride=2)
+        self.conv3 = nn.Conv2d(64, 64, kernel_size=3)
+        self.fc = nn.Linear(64*7*7, 512)
+        
         self.value_heads = nn.ModuleList()
         for i_head in range(self.value_head_count):
             fc = nn.Linear(512, 1)
@@ -37,7 +37,7 @@ class PolicyModel(nn.Module):
         x = self.conv3(x)
         x = F.relu(x)
 
-        x = x.view(-1, 64*11*11)
+        x = x.view(-1, 64*7*7)
         x = self.fc(x)
         x = F.relu(x)     
 

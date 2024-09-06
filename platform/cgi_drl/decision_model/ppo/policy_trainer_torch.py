@@ -49,7 +49,6 @@ class PolicyTrainer():
         clip_epsilon = torch.tensor(extra_settings["clip_epsilon"], dtype=torch.float32).to(self.device)
         entropy_coefficient = torch.tensor(extra_settings["entropy_coefficient"], dtype=torch.float32).to(self.device)
         value_coefficient = torch.tensor(extra_settings["value_coefficient"], dtype=torch.float32).to(self.device)
-        value_clip_range = torch.tensor(extra_settings["value_clip_range"], dtype=torch.float32).to(self.device)
 
         self.policy_model.train()
         self.optimizer.zero_grad()
@@ -67,13 +66,9 @@ class PolicyTrainer():
         value_losses = []
         value_loss_sum = 0
         for i_head in range(self.value_head_count):
-            transformed_return = self.invertible_value_functions[i_head](returns[:,i_head], False)
-            old_value = network_old_output["value"][i_head]
             value = network_output["value"][i_head]
-            clipped_value = old_value + torch.clip(value - old_value, -value_clip_range[i_head], value_clip_range[i_head])
-            no_clipped_value_loss = torch.square(transformed_return - value)
-            clipped_value_loss = torch.square(transformed_return - clipped_value)
-            value_loss = torch.max(no_clipped_value_loss, clipped_value_loss).mean()
+            transformed_return = self.invertible_value_functions[i_head](returns[:,i_head], False).view(-1, 1)
+            value_loss = torch.nn.functional.huber_loss(value, transformed_return)
             value_losses.append(value_loss)
             value_loss_sum += value_coefficient[i] * value_loss
 

@@ -7,6 +7,9 @@ ppo_breakout:
 ppo_breakout_torch:
     solver: cgi_drl.problem.atari.ppo_solver.torch_trainer
     config: [cgi_drl.problem.atari.ppo_solver.config.solver_template, DefaultTemplate, problem/atari/ppo_solver/config/torch_solver.yaml, breakout]
+ppo_breakout_no_padding_torch:
+    solver: cgi_drl.problem.atari.ppo_solver.torch_trainer
+    config: [cgi_drl.problem.atari.ppo_solver.config.solver_template, DefaultTemplate, problem/atari/ppo_solver/config/torch_solver.yaml, breakout_no_padding]
 
 # Prioritized Dueling Double DQN
 pd3qn_breakout:

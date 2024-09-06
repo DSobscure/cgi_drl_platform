@@ -17,10 +17,6 @@ class DefaultTemplate(dict):
         def value_coefficient_scheduler(schedule_infos):
             return 1
         self["value_coefficient_scheduler"] = config.get("value_coefficient_scheduler", value_coefficient_scheduler)
-
-        def value_clip_range_scheduler(schedule_infos):
-            return 1
-        self["value_clip_range_scheduler"] = config.get("value_clip_range_scheduler", value_clip_range_scheduler)
         
         def agent_statistics_aggregator(agent_statistics, rewards, infos):
             for index in range(len(agent_statistics)):

@@ -18,3 +18,24 @@ breakout:
 
     evaluation_max_game_step: 10000
     evaluation_episode_count: 16
+
+breakout_no_padding:
+    environment: [cgi_drl.environment.atari.config.environment_template, DefaultTemplate, environment/atari/config/environment.yaml, breakout]
+    evaluation_environment: [cgi_drl.environment.atari.config.environment_template, DefaultTemplate, environment/atari/config/environment.yaml, breakout-eval]
+    observation_preprocessor: [cgi_drl.environment.atari.config.observation_preprocessor_template, DefaultTemplate, environment/atari/config/observation_preprocessor.yaml, default]
+    ppo: [cgi_drl.decision_model.ppo.config.atari.model_template_torch, DefaultTemplate, decision_model/ppo/config/atari/model_torch.yaml, no_padding]
+    gae: [cgi_drl.data_storage.gae_sample_memory.config.atari_template, DefaultTemplate, data_storage/gae_sample_memory/config/atari.yaml, default]
+    
+    version: versions/atari_ppo_breakout_torch_no_padding
+    batch_size: 128
+    is_load_policy: false
+    training_steps: 10000000
+    epoch_steps: 250000
+    update_sample_count: 5120
+    update_epoch_count: 3
+    max_game_step: 10000 
+    discount_factor_gamma: 0.99
+    discount_factor_lambda: 0.95
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16

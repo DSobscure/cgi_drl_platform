@@ -75,7 +75,6 @@ class AtariPpoSolver(PpoSolver):
                     self.evaluation_log_file.write(log_str)
                     if len(self.evaluation_scores) == 0 or self.agent_statistics[is_train][i]["Cumulated Extrinsic Reward"] > max(self.evaluation_scores):
                         self.evaluation_best_observations = self.eval_trajectory_observations[i]
-                        print(np.shape(self.evaluation_best_observations["observation_2d"]))
                     self.evaluation_scores.append(self.agent_statistics[is_train][i]["Cumulated Extrinsic Reward"])
 
     def evaluation(self):
