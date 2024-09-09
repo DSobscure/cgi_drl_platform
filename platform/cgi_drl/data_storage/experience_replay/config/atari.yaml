@@ -1,0 +1,10 @@
+atari:
+    max_capacity: 1000000
+    use_compression: True
+    is_prioritized: False
+
+atari_prioritized:
+    max_capacity: 1000000
+    use_compression: True
+    is_prioritized: True
+    priority_alpha: 0.6
