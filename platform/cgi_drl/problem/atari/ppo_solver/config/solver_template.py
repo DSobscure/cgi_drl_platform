@@ -26,7 +26,8 @@ class DefaultTemplate(dict):
                     agent_statistics[index]["Average Value"] = ((agent_statistics[index]["Episode Length"] - 1) * agent_statistics[index].get("Average Value", 0) + infos[index]["Value"]) / agent_statistics[index]["Episode Length"]
 
         def reward_transformer(rewards, infos):
-            return np.clip(np.asarray(rewards), -1, 1)
+            return np.asarray(rewards)
+            # return np.clip(np.asarray(rewards), -1, 1)
         self["reward_transformer"] = config.get("reward_transformer", reward_transformer)
 
         self["discount_factor_gamma"] = config.get("discount_factor_gamma", 0.99)

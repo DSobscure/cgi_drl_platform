@@ -45,9 +45,9 @@ class AtariEnvironmentWrapper(EnvironmentWrapper):
 
     def sample(self, index=-1):
         if index == -1:
-            return [np.random.randint(self.get_action_space(0))]
+            return [[np.random.randint(self.get_action_space(0))]]
         else:
-            return np.random.randint(self.get_action_space(0))
+            return [np.random.randint(self.get_action_space(0))]
 
     def close(self):
         self.env.close()

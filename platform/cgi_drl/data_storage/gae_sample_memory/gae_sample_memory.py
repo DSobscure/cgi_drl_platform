@@ -2,8 +2,8 @@ import numpy as np
 
 class GaeSampleMemory(object):
     class Path(object):
-        def __init__(self, episode_sequence_size):
-            self.episode_sequence_size = episode_sequence_size
+        def __init__(self, sequence_length):
+            self.sequence_length = sequence_length
             self.trajectories = []
 
         def __len__(self):
@@ -14,7 +14,7 @@ class GaeSampleMemory(object):
 
         def append(self, sample):
             if len(self.trajectories) == 0 or self.trajectories[-1].transitions["done"][-1]:
-                self.trajectories.append(GaeSampleMemory.Trajectory(self.episode_sequence_size))
+                self.trajectories.append(GaeSampleMemory.Trajectory(self.sequence_length))
             self.trajectories[-1].append(sample) 
 
         def get_keys(self):
@@ -62,8 +62,8 @@ class GaeSampleMemory(object):
                 self.trajectories.append(self.trajectories[-1])
 
     class Trajectory(object):
-        def __init__(self, episode_sequence_size):
-            self.episode_sequence_size = episode_sequence_size
+        def __init__(self, sequence_length):
+            self.sequence_length = sequence_length
             self.transitions = {
                 "observation": {},
                 "action": [],
@@ -86,28 +86,28 @@ class GaeSampleMemory(object):
                     self.transitions[key].append(sample[key])
 
         def get_keys(self):
-            return ["observation", "action", "reward","value","done"]
+            return ["observation", "action", "reward", "value", "done"]
 
         def get_observation_keys(self):
             return self.transitions["observation"].keys()
 
         def merge(self, key):
             trajectory_length = len(self.transitions["action"])
-            cut_off_length = trajectory_length % self.episode_sequence_size
+            cut_off_length = trajectory_length % self.sequence_length
 
             merged_results = [s for s in self.transitions[key]][cut_off_length:]
             return merged_results
 
         def merge_observations(self, key):
             trajectory_length = len(self.transitions["action"])
-            cut_off_length = trajectory_length % self.episode_sequence_size
+            cut_off_length = trajectory_length % self.sequence_length
 
             merged_results = [s for s in self.transitions["observation"][key]][cut_off_length:]
             return merged_results
 
         def merge_next_observations(self, key):
             trajectory_length = len(self.transitions["action"])
-            cut_off_length = trajectory_length % self.episode_sequence_size
+            cut_off_length = trajectory_length % self.sequence_length
 
             merged_results = [s for s in self.transitions["observation"][key]]
             return (merged_results[1:] + [merged_results[-1]])[cut_off_length:]
@@ -116,10 +116,10 @@ class GaeSampleMemory(object):
         self.config = config
         self.horizon = self.config["horizon"]
         self.use_return_as_advantage = self.config["use_return_as_advantage"]
-        self.episode_sequence_size = self.config["episode_sequence_size"]
+        self.sequence_length = self.config["sequence_length"]
         self.paths = []
         for _ in range(self.config["agent_count"]):
-            self.paths.append(GaeSampleMemory.Path(self.episode_sequence_size))
+            self.paths.append(GaeSampleMemory.Path(self.sequence_length))
         self._sample_count = 0
 
     def __len__(self):

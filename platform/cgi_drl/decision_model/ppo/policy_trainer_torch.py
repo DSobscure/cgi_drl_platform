@@ -11,7 +11,7 @@ class PolicyTrainer():
 
         self.use_rnn = config.get("use_rnn", False)
         self.max_gradient_norm = config.get("max_gradient_norm", 10)
-        self.invertible_value_functions = config.get("invertible_value_functions", lambda x : x)
+        self.invertible_value_function = config.get("invertible_value_function", lambda x : x)
 
         PolicyModel = getattr(importlib.import_module(config["model_define_path"]), "PolicyModel")
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -67,7 +67,7 @@ class PolicyTrainer():
         value_loss_sum = 0
         for i_head in range(self.value_head_count):
             value = network_output["value"][i_head]
-            transformed_return = self.invertible_value_functions[i_head](returns[:,i_head], False).view(-1, 1)
+            transformed_return = self.invertible_value_function(returns[:,i_head], is_inverse=False).view(-1, 1)
             value_loss = torch.nn.functional.huber_loss(value, transformed_return)
             value_losses.append(value_loss)
             value_loss_sum += value_coefficient[i] * value_loss
@@ -107,11 +107,11 @@ class PolicyTrainer():
         if self.use_rnn:
             network_output = self.policy_model(observations, 1, 0)
             actions = np.asarray([act.to('cpu').detach().numpy() for act in network_output["sample_action"]])
-            return np.transpose(actions, [1, 0]), [v.to('cpu').detach().numpy() for v in network_output["value"]], network_output["next_memory"].to('cpu').detach().numpy()
+            return np.transpose(actions, [1, 0]), [self.invertible_value_function(v, is_inverse=True).to('cpu').detach().numpy() for v in network_output["value"]], network_output["next_memory"].to('cpu').detach().numpy()
         else:
             network_output = self.policy_model(observations)
             actions = np.asarray([act.to('cpu').detach().numpy() for act in network_output["sample_action"]])
-            return np.transpose(actions, [1, 0]), [v.to('cpu').detach().numpy() for v in network_output["value"]]
+            return np.transpose(actions, [1, 0]), [self.invertible_value_function(v, is_inverse=True).to('cpu').detach().numpy() for v in network_output["value"]]
 
     def update_old_policy(self):
         self.old_policy_model.load_state_dict(self.policy_model.state_dict())

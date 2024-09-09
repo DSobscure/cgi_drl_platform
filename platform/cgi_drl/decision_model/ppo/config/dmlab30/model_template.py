@@ -52,11 +52,6 @@ class DefaultTemplate(dict):
 
         def invertible_value_function(x, is_inverse):
             return x
-            epsilon = 0.001
-            if is_inverse:
-                return tf.math.sign(x) * (tf.square((tf.math.sqrt(1 + 4 * epsilon * (tf.math.abs(x) + 1 + epsilon)) - 1) / (2 * epsilon)) - 1)
-            else:
-                return tf.math.sign(x) * (tf.math.sqrt(tf.math.abs(x) + 1) - 1) + epsilon * x
-        self["invertible_value_functions"] = config.get("invertible_value_functions", [invertible_value_function] * self["value_head_count"])
+        self["invertible_value_function"] = config.get("invertible_value_function", invertible_value_function)
 
         super().__init__(config)

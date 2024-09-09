@@ -10,8 +10,15 @@ ppo_breakout_torch:
 ppo_breakout_no_padding_torch:
     solver: cgi_drl.problem.atari.ppo_solver.torch_trainer
     config: [cgi_drl.problem.atari.ppo_solver.config.solver_template, DefaultTemplate, problem/atari/ppo_solver/config/torch_solver.yaml, breakout_no_padding]
+ppo_breakout_no_padding_lstm_torch:
+    solver: cgi_drl.problem.atari.ppo_solver.torch_trainer
+    config: [cgi_drl.problem.atari.ppo_solver.config.solver_template, DefaultTemplate, problem/atari/ppo_solver/config/torch_solver.yaml, breakout_no_padding_lstm]
 
-# Prioritized Dueling Double DQN
-pd3qn_breakout:
-    solver: cgi_drl.problem.atari.pd3qn_solver.torch_trainer
-    config: [cgi_drl.default_config, Default, problem/atari/pd3qn_solver/config/solver.yaml, breakout]
+# Dueling Double DQN
+d3qn_breakout:
+    solver: cgi_drl.problem.atari.dqn_solver.torch_trainer
+    config: [cgi_drl.problem.atari.dqn_solver.config.solver_template, DefaultTemplate, problem/atari/dqn_solver/config/torch_solver.yaml, breakout]
+# Ape-X Dueling Double DQN
+apex_d3qn_breakout:
+    solver: cgi_drl.problem.atari.dqn_solver.torch_trainer
+    config: [cgi_drl.problem.atari.dqn_solver.config.solver_template, PrioritizedTrainingTemplate, problem/atari/dqn_solver/config/torch_solver.yaml, breakout_prioritized]

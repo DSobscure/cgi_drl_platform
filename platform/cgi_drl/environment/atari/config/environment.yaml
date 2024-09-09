@@ -11,3 +11,8 @@ breakout-eval:
 breakout-simple-eval:
     environment_id: BreakoutNoFrameskip-v4
     episode_life: False
+
+breakout-16:
+    environment_name: Breakout
+    environment_count: 16
+    episode_life: True

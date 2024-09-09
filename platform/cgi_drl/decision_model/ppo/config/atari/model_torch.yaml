@@ -5,3 +5,7 @@ default:
 no_padding:
     model_define_path: decision_model.ppo.nn_model.atari.no_padding_model_torch
     use_rnn: False
+
+no_padding_lstm:
+    model_define_path: decision_model.ppo.nn_model.atari.no_padding_lstm_model_torch
+    use_rnn: True

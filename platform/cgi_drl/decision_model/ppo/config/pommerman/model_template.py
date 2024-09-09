@@ -57,6 +57,6 @@ class DefaultTemplate(dict):
 
         def invertible_value_function(x, is_inverse):
             return x
-        self["invertible_value_functions"] = config.get("invertible_value_functions", [invertible_value_function] * self["value_head_count"])
+        self["invertible_value_function"] = config.get("invertible_value_function", invertible_value_function)
 
         super().__init__(config)
