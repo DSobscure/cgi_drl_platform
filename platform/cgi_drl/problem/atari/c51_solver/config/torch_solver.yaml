@@ -1,0 +1,23 @@
+breakout_prioritized:
+    environment: [cgi_drl.environment.atari.config.environment_template, DefaultTemplate, environment/atari/config/environment.yaml, breakout-16]
+    evaluation_environment: [cgi_drl.environment.atari.config.environment_template, DefaultTemplate, environment/atari/config/environment.yaml, breakout-eval]
+    observation_preprocessor: [cgi_drl.environment.atari.config.observation_preprocessor_template, DefaultTemplate, environment/atari/config/observation_preprocessor.yaml, default]
+    c51: [cgi_drl.decision_model.c51.config.atari.model_template_torch, DefaultTemplate, decision_model/c51/config/atari/model_torch.yaml, default]
+    experience_replay: [cgi_drl.default_config, Default, data_storage/experience_replay/config/atari.yaml, atari_prioritized]
+    
+    version: versions/atari_apex_rainbow_breakout_torch
+    batch_size: 128
+    is_load_policy: false
+    training_steps: 10000000
+    update_step_frequent: 32
+    update_target_step_frequent: 12800
+    epoch_steps: 250000
+    max_game_step: 10000 
+    discount_factor_gamma: 0.99
+    n_step_size: 3
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16
+
+    evaluation_action_epsilon: 0.01
+    minimal_replay_memory_size: 5000

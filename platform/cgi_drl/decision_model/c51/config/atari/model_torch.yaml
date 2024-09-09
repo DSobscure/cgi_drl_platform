@@ -1,0 +1,2 @@
+default:
+    model_define_path: decision_model.c51.nn_model.atari.dueling_network_torch

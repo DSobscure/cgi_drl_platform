@@ -13,9 +13,6 @@ class DqnSolver(ReinforcementLearningTrainer):
         self.log_file = self._open_log(self.log_path, "log.txt")
         self.evaluation_log_file = self._open_log(self.log_path, "evaluation_log_file.txt")
 
-        # setup policy
-        self.policy_config = solver_config["dqn"]
-
         # solver config
         self.batch_size = solver_config["batch_size"]
         self.epoch_steps = solver_config["epoch_steps"]
@@ -198,7 +195,7 @@ class DqnSolver(ReinforcementLearningTrainer):
             for i in range(self.batch_size):
                 for j in range(self.policy.value_head_count):
                     for k in range(len(self.policy.action_space)):
-                        priority_values[i] += np.abs(q_values[i, j] - predict_behavior_q_values[j][k][i][action_batch[i]])
+                        priority_values[i] += np.abs(q_values[i, j] - predict_behavior_q_values[j][k][i][action_batch[i][k]])
             self.replay_buffer.update_batch(random_indexes, priority_values)
 
         if self.replay_buffer.is_prioritized:
