@@ -22,3 +22,13 @@ d3qn_breakout:
 apex_d3qn_breakout:
     solver: cgi_drl.problem.atari.dqn_solver.torch_trainer
     config: [cgi_drl.problem.atari.dqn_solver.config.solver_template, PrioritizedTrainingTemplate, problem/atari/dqn_solver/config/torch_solver.yaml, breakout_prioritized]
+
+# Ape-X Rainbow
+apex_rainbow_breakout:
+    solver: cgi_drl.problem.atari.c51_solver.torch_trainer
+    config: [cgi_drl.problem.atari.c51_solver.config.solver_template, PrioritizedTrainingTemplate, problem/atari/c51_solver/config/torch_solver.yaml, breakout_prioritized]
+
+# Ape-X QR Rainbow
+apex_qr_rainbow_breakout:
+    solver: cgi_drl.problem.atari.qr_dqn_solver.torch_trainer
+    config: [cgi_drl.problem.atari.qr_dqn_solver.config.solver_template, PrioritizedTrainingTemplate, problem/atari/qr_dqn_solver/config/torch_solver.yaml, breakout_prioritized]

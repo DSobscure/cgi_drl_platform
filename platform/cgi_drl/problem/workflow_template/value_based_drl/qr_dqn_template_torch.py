@@ -3,16 +3,7 @@ import numpy as np
 from tensorboardX import SummaryWriter
 from collections import deque, defaultdict
 
-def cross_entropy(label, predict, minimal_epsilon=1e-10):
-    h = 0
-    label = label + minimal_epsilon
-    predict = predict + minimal_epsilon
-    for i_atom in range(len(label)):
-        if label[i_atom] > 0 and predict[i_atom] > 0:
-            h -= label[i_atom] * np.log(predict[i_atom])
-    return h
-
-class C51Solver(DqnSolver):
+class QrDqnSolver(DqnSolver):
     def initialize(self):
         if self.epoch_steps % self.get_agent_count() != 0:
             raise AssertionError(f"epoch_steps should be divisible by agent count epoch_steps: {self.epoch_steps}, agent_count: {self.get_agent_count()}")
@@ -33,7 +24,7 @@ class C51Solver(DqnSolver):
         self.policy.update_target_policy()
 
         print("=" * 18 + " Setup model " + "=" * 19)
-        print("mode: training with C51")
+        print("mode: training with QR-DQN")
         print("=" * 50)
 
         self.total_time_step = self.solver_config.get("initial_time_step", 0)
@@ -74,8 +65,7 @@ class C51Solver(DqnSolver):
             state_batch, action_batch, reward_batch, done_batch, next_state_batch = self.replay_buffer.sample_mini_batch(self.batch_size)
 
         target_q_value, target_q_distribution = self.policy.get_target_q_values_and_distributions(next_state_batch)
-        q_distributions = np.zeros([self.batch_size, self.policy.value_head_count, len(self.policy.action_space), self.policy.value_atom_count])
-        q_distributions[:,:,:,self.policy.value_zero_index] = 1
+        q_distributions = np.zeros([self.batch_size, self.policy.value_head_count, len(self.policy.action_space), self.policy.value_quantile_count])
 
         if self.use_double_q:
             next_behavior_q_values = self.policy.get_behavior_q_values(next_state_batch)
@@ -89,7 +79,7 @@ class C51Solver(DqnSolver):
                         else:
                             q_distributions[i, j, k] = target_q_distribution[j][k][i][np.argmax(target_q_value[j][k][i])]
                     for l in range(len(reward_batch[i])):
-                        q_distributions[i, j, k] = self.policy.distributional_bellman_operator(q_distributions[i, j, k], self.discount_factor_gamma, reward_batch[i][-1-l])
+                        q_distributions[i, j, k] = reward_batch[i][-1-l] + self.discount_factor_gamma * q_distributions[i, j, k]
         q_distributions = np.mean(q_distributions, axis=-2)
     
         if self.replay_buffer.is_prioritized: 
@@ -98,7 +88,7 @@ class C51Solver(DqnSolver):
             for i in range(self.batch_size):
                 for j in range(self.policy.value_head_count):
                     for k in range(len(self.policy.action_space)):
-                        priority_values[i] += cross_entropy(q_distributions[i, j], predict_behavior_q_distributions[j][k][i][action_batch[i][k]])
+                        priority_values[i] += np.mean(np.abs(q_distributions[i, j] - predict_behavior_q_distributions[j][k][i][action_batch[i]]))
                 priority_values[i] /= self.policy.value_head_count * len(self.policy.action_space)
             self.replay_buffer.update_batch(random_indexes, priority_values)
 

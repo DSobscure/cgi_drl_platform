@@ -1,7 +1,7 @@
 breakout:
     environment_name: Breakout
     environment_count: 4
-    episode_life: False
+    episode_life: True
 
 breakout-eval:
     environment_name: Breakout
@@ -15,4 +15,4 @@ breakout-simple-eval:
 breakout-16:
     environment_name: Breakout
     environment_count: 16
-    episode_life: False
+    episode_life: True
