@@ -27,7 +27,7 @@ class DqnSolver(ReinforcementLearningTrainer):
 
         self.max_game_step = solver_config["max_game_step"]
         self.agent_statistics_aggregator = solver_config["agent_statistics_aggregator"]
-        self.discount_factor_gamma = solver_config["discount_factor_gamma"]
+        self.discount_factor_gammas = solver_config["discount_factor_gammas"]
         self.evaluation_action_epsilon = solver_config["evaluation_action_epsilon"]
 
         self.evaluation_max_game_step = solver_config["evaluation_max_game_step"]
@@ -81,7 +81,7 @@ class DqnSolver(ReinforcementLearningTrainer):
         
         self.previous_observations = [deque(maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
         self.previous_actions = [deque(maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
-        self.previous_rewards = [deque(maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
+        self.previous_rewards = [deque([np.zeros(self.policy.value_head_count) for _ in range(self.n_step_size)], maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
         
         self.observations = {
             True: {}, # for train
@@ -113,6 +113,18 @@ class DqnSolver(ReinforcementLearningTrainer):
                     if key not in self.observations[is_train]:
                         self.observations[is_train][key] = [None for _ in range(self.get_agent_count(is_train))]
                     self.observations[is_train][key][i] = observation[key]
+                if self.policy.use_rnn:
+                    if "observation_memory" not in self.observations[is_train]:
+                        self.observations[is_train]["observation_memory"] = [None for _ in range(self.get_agent_count(is_train))]
+                    self.observations[is_train]["observation_memory"][i] = np.zeros(self.policy.memory_size, dtype=np.float32)
+                    
+                    if "observation_previous_reward" not in self.observations[is_train]:
+                        self.observations[is_train]["observation_previous_reward"] = [None for _ in range(self.get_agent_count(is_train))]
+                    self.observations[is_train]["observation_previous_reward"][i] = np.zeros(self.policy.value_head_count, dtype=np.float32)
+                    
+                    if "observation_previous_action" not in self.observations[is_train]:
+                        self.observations[is_train]["observation_previous_action"] = [None for _ in range(self.get_agent_count(is_train))]
+                    self.observations[is_train]["observation_previous_action"][i] = np.zeros(len(self.policy.action_space), dtype=np.float32)
                 self.agent_statistics[is_train][i] = {}
                 if not is_train:
                     self.eval_trajectory_observations[i] = defaultdict(list)
@@ -168,36 +180,27 @@ class DqnSolver(ReinforcementLearningTrainer):
         else:
             state_batch, action_batch, reward_batch, done_batch, next_state_batch = self.replay_buffer.sample_mini_batch(self.batch_size)
 
-        target_q = self.policy.get_target_q_values(next_state_batch)
+        if self.policy.use_rnn:
+            target_q, _ = self.policy.get_target_q_values(next_state_batch)
+        else:
+            target_q = self.policy.get_target_q_values(next_state_batch)
+        target_q_values = target_q
         q_values = np.zeros([self.batch_size, self.policy.value_head_count, len(self.policy.action_space)])
 
         if self.use_double_q:
-            next_behavior_q_values = self.policy.get_behavior_q_values(next_state_batch)
+            if self.policy.use_rnn:
+                target_q_values, _ = self.policy.get_behavior_q_values(next_state_batch)
+            else:
+                target_q_values = self.policy.get_behavior_q_values(next_state_batch)
 
-        for i in range(self.batch_size):
-            for j in range(self.policy.value_head_count):
-                for k in range(len(self.policy.action_space)):
-                    if done_batch[i]:
-                        for l in range(len(reward_batch[i])):
-                            q_values[i, j, k] += reward_batch[i][-1-l] + self.discount_factor_gamma * q_values[i, j, k]
-                    else:
-                        if self.use_double_q:
-                            q_values[i, j, k] += target_q[j][k][i][np.argmax(next_behavior_q_values[j][k][i])]
-                        else:
-                            q_values[i, j, k] += np.max(target_q[j][k][i])
-                        for l in range(len(reward_batch[i])):
-                            q_values[i, j, k] = reward_batch[i][-1-l] + self.discount_factor_gamma * q_values[i, j, k]
+        non_terminal = (1 - np.asarray(done_batch, dtype=np.float32))
+        for j in range(self.policy.value_head_count):
+            for k in range(len(self.policy.action_space)):
+                q_values[:, j, k] += non_terminal * target_q[j][k][:][np.arange(self.batch_size), np.argmax(target_q_values[j][k], axis=-1)]
+                for l in range(self.n_step_size):
+                    q_values[:, j, k] = reward_batch[:,-1-l,j] + self.discount_factor_gammas[j] * q_values[:, j, k]
         q_values = np.mean(q_values, axis=-1)
     
-        if self.replay_buffer.is_prioritized: 
-            predict_behavior_q_values = self.policy.get_behavior_q_values(state_batch)
-            priority_values = np.zeros(self.batch_size)
-            for i in range(self.batch_size):
-                for j in range(self.policy.value_head_count):
-                    for k in range(len(self.policy.action_space)):
-                        priority_values[i] += np.abs(q_values[i, j] - predict_behavior_q_values[j][k][i][action_batch[i][k]])
-            self.replay_buffer.update_batch(random_indexes, priority_values)
-
         if self.replay_buffer.is_prioritized:
             q_loss, q_losses = self.policy.update(
                 {
@@ -223,38 +226,59 @@ class DqnSolver(ReinforcementLearningTrainer):
             )
         self.total_loss += q_loss
         self.update_counter += 1
+        
+        if self.replay_buffer.is_prioritized: 
+            self.replay_buffer.update_batch(random_indexes, q_losses)
 
     def decide_agent_actions(self, is_valid_agent, is_train=True):
-        behavior_q_values = self.policy.get_behavior_q_values(self.observations[is_train])
+        if self.policy.use_rnn:
+            behavior_q_values, memories = self.policy.get_behavior_q_values(self.observations[is_train])
+        else:
+            behavior_q_values = self.policy.get_behavior_q_values(self.observations[is_train])
+        agent_count = self.get_agent_count(is_train)
         if is_train:
             action_epsilons = self.exploration_action_epsilon_scheduler({
                 "current_timestep":self.total_time_step,
                 "total_timestep":self.training_steps,
-                "agent_count":self.get_agent_count(is_train),
+                "agent_count":agent_count,
             })
         else:
-            action_epsilons = [self.evaluation_action_epsilon] * self.get_agent_count(is_train)
+            action_epsilons = np.full(agent_count, self.evaluation_action_epsilon)
+            
+        random_values = np.random.uniform(0, 1, agent_count)
+        random_actions = self.get_environment(is_train).sample()
         actions = []
-        for i in range(self.get_agent_count(is_train)):
-            if np.random.uniform(0,1) <= action_epsilons[i]:
-                actions.append(self.get_environment(is_train).sample(i))
+        
+        for i in range(agent_count):
+            if random_values[i] <= action_epsilons[i]:
+                actions.append(random_actions[i])
             else:
                 action = []
                 for i_space in range(len(self.policy.action_space)):
-                    q = np.zeros(self.policy.action_space[i_space])
+                    q = np.zeros(self.policy.action_space[i_space]) 
                     for i_head in range(self.policy.value_head_count):
                         q += behavior_q_values[i_head][i_space][i]
                     action.append(np.argmax(q))
                 actions.append(action)
-        decision = {
-            "actions": actions,
-            "behavior_q_values": behavior_q_values,
-        }
+            
+        if self.policy.use_rnn:
+            decision = {
+                "actions": actions,
+                "behavior_q_values": behavior_q_values,
+                "memories": memories,
+            }
+        else:
+            decision = {
+                "actions": actions,
+                "behavior_q_values": behavior_q_values,
+            }
         return decision
 
     def on_time_step(self, decision, is_valid_agent, is_train=True):
         actions = decision["actions"]
         behavior_q_values = decision["behavior_q_values"]
+        if self.policy.use_rnn:
+            memories = decision["memories"]
 
         next_observations, rewards, dones, infos = self.get_environment(is_train).step(actions) 
         next_observations = self.observation_preprocessor.process(next_observations)
@@ -289,6 +313,11 @@ class DqnSolver(ReinforcementLearningTrainer):
             max_game_step = self.max_game_step if is_train else self.evaluation_max_game_step
             if is_valid_agent[i] and self.agent_statistics[is_train][i]["Episode Length"] >= max_game_step:
                 dones[i] = True
+                
+        if self.policy.use_rnn:
+            _next_observations["observation_memory"] = memories
+            _next_observations["observation_previous_reward"] = np.asarray(rewards, dtype=np.float32)
+            _next_observations["observation_previous_action"] = np.asarray(actions, dtype=np.float32)
 
         if is_train:
             for i in range(self.get_agent_count(is_train)):
@@ -296,15 +325,16 @@ class DqnSolver(ReinforcementLearningTrainer):
                     next_obs = {}
                     for key in self.observations[is_train]:
                         next_obs[key] = np.asarray(_next_observations[key][i])
+                    if self.policy.use_rnn:
+                        self.replay_buffer.append(i, (self.previous_observations[i][0], self.previous_actions[i][0], np.asarray(self.previous_rewards[i], dtype=np.float32), dones[i], next_obs))
+                    else:
+                        self.replay_buffer.append(self.previous_observations[i][0], self.previous_actions[i][0], np.asarray(self.previous_rewards[i], dtype=np.float32), dones[i], next_obs)
+
                     if dones[i]:
-                        for j in range(len(self.previous_observations[i])):
-                            self.replay_buffer.append(self.previous_observations[i][j], self.previous_actions[i][j], np.asarray(self.previous_rewards[i])[j:], dones[i], next_obs)
                         self.previous_observations[i].clear()
                         self.previous_actions[i].clear()
-                        self.previous_rewards[i].clear()
-                    else:
-                        self.replay_buffer.append(self.previous_observations[i][0], self.previous_actions[i][0], np.asarray(self.previous_rewards[i]), dones[i], next_obs)
-
+                        self.previous_rewards[i] = deque([np.zeros(self.policy.value_head_count) for _ in range(self.n_step_size)], maxlen=self.n_step_size)
+                        
         if is_train:
             if self.is_preparing_data:
                 if self.replay_buffer.size() >= self.minimal_replay_memory_size:

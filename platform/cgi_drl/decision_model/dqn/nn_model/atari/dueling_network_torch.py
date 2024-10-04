@@ -60,4 +60,6 @@ class PolicyModel(nn.Module):
                 same_dimension_q_values.append(x_q)
             q_values.append(same_dimension_q_values)
 
-        return q_values
+        return {
+            "q_value" : q_values,
+        }

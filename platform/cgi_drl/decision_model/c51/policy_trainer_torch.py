@@ -39,7 +39,7 @@ class PolicyTrainer():
         self.observation_prodiver = config["observation_prodiver"]
         self.action_prodiver = config["action_prodiver"]
         self.target_q_distributions_prodiver = config["target_q_distributions_prodiver"]
-        self.optimizer = torch.optim.Adam(self.behavior_network.parameters())
+        self.optimizer = config.get("optimizer_function", lambda x: torch.optim.Adam(x))(self.behavior_network.parameters())
 
     def update(self, transitions, extra_settings = None):
         if extra_settings == None:
@@ -54,8 +54,10 @@ class PolicyTrainer():
         batch_size = len(actions)
         if "loss_weights" in extra_settings:
             loss_weights = torch.tensor(extra_settings["loss_weights"], dtype=torch.float32).to(self.device).view(-1, 1)
+            if self.use_rnn:
+                loss_weights = loss_weights.repeat_interleave(self.rnn_sequence_length).view(-1, 1)
         else:
-            loss_weights = torch.tensor(np.ones(batch_size), dtype=torch.float32).to(self.device).view(-1, 1)
+            loss_weights = torch.tensor(np.ones(batch_size), dtype=torch.float32).to(self.device).view(-1, 1) 
 
         self.behavior_network.train()
         self.optimizer.zero_grad()
@@ -65,10 +67,9 @@ class PolicyTrainer():
         else:
             behavior_q_distribution_logits = self.behavior_network(observations)["q_distribution_logit"]
 
-        q_losses = []
+        q_losses = 0
         q_loss = 0
         for i_head in range(self.value_head_count):
-            head_q_loss = 0
             for i_space in range(len(self.action_space)):
                 one_hot_action = F.one_hot(actions[:, i_space], num_classes=self.action_space[i_space]).float()
                 one_hot_action = one_hot_action.unsqueeze(-2)
@@ -80,15 +81,15 @@ class PolicyTrainer():
                     torch.log(F.softmax(behavior_q_distribution_logits, dim=-1) + self.cross_entropy_minimal_epsilon),
                     dim=-1
                 ).view(-1, 1)            
-                head_q_loss += torch.mean(loss_weights * branch_q_loss)
-            q_losses.append(head_q_loss)
-            q_loss += head_q_loss
+                q_losses += branch_q_loss
+                q_loss += torch.mean(loss_weights * branch_q_loss)
+        q_losses /= self.value_head_count * len(self.action_space)
         q_loss /= self.value_head_count * len(self.action_space)
         
         q_loss.backward()
         self.optimizer.step()
         
-        return q_loss, q_losses
+        return q_loss, q_losses.squeeze(-1).to('cpu').detach().numpy()
     
     def _q_list_to_cpu(self, q_list):
         _q_list = []
@@ -158,21 +159,33 @@ class PolicyTrainer():
     def save_to_agent_pool(self, agent_pool_path, time_step="latest"):
         self.save(agent_pool_path, time_step)
         print(f"Model saved to an agent pool: {agent_pool_path}")
-        
+    
     def distributional_bellman_operator(self, next_q_distribution, gamma, reward):
-        final_q_distribution = np.zeros_like(next_q_distribution, dtype=np.float32)
-        T_z = np.clip(reward + gamma * self.value_atom_scale_supports, self.value_V_min, self.value_V_max)
+        T_z = np.clip(reward[:, None] + gamma * self.value_atom_scale_supports, self.value_V_min, self.value_V_max)
         b = (T_z - self.value_V_min) / self.value_atom_scale_support_delta_z
-        l = np.floor(b)
-        u = np.ceil(b)
-        l_int = np.clip(l.astype(np.int32), 0, self.value_atom_count - 1)
-        u_int = np.clip(u.astype(np.int32), 0, self.value_atom_count - 1)
+        l = np.floor(b).astype(np.int32)
+        u = np.ceil(b).astype(np.int32)
+        l_int = np.clip(l, 0, self.value_atom_count - 1)
+        u_int = np.clip(u, 0, self.value_atom_count - 1)
+        
+        mask = (l == u).astype(np.float32)
+        l_weight = (u - b) * (1 - mask) + mask
+        u_weight = (b - l) * (1 - mask) 
 
-        l_distribution = next_q_distribution * (u + (l == u).astype(np.float32) - b)
-        u_distribution = next_q_distribution * (b - l)
+        l_distribution = next_q_distribution * l_weight
+        u_distribution = next_q_distribution * u_weight
 
-        for i in range(self.value_atom_count):
-            final_q_distribution[l_int[i]] += l_distribution[i]
-            final_q_distribution[u_int[i]] += u_distribution[i]
+        final_q_distribution = np.zeros_like(next_q_distribution, dtype=np.float32)
+        
+        batch_size, atom_count = next_q_distribution.shape
+        batch_indices = np.repeat(np.arange(batch_size), atom_count)
+        
+        l_int_flat = l_int.flatten()
+        u_int_flat = u_int.flatten()
+        l_distribution_flat = l_distribution.flatten()
+        u_distribution_flat = u_distribution.flatten()
+        
+        np.add.at(final_q_distribution, (batch_indices, l_int_flat), l_distribution_flat)
+        np.add.at(final_q_distribution, (batch_indices, u_int_flat), u_distribution_flat)
 
         return final_q_distribution

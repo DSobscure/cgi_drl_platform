@@ -173,9 +173,9 @@ class EnvironmentRequester(SocketClient):
                 actions = []
                 for i, action in enumerate(parameters[SampleActionAllRequesterResponseParameterCode.Actions]):
                     if action == None:
-                        actions.extend([None for _ in range(self.individual_agent_counts[i])])
+                        actions.extend(None for _ in range(self.individual_agent_counts[i]))
                     else:
-                        actions.extend([pickle.loads(action)])
+                        actions.extend(pickle.loads(action))
                 return actions
             else:
                 print("SampleActionAll error returnCode: {}, operationMessage: {}".format(returnCode, operationMessage))

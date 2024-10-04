@@ -4,6 +4,7 @@ import numpy as np
 class DefaultTemplate(dict):
     def __init__(self, config):
         self["value_head_count"] = config.get("value_head_count", 1)
+        self.invertible_value_function = network_settings["invertible_value_function"]
 
         self["use_rnn"] = config.get("use_rnn", False)  
         
@@ -44,8 +45,10 @@ class RnnTemplate(dict):
         
         def observation_prodiver(observations, device):
             return {
-                "observation_2d" : torch.tensor(np.asarray(observations["observation_2d"]), dtype=torch.float32).view(-1, 4, 84, 84).to(device),
-                "observation_memory" : torch.tensor(np.asarray(observations["observation_memory"]), dtype=torch.float32).view(-1, self["memory_size"]).to(device),
+                "observation_2d" : torch.tensor(np.asarray(observations["observation_2d"], dtype=np.float32), dtype=torch.float32).view(-1, 4, 84, 84).to(device),
+                "observation_memory" : torch.tensor(np.asarray(observations["observation_memory"], dtype=np.float32), dtype=torch.float32).view(-1, self["memory_size"]).to(device),
+                "observation_previous_reward" : torch.tensor(np.asarray(observations["observation_previous_reward"], dtype=np.float32), dtype=torch.float32).view(-1, self["value_head_count"]).to(device),
+                "observation_previous_action" : torch.tensor(np.asarray(observations["observation_previous_action"], dtype=np.int32), dtype=torch.long).to(device),
             }
         def action_prodiver(actions, device):
             return torch.tensor(actions, dtype=torch.float32).to(device)
@@ -58,7 +61,7 @@ class RnnTemplate(dict):
         self["return_prodiver"] = return_prodiver
         self["advantage_prodiver"] = advantage_prodiver
 
-        def invertible_value_function(x, is_inverse):
+        def invertible_value_function(x, is_inverse=False):
             epsilon = 0.001
             if is_inverse:
                 return torch.sign(x) * (torch.square((torch.sqrt(1 + 4 * epsilon * (torch.abs(x) + 1 + epsilon)) - 1) / (2 * epsilon)) - 1)

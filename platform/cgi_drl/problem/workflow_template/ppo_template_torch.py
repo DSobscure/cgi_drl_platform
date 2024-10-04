@@ -104,7 +104,15 @@ class PpoSolver(ReinforcementLearningTrainer):
                 if self.policy.use_rnn:
                     if "observation_memory" not in self.observations[is_train]:
                         self.observations[is_train]["observation_memory"] = [None for _ in range(self.get_agent_count(is_train))]
-                    self.observations[is_train]["observation_memory"][i] = np.zeros((self.policy.memory_size), dtype=np.float32)
+                    self.observations[is_train]["observation_memory"][i] = np.zeros(self.policy.memory_size, dtype=np.float32)
+                    
+                    if "observation_previous_reward" not in self.observations[is_train]:
+                        self.observations[is_train]["observation_previous_reward"] = [None for _ in range(self.get_agent_count(is_train))]
+                    self.observations[is_train]["observation_previous_reward"][i] = np.zeros(self.policy.value_head_count, dtype=np.float32)
+                    
+                    if "observation_previous_action" not in self.observations[is_train]:
+                        self.observations[is_train]["observation_previous_action"] = [None for _ in range(self.get_agent_count(is_train))]
+                    self.observations[is_train]["observation_previous_action"][i] = np.zeros(len(self.policy.action_space), dtype=np.float32)
                 self.agent_statistics[is_train][i] = {}
                 if not is_train:
                     self.eval_trajectory_observations[i] = defaultdict(list)
@@ -224,11 +232,11 @@ class PpoSolver(ReinforcementLearningTrainer):
 
     def decide_agent_actions(self, is_valid_agent, is_train=True):
         if self.policy.use_rnn:
-            actions, values, memorys = self.policy.sample_actions_and_get_values(self.observations[is_train])
+            actions, values, memories = self.policy.sample_actions_and_get_values(self.observations[is_train])
             decision = {
                 "actions": actions,
                 "values": values,
-                "memorys": memorys,
+                "memories": memories,
             }
         else:
             actions, values = self.policy.sample_actions_and_get_values(self.observations[is_train])
@@ -242,7 +250,7 @@ class PpoSolver(ReinforcementLearningTrainer):
         actions = decision["actions"]
         values = decision["values"]
         if self.policy.use_rnn:
-            memorys = decision["memorys"]
+            memories = decision["memories"]
 
         next_observations, rewards, dones, infos = self.get_environment(is_train).step(actions) 
         next_observations = self.observation_preprocessor.process(next_observations)
@@ -252,8 +260,6 @@ class PpoSolver(ReinforcementLearningTrainer):
                 _next_observations[key] = [None for _ in range(self.get_agent_count(is_train))]
             for i in range(self.get_agent_count(is_train)):
                 _next_observations[key][i] = self.observation_preprocessor.observation_aggregator(key, self.observations[is_train][key][i], next_observations[key][i])
-        if self.policy.use_rnn:
-            _next_observations["observation_memory"] = memorys
 
         for i in range(self.get_agent_count(is_train)):
             infos[i]["Value"] = np.asarray(values)[:,i].mean()
@@ -264,6 +270,11 @@ class PpoSolver(ReinforcementLearningTrainer):
             max_game_step = self.max_game_step if is_train else self.evaluation_max_game_step
             if is_valid_agent[i] and self.agent_statistics[is_train][i]["Episode Length"] >= max_game_step:
                 dones[i] = True
+                
+        if self.policy.use_rnn:
+            _next_observations["observation_memory"] = memories
+            _next_observations["observation_previous_reward"] = np.asarray(rewards, dtype=np.float32)
+            _next_observations["observation_previous_action"] = np.asarray(actions, dtype=np.float32)
 
         if is_train:
             for i in range(self.get_agent_count(is_train)):

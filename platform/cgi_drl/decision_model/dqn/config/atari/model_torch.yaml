@@ -1,2 +1,5 @@
 default:
     model_define_path: decision_model.dqn.nn_model.atari.dueling_network_torch
+
+lstm:
+    model_define_path: decision_model.dqn.nn_model.atari.dueling_network_lstm_torch

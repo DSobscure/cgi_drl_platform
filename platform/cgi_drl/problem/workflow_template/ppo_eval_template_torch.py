@@ -61,6 +61,13 @@ class PpoSolver(ReinforcementLearningEvaluator):
                     if "observation_memory" not in self.observations:
                         self.observations["observation_memory"] = [None for _ in range(self.get_agent_count())]
                     self.observations["observation_memory"][i] = np.zeros((self.policy.memory_size), dtype=np.float32)
+                    
+                    if "observation_previous_reward" not in self.observations:
+                        self.observations["observation_previous_reward"] = [None for _ in range(self.get_agent_count())]
+                    self.observations["observation_previous_reward"][i] = np.zeros(self.policy.value_head_count, dtype=np.float32)
+                    
+                    if "observation_previous_action" not in self.observations:
+                        self.observations["observation_previous_action"] = [None for _ in range(self.get_agent_count())]
                 self.agent_statistics[i] = {}
                 self.eval_trajectory_observations[i] = defaultdict(list)
         return dones
@@ -115,8 +122,6 @@ class PpoSolver(ReinforcementLearningEvaluator):
                 _next_observations[key] = [None for _ in range(self.get_agent_count())]
             for i in range(self.get_agent_count()):
                 _next_observations[key][i] = self.observation_preprocessor.observation_aggregator(key, self.observations[key][i], next_observations[key][i])
-        if self.policy.use_rnn:
-            _next_observations["observation_memory"] = memorys
 
         for i in range(self.get_agent_count()):
             infos[i]["Value"] = np.asarray(values)[:,i].mean()
@@ -127,6 +132,11 @@ class PpoSolver(ReinforcementLearningEvaluator):
             max_game_step = self.evaluation_max_game_step
             if is_valid_agent[i] and self.agent_statistics[i]["Episode Length"] >= max_game_step:
                 dones[i] = True
+                
+        if self.policy.use_rnn:
+            _next_observations["observation_memory"] = memorys
+            _next_observations["observation_previous_reward"] = np.asarray(rewards, dtype=np.float32)
+            _next_observations["observation_previous_action"] = np.asarray(actions, dtype=np.float32)
 
         self.observations = _next_observations
         return dones

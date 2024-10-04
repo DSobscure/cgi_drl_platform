@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.distributions.categorical import Categorical
 import numpy as np
 
 class PolicyModel(nn.Module):
@@ -10,34 +9,40 @@ class PolicyModel(nn.Module):
 
         self.action_space = network_settings["action_space"]
         self.value_head_count = network_settings["value_head_count"]
+        self.value_atom_count = network_settings["value_atom_count"]
+        self.value_atom_scale_supports = network_settings["value_atom_scale_supports"]
         self.memory_size = network_settings["memory_size"]
-        self.invertible_value_function = network_settings["invertible_value_function"]
 
         self.conv = nn.Conv2d(4, 32, kernel_size=8, stride=4)
         self.conv2 = nn.Conv2d(32, 64, kernel_size=4, stride=2)
         self.conv3 = nn.Conv2d(64, 64, kernel_size=3)
-        self.fc = nn.Linear(64*7*7 + np.sum(self.action_space) + self.value_head_count, 512)
-        self.lstm = nn.LSTM(512, self.memory_size // 2)
+        self.lstm = nn.LSTM(64*7*7 + np.sum(self.action_space) + self.value_head_count, self.memory_size // 2)
         for name, param in self.lstm.named_parameters():
             if "bias" in name:
                 nn.init.constant_(param, 0)
             elif "weight" in name:
                 nn.init.orthogonal_(param, 1.0)
+
+        self.value_hidden_heads = nn.ModuleList()
+        self.value_output_heads = nn.ModuleList()
+        self.advantage_hidden_heads = nn.ModuleList()
+        self.advantage_output_heads = nn.ModuleList()
         
-        self.value_heads = nn.ModuleList()
         for i_head in range(self.value_head_count):
-            fc = nn.Linear(self.memory_size // 2, 1)
-            self.value_heads.append(fc)
-        
-        self.policy_heads = nn.ModuleList()
-        for i_space in self.action_space:
-            fc = nn.Linear(self.memory_size // 2, i_space)
-            self.policy_heads.append(fc)
+            self.value_hidden_heads.append(nn.Linear(self.memory_size // 2, 512))
+            self.value_output_heads.append(nn.Linear(512, self.value_atom_count))
+            same_dimension_hidden_advantages = nn.ModuleList()
+            same_dimension_output_advantages = nn.ModuleList()
+            for space in self.action_space:
+                same_dimension_hidden_advantages.append(nn.Linear(self.memory_size // 2, 512))
+                same_dimension_output_advantages.append(nn.Linear(512, space * self.value_atom_count))
+            self.advantage_hidden_heads.append(same_dimension_hidden_advantages)
+            self.advantage_output_heads.append(same_dimension_output_advantages)
 
     def forward(self, observations, rnn_sequence_length, rnn_burn_in_length):
         x = observations["observation_2d"]
         x_memory = observations["observation_memory"]
-        x_previous_reward = self.invertible_value_function(observations["observation_previous_reward"].view(-1, self.value_head_count))
+        x_previous_reward = observations["observation_previous_reward"].view(-1, self.value_head_count)
         x_previous_action = observations["observation_previous_action"]
 
         x = self.conv(x)
@@ -50,26 +55,21 @@ class PolicyModel(nn.Module):
         x = F.relu(x)
         
         x = x.view(-1, 64*7*7)
-        x = self.fc(x)
-        x = F.relu(x)    
-        x_fc = x
-
+        
         feature_list = [x, x_previous_reward]
         for i_space in range(len(self.action_space)):
             one_hot_action = F.one_hot(x_previous_action[:, i_space], num_classes=self.action_space[i_space]).float()
             feature_list.append(one_hot_action)
         x = torch.concat(feature_list, dim=-1)
         
-        # LSTM
         sequence_count = x.size(0) // rnn_sequence_length
         x = x.view(sequence_count, rnn_sequence_length, -1)
+        x = x.transpose(0, 1).contiguous()
 
         h0, c0 = x_memory.view(sequence_count, rnn_sequence_length, -1)[:,0,:].chunk(2, dim=-1)
         h0 = h0.view(self.lstm.num_layers, sequence_count, self.memory_size // 2)
         c0 = c0.view(self.lstm.num_layers, sequence_count, self.memory_size // 2)
         lstm_state = (h0, c0)
-
-        x = x.transpose(0, 1).contiguous()
 
         burn_in_output = []
         if rnn_burn_in_length > 0:
@@ -93,36 +93,42 @@ class PolicyModel(nn.Module):
 
         next_memory = torch.cat((lstm_state[0].view(-1, self.memory_size // 2), lstm_state[1].view(-1, self.memory_size // 2)), dim=-1)
         
-        x = x_fc + x
+        x_shared = x
 
-        value_heads = []
-        for head in self.value_heads:
-            x_value = head(x)
-            value_heads.append(x_value)
+        q_values = []
+        q_distribution_logits = []
+        q_distributions = []
 
-        policy_heads = []
-        policy_probability = []
-        sampled_actions = []
-        max_actions = []
-        entropy = 0
+        for i_head in range(self.value_head_count):
+            x_v = self.value_hidden_heads[i_head](x_shared)
+            x_v = F.relu(x_v)
+            x_v = self.value_output_heads[i_head](x_v)
+            x_v = x_v.view(-1, 1, self.value_atom_count)
 
-        for head in self.policy_heads:
-            x_policy = head(x)
-            policy_distribution = Categorical(logits=x_policy)
-            action = policy_distribution.sample()
-            max_action = torch.argmax(x_policy, dim=-1)
+            same_dimension_q_values = []
+            same_dimension_q_distribution_logits = []
+            same_dimension_q_distributions = []
+            for i_space in range(len(self.action_space)):
+                x_a = self.advantage_hidden_heads[i_head][i_space](x_shared)
+                x_a = F.relu(x_a)
+                x_a = self.advantage_output_heads[i_head][i_space](x_a)
+                x_a = x_a.view(-1, self.action_space[i_space], self.value_atom_count)
+                
+                x_logits = x_v + x_a - x_a.mean(dim=-2, keepdim=True)
+                
+                x_probabilities = F.softmax(x_logits, dim=-1)
+                x_q_values = torch.sum(self.value_atom_scale_supports * x_probabilities, dim=-1)
 
-            policy_heads.append(x_policy)
-            policy_probability.append(policy_distribution)
-            sampled_actions.append(action)
-            max_actions.append(max_action)
-            entropy += policy_distribution.entropy().mean()
+                same_dimension_q_values.append(x_q_values)
+                same_dimension_q_distribution_logits.append(x_logits)
+                same_dimension_q_distributions.append(x_probabilities)
+            q_values.append(same_dimension_q_values)
+            q_distribution_logits.append(same_dimension_q_distribution_logits)
+            q_distributions.append(same_dimension_q_distributions)
 
         return {
-            "sample_action": sampled_actions,
-            "max_action": max_actions,
-            "value": value_heads,
-            "entropy": entropy,
-            "policy_distribution": policy_probability,
-            "next_memory": next_memory
+            "q_value" : q_values,
+            "q_distribution_logit" : q_distribution_logits,
+            "q_distribution" : q_distributions,
+            "next_memory": next_memory,
         }

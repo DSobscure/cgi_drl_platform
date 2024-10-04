@@ -78,7 +78,8 @@ class PrioritizedTrainingTemplate(dict):
                 agent_statistics[index]["Average Q Value Sum"] = ((agent_statistics[index]["Episode Length"] - 1) * agent_statistics[index].get("Average Q Value Sum", 0) + infos[index]["Q Value Sum"]) / agent_statistics[index]["Episode Length"]
 
         def reward_transformer(rewards, infos):
-            return rewards
+            return np.reshape(np.asarray(rewards), (-1, 1))
+            # return np.reshape(np.asarray(np.clip(rewards, -1, 1)), (-1, 1))
         self["reward_transformer"] = config.get("reward_transformer", reward_transformer)
 
         self["agent_statistics_aggregator"] = config.get("agent_statistics_aggregator", agent_statistics_aggregator)

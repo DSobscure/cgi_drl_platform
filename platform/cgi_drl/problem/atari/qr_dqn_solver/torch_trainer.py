@@ -20,25 +20,33 @@ def launch(problem_config):
     from cgi_drl.environment.atari.atari_observation_preprocessor import AtariObservationPreprocessor
     preprocessor = AtariObservationPreprocessor(preprocessor_config)
 
-    # setup experience replay
-    buffer_config = load(*problem_config["experience_replay"])
-    buffer_config["agent_count"] = train_env.agent_count
-    problem_config["experience_replay"] = buffer_config
-    if "is_prioritized" in buffer_config and buffer_config["is_prioritized"]:
-        from cgi_drl.data_storage.experience_replay.prioritized_experience_replay import PrioritizedExperienceReplay
-        replay_buffer = PrioritizedExperienceReplay(buffer_config)
-        replay_buffer.is_prioritized = True
-    else:
-        from cgi_drl.data_storage.experience_replay.simple_experience_replay import SimpleExperienceReplay
-        replay_buffer = SimpleExperienceReplay(buffer_config)
-        replay_buffer.is_prioritized = False
-
     # setup policy
     qr_dqn_config = load(*problem_config["qr_dqn"])
     qr_dqn_config["action_space"] = train_env.get_action_space()
     problem_config["qr_dqn"] = qr_dqn_config
     from cgi_drl.decision_model.qr_dqn.policy_trainer_torch import PolicyTrainer
     policy = PolicyTrainer(qr_dqn_config)
+    
+    # setup experience replay
+    buffer_config = load(*problem_config["experience_replay"])
+    buffer_config["agent_count"] = train_env.agent_count
+    problem_config["experience_replay"] = buffer_config
+    if "is_prioritized" in buffer_config and buffer_config["is_prioritized"]:
+        if policy.use_rnn:
+            from cgi_drl.data_storage.experience_replay.r2d2_experience_replay import R2d2ExperienceReplay
+            replay_buffer = R2d2ExperienceReplay(buffer_config)
+        else:
+            from cgi_drl.data_storage.experience_replay.prioritized_experience_replay import PrioritizedExperienceReplay
+            replay_buffer = PrioritizedExperienceReplay(buffer_config)
+        replay_buffer.is_prioritized = True
+    else:
+        if policy.use_rnn:
+            from cgi_drl.data_storage.experience_replay.recurrent_experience_replay import RecurrentExperienceReplay
+            replay_buffer = RecurrentExperienceReplay(buffer_config)
+        else:
+            from cgi_drl.data_storage.experience_replay.simple_experience_replay import SimpleExperienceReplay
+            replay_buffer = SimpleExperienceReplay(buffer_config)
+        replay_buffer.is_prioritized = False
     
     # setup solver
     problem_config["solver"] = problem_config

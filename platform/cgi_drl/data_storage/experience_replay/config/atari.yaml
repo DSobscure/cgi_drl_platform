@@ -8,3 +8,11 @@ atari_prioritized:
     use_compression: True
     is_prioritized: True
     priority_alpha: 0.6
+
+atari_r2d2:
+    max_capacity: 1000000
+    use_compression: True
+    is_prioritized: True
+    priority_alpha: 0.9
+    sequence_length: 8
+    priority_mixture_eta: 0.9

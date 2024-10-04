@@ -37,7 +37,7 @@ class QrDqnSolver(DqnSolver):
         
         self.previous_observations = [deque(maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
         self.previous_actions = [deque(maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
-        self.previous_rewards = [deque(maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
+        self.previous_rewards = [deque([np.zeros(self.policy.value_head_count) for _ in range(self.n_step_size)], maxlen=self.n_step_size) for _ in range(self.get_agent_count())]
         
         self.observations = {
             True: {}, # for train
@@ -64,33 +64,25 @@ class QrDqnSolver(DqnSolver):
         else:
             state_batch, action_batch, reward_batch, done_batch, next_state_batch = self.replay_buffer.sample_mini_batch(self.batch_size)
 
-        target_q_value, target_q_distribution = self.policy.get_target_q_values_and_distributions(next_state_batch)
+        if self.policy.use_rnn:
+            target_q_value, target_q_distribution, _ = self.policy.get_target_q_values_and_distributions(next_state_batch)
+        else:
+            target_q_value, target_q_distribution = self.policy.get_target_q_values_and_distributions(next_state_batch)
         q_distributions = np.zeros([self.batch_size, self.policy.value_head_count, len(self.policy.action_space), self.policy.value_quantile_count])
 
         if self.use_double_q:
-            next_behavior_q_values = self.policy.get_behavior_q_values(next_state_batch)
+            if self.policy.use_rnn:
+                target_q_value, _ = self.policy.get_behavior_q_values(next_state_batch)
+            else:
+                target_q_value = self.policy.get_behavior_q_values(next_state_batch)
 
-        for i in range(self.batch_size):
-            for j in range(self.policy.value_head_count):
-                for k in range(len(self.policy.action_space)):
-                    if not done_batch[i]:
-                        if self.use_double_q:
-                            q_distributions[i, j, k] = target_q_distribution[j][k][i][np.argmax(next_behavior_q_values[j][k][i])]
-                        else:
-                            q_distributions[i, j, k] = target_q_distribution[j][k][i][np.argmax(target_q_value[j][k][i])]
-                    for l in range(len(reward_batch[i])):
-                        q_distributions[i, j, k] = reward_batch[i][-1-l] + self.discount_factor_gamma * q_distributions[i, j, k]
+        non_terminal = (1 - np.asarray(done_batch, dtype=np.float32))[..., None]
+        for j in range(self.policy.value_head_count):
+            for k in range(len(self.policy.action_space)):
+                q_distributions[:, j, k] += non_terminal * target_q_distribution[j][k][:][np.arange(self.batch_size), np.argmax(target_q_value[j][k], axis=-1)]
+                for l in range(self.n_step_size):
+                    q_distributions[:, j, k] = reward_batch[:,-1-l,j][..., None] + self.discount_factor_gammas[j] * q_distributions[:, j, k]
         q_distributions = np.mean(q_distributions, axis=-2)
-    
-        if self.replay_buffer.is_prioritized: 
-            predict_behavior_q_distributions = self.policy.get_behavior_q_distributions(state_batch)
-            priority_values = np.zeros(self.batch_size)
-            for i in range(self.batch_size):
-                for j in range(self.policy.value_head_count):
-                    for k in range(len(self.policy.action_space)):
-                        priority_values[i] += np.mean(np.abs(q_distributions[i, j] - predict_behavior_q_distributions[j][k][i][action_batch[i]]))
-                priority_values[i] /= self.policy.value_head_count * len(self.policy.action_space)
-            self.replay_buffer.update_batch(random_indexes, priority_values)
 
         if self.replay_buffer.is_prioritized:
             distribution_loss, distribution_losses = self.policy.update(
@@ -117,3 +109,6 @@ class QrDqnSolver(DqnSolver):
             )
         self.total_loss += distribution_loss
         self.update_counter += 1
+        
+        if self.replay_buffer.is_prioritized: 
+            self.replay_buffer.update_batch(random_indexes, distribution_losses)

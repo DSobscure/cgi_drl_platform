@@ -13,7 +13,31 @@ breakout_prioritized:
     update_target_step_frequent: 12800
     epoch_steps: 250000
     max_game_step: 10000 
-    discount_factor_gamma: 0.99
+    discount_factor_gammas: [0.99]
+    n_step_size: 3
+
+    evaluation_max_game_step: 10000
+    evaluation_episode_count: 16
+
+    evaluation_action_epsilon: 0.01
+    minimal_replay_memory_size: 5000
+
+breakout_r2d2:
+    environment: [cgi_drl.environment.atari.config.environment_template, DefaultTemplate, environment/atari/config/environment.yaml, breakout-16-non-episodic]
+    evaluation_environment: [cgi_drl.environment.atari.config.environment_template, DefaultTemplate, environment/atari/config/environment.yaml, breakout-eval]
+    observation_preprocessor: [cgi_drl.environment.atari.config.observation_preprocessor_template, DefaultTemplate, environment/atari/config/observation_preprocessor.yaml, default]
+    qr_dqn: [cgi_drl.decision_model.qr_dqn.config.atari.model_template_torch, RnnTemplate, decision_model/qr_dqn/config/atari/model_torch.yaml, lstm]
+    experience_replay: [cgi_drl.default_config, Default, data_storage/experience_replay/config/atari.yaml, atari_r2d2]
+    
+    version: versions/atari_r2d2_qr_rainbow_breakout_torch
+    batch_size: 128
+    is_load_policy: false
+    training_steps: 10000000
+    update_step_frequent: 32
+    update_target_step_frequent: 12800
+    epoch_steps: 250000
+    max_game_step: 10000 
+    discount_factor_gammas: [0.99]
     n_step_size: 3
 
     evaluation_max_game_step: 10000

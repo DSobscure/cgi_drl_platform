@@ -58,8 +58,8 @@ class PrioritizedTrainingTemplate(dict):
             epsilons = []
             for i_agent in range(agent_count):
                 epsilon = pow(action_epsilon_base, (1+((i_agent) / (agent_count-1)) * action_epsilon_alpha))
-                if current_timestep < 1000000:
-                    epsilon = 1.0 - (1 - epsilon) * (current_timestep / 1000000)
+                if current_timestep < 250000:
+                    epsilon = 1.0 - (1 - epsilon) * (current_timestep / 250000)
                 epsilons.append(epsilon)
                 
             return epsilons
@@ -79,8 +79,8 @@ class PrioritizedTrainingTemplate(dict):
                 agent_statistics[index]["Average Q Value Sum"] = ((agent_statistics[index]["Episode Length"] - 1) * agent_statistics[index].get("Average Q Value Sum", 0) + infos[index]["Q Value Sum"]) / agent_statistics[index]["Episode Length"]
 
         def reward_transformer(rewards, infos):
-            # return np.clip(rewards, -1, 1)
-            return rewards
+            return np.reshape(np.asarray(rewards), (-1, 1))
+            # return np.reshape(np.asarray(np.clip(rewards, -1, 1)), (-1, 1))
         self["reward_transformer"] = config.get("reward_transformer", reward_transformer)
 
         self["agent_statistics_aggregator"] = config.get("agent_statistics_aggregator", agent_statistics_aggregator)

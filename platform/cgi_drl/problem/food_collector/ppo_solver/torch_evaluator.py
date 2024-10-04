@@ -41,7 +41,7 @@ class UnityPpoSolver(PpoSolver):
         actions = decision["actions"]
         values = decision["values"]
         if self.policy.use_rnn:
-            memorys = decision["memorys"]
+            memories = decision["memories"]
 
         next_observations, rewards, dones, infos = self.get_environment().step(actions) 
         next_observations = self.observation_preprocessor.process(next_observations)
@@ -51,8 +51,6 @@ class UnityPpoSolver(PpoSolver):
                 _next_observations[key] = [None for _ in range(self.get_agent_count())]
             for i in range(self.get_agent_count()):
                 _next_observations[key][i] = self.observation_preprocessor.observation_aggregator(key, self.observations[key][i], next_observations[key][i])
-        if self.policy.use_rnn:
-            _next_observations["observation_memory"] = memorys
 
         for i in range(self.get_agent_count()):
             infos[i]["Value"] = np.asarray(values)[:,i].mean()
@@ -68,6 +66,11 @@ class UnityPpoSolver(PpoSolver):
             max_game_step = self.evaluation_max_game_step
             if is_valid_agent[i] and self.agent_statistics[i]["Episode Length"] >= max_game_step:
                 dones[i] = True
+                
+        if self.policy.use_rnn:
+            _next_observations["observation_memory"] = memories
+            _next_observations["observation_previous_reward"] = rewards
+            _next_observations["observation_previous_action"] = actions
 
         self.observations = _next_observations
         return dones

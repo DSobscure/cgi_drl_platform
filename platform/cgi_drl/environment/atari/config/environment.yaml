@@ -16,3 +16,8 @@ breakout-16:
     environment_name: Breakout
     environment_count: 16
     episode_life: True
+
+breakout-16-non-episodic:
+    environment_name: Breakout
+    environment_count: 16
+    episode_life: False

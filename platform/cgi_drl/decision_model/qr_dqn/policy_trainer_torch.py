@@ -12,7 +12,7 @@ class PolicyTrainer():
         self.value_quantile_count = config["value_quantile_count"]
         self.quantile_regression_tau = np.asarray([(2 * (i + 1) - 1) / (2 * self.value_quantile_count) for i in range(self.value_quantile_count)])
         self.use_rnn = config.get("use_rnn", False)
-        self.invertible_value_function = config.get("invertible_value_function", lambda x : x)
+        self.invertible_value_function = config.get("invertible_value_function", lambda x, y : x)
 
         PolicyModel = getattr(importlib.import_module(config["model_define_path"]), "PolicyModel")
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -22,6 +22,7 @@ class PolicyTrainer():
         network_settings["action_space"] = self.action_space
         network_settings["value_head_count"] = self.value_head_count
         network_settings["value_quantile_count"] = self.value_quantile_count
+        network_settings["invertible_value_function"] = self.invertible_value_function
         if self.use_rnn:
             network_settings["memory_size"] = config["memory_size"]
             self.memory_size = config["memory_size"]
@@ -34,7 +35,7 @@ class PolicyTrainer():
         self.observation_prodiver = config["observation_prodiver"]
         self.action_prodiver = config["action_prodiver"]
         self.target_q_distributions_prodiver = config["target_q_distributions_prodiver"]
-        self.optimizer = torch.optim.Adam(self.behavior_network.parameters())
+        self.optimizer = config.get("optimizer_function", lambda x: torch.optim.Adam(x))(self.behavior_network.parameters())
 
     def update(self, transitions, extra_settings = None):
         if extra_settings == None:
@@ -49,6 +50,8 @@ class PolicyTrainer():
         batch_size = len(actions)
         if "loss_weights" in extra_settings:
             loss_weights = torch.tensor(extra_settings["loss_weights"], dtype=torch.float32).to(self.device).view(-1, 1)
+            if self.use_rnn:
+                loss_weights = loss_weights.repeat_interleave(self.rnn_sequence_length).view(-1, 1)
         else:
             loss_weights = torch.tensor(np.ones(batch_size), dtype=torch.float32).to(self.device).view(-1, 1)
 
@@ -60,10 +63,9 @@ class PolicyTrainer():
         else:
             behavior_q_quantile_values = self.behavior_network(observations)["q_quantile_value"]
 
-        q_losses = []
+        q_losses = 0
         q_loss = 0
         for i_head in range(self.value_head_count):
-            head_q_loss = 0
             for i_space in range(len(self.action_space)):
                 one_hot_action = F.one_hot(actions[:, i_space], num_classes=self.action_space[i_space]).float()
                 one_hot_action = one_hot_action.unsqueeze(-2)
@@ -78,15 +80,15 @@ class PolicyTrainer():
                 tau_difference = torch.abs(self.quantile_regression_tau - (diff.detach() < 0).float())
                 branch_q_loss = L_k * tau_difference
                 branch_q_loss = branch_q_loss.mean(dim=-2).mean(dim=-1).view(-1, 1)   
-                head_q_loss += torch.mean(loss_weights * branch_q_loss)
-            q_losses.append(head_q_loss)
-            q_loss += head_q_loss
+                q_losses += branch_q_loss
+                q_loss += torch.mean(loss_weights * branch_q_loss)
+        q_losses /= self.value_head_count * len(self.action_space)
         q_loss /= self.value_head_count * len(self.action_space)
         
         q_loss.backward()
         self.optimizer.step()
         
-        return q_loss, q_losses
+        return q_loss, q_losses.squeeze(-1).to('cpu').detach().numpy()
     
     def _q_list_to_cpu(self, q_list):
         _q_list = []

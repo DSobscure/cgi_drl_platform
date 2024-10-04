@@ -19,6 +19,7 @@ class PolicyTrainer():
         network_settings = config.get("network_settings", {})
         network_settings["action_space"] = self.action_space
         network_settings["value_head_count"] = self.value_head_count
+        network_settings["invertible_value_function"] = self.invertible_value_function
         if self.use_rnn:
             network_settings["memory_size"] = config["memory_size"]
             self.memory_size = config["memory_size"]
