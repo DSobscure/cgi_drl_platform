@@ -7,3 +7,49 @@ default_1:
     batch_size: 256
     start_epoch_number: 1
     end_epoch_number : 100
+
+small_k_1:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, train-1]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, test-1]
+    elo_rating: [cgi_drl.default_config, Default, measure_model/elo_rating/config/shared/model.yaml, small_k]
+    
+    version: versions/advanced_combination_elo_rating_small_k_1
+    batch_size: 256
+    start_epoch_number: 1
+    end_epoch_number : 100
+small_k_2:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, train-2]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, test-2]
+    elo_rating: [cgi_drl.default_config, Default, measure_model/elo_rating/config/shared/model.yaml, small_k]
+    
+    version: versions/advanced_combination_elo_rating_small_k_2
+    batch_size: 256
+    start_epoch_number: 1
+    end_epoch_number : 100
+small_k_3:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, train-3]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, test-3]
+    elo_rating: [cgi_drl.default_config, Default, measure_model/elo_rating/config/shared/model.yaml, small_k]
+    
+    version: versions/advanced_combination_elo_rating_small_k_3
+    batch_size: 256
+    start_epoch_number: 1
+    end_epoch_number : 100
+small_k_4:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, train-4]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, test-4]
+    elo_rating: [cgi_drl.default_config, Default, measure_model/elo_rating/config/shared/model.yaml, small_k]
+    
+    version: versions/advanced_combination_elo_rating_small_k_4
+    batch_size: 256
+    start_epoch_number: 1
+    end_epoch_number : 100
+small_k_5:
+    record_train: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, train-5]
+    record_test: [cgi_drl.default_config, Default, data_storage/match_records/config/advanced_combination_game.yaml, test-5]
+    elo_rating: [cgi_drl.default_config, Default, measure_model/elo_rating/config/shared/model.yaml, small_k]
+    
+    version: versions/advanced_combination_elo_rating_small_k_5
+    batch_size: 256
+    start_epoch_number: 1
+    end_epoch_number : 100

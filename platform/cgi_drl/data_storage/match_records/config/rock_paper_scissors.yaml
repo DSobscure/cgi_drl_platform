@@ -3,5 +3,25 @@ train-1:
 test-1: 
     dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_1_test.csv"
 
+train-2:
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_2_train.csv"
+test-2: 
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_2_test.csv"
+
+train-3:
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_3_train.csv"
+test-3: 
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_3_test.csv"
+
+train-4:
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_4_train.csv"
+test-4: 
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_4_test.csv"
+
+train-5:
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_5_train.csv"
+test-5: 
+    dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records_5_test.csv"
+
 all: 
     dataset_path: "~/balance/RockPaperScissors/rock_paper_scissors_records.csv"

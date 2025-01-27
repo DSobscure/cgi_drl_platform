@@ -1,0 +1,27 @@
+k3:
+    initial_rating: 1000
+    update_k: 0.1
+    residual_learning_rate: 0.00025
+    category_learning_rate: 0.01
+    category_count: 3
+
+k9:
+    initial_rating: 1000
+    update_k: 0.1
+    residual_learning_rate: 0.00025
+    category_learning_rate: 0.01
+    category_count: 9
+
+k27:
+    initial_rating: 1000
+    update_k: 0.1
+    residual_learning_rate: 0.00025
+    category_learning_rate: 0.01
+    category_count: 27
+
+k81:
+    initial_rating: 1000
+    update_k: 0.1
+    residual_learning_rate: 0.00025
+    category_learning_rate: 0.01
+    category_count: 81

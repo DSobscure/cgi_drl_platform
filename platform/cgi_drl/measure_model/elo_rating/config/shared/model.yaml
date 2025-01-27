@@ -1,3 +1,7 @@
 default:
     initial_rating: 1000
     update_k: 16
+
+small_k:
+    initial_rating: 1000
+    update_k: 0.1

@@ -1,0 +1,309 @@
+# Elo rating small learning rate
+rock_paper_scissors_elo_small_k_1:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rating/config/solver.yaml, small_k_1]
+rock_paper_scissors_elo_small_k_2:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rating/config/solver.yaml, small_k_2]
+rock_paper_scissors_elo_small_k_3:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rating/config/solver.yaml, small_k_3]
+rock_paper_scissors_elo_small_k_4:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rating/config/solver.yaml, small_k_4]
+rock_paper_scissors_elo_small_k_5:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rating/config/solver.yaml, small_k_5]
+
+advanced_combination_game_elo_small_k_1:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rating/config/solver.yaml, small_k_1]
+advanced_combination_game_elo_small_k_2:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rating/config/solver.yaml, small_k_2]
+advanced_combination_game_elo_small_k_3:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rating/config/solver.yaml, small_k_3]
+advanced_combination_game_elo_small_k_4:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rating/config/solver.yaml, small_k_4]
+advanced_combination_game_elo_small_k_5:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rating/config/solver.yaml, small_k_5]
+
+age_of_empires_ii_elo_small_k_1:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rating/config/solver.yaml, small_k_1]
+age_of_empires_ii_elo_small_k_2:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rating/config/solver.yaml, small_k_2]
+age_of_empires_ii_elo_small_k_3:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rating/config/solver.yaml, small_k_3]
+age_of_empires_ii_elo_small_k_4:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rating/config/solver.yaml, small_k_4]
+age_of_empires_ii_elo_small_k_5:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rating/config/solver.yaml, small_k_5]
+
+hearthstone_elo_small_k_1:
+    solver: cgi_drl.problem.hearthstone.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rating/config/solver.yaml, small_k_1]
+hearthstone_elo_small_k_2:
+    solver: cgi_drl.problem.hearthstone.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rating/config/solver.yaml, small_k_2]
+hearthstone_elo_small_k_3:
+    solver: cgi_drl.problem.hearthstone.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rating/config/solver.yaml, small_k_3]
+hearthstone_elo_small_k_4:
+    solver: cgi_drl.problem.hearthstone.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rating/config/solver.yaml, small_k_4]
+hearthstone_elo_small_k_5:
+    solver: cgi_drl.problem.hearthstone.elo_rating.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rating/config/solver.yaml, small_k_5]
+
+# Elo rating + Residual Counter Category
+rock_paper_scissors_elo_rcc_k3_1:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k3_1]
+rock_paper_scissors_elo_rcc_k3_2:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k3_2]
+rock_paper_scissors_elo_rcc_k3_3:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k3_3]
+rock_paper_scissors_elo_rcc_k3_4:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k3_4]
+rock_paper_scissors_elo_rcc_k3_5:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k3_5]
+rock_paper_scissors_elo_rcc_k9_1:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k9_1]
+rock_paper_scissors_elo_rcc_k9_2:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k9_2]
+rock_paper_scissors_elo_rcc_k9_3:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k9_3]
+rock_paper_scissors_elo_rcc_k9_4:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k9_4]
+rock_paper_scissors_elo_rcc_k9_5:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k9_5]
+rock_paper_scissors_elo_rcc_k27_1:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k27_1]
+rock_paper_scissors_elo_rcc_k27_2:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k27_2]
+rock_paper_scissors_elo_rcc_k27_3:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k27_3]
+rock_paper_scissors_elo_rcc_k27_4:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k27_4]
+rock_paper_scissors_elo_rcc_k27_5:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k27_5]
+rock_paper_scissors_elo_rcc_k81_1:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k81_1]
+rock_paper_scissors_elo_rcc_k81_2:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k81_2]
+rock_paper_scissors_elo_rcc_k81_3:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k81_3]
+rock_paper_scissors_elo_rcc_k81_4:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k81_4]
+rock_paper_scissors_elo_rcc_k81_5:
+    solver: cgi_drl.problem.rock_paper_scissors.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/rock_paper_scissors/elo_rcc/config/solver.yaml, k81_5]
+
+advanced_combination_game_elo_rcc_k3_1:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k3_1]
+advanced_combination_game_elo_rcc_k3_2:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k3_2]
+advanced_combination_game_elo_rcc_k3_3:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k3_3]
+advanced_combination_game_elo_rcc_k3_4:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k3_4]
+advanced_combination_game_elo_rcc_k3_5:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k3_5]
+advanced_combination_game_elo_rcc_k9_1:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k9_1]
+advanced_combination_game_elo_rcc_k9_2:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k9_2]
+advanced_combination_game_elo_rcc_k9_3:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k9_3]
+advanced_combination_game_elo_rcc_k9_4:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k9_4]
+advanced_combination_game_elo_rcc_k9_5:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k9_5]
+advanced_combination_game_elo_rcc_k27_1:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k27_1]
+advanced_combination_game_elo_rcc_k27_2:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k27_2]
+advanced_combination_game_elo_rcc_k27_3:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k27_3]
+advanced_combination_game_elo_rcc_k27_4:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k27_4]
+advanced_combination_game_elo_rcc_k27_5:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k27_5]
+advanced_combination_game_elo_rcc_k81_1:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k81_1]
+advanced_combination_game_elo_rcc_k81_2:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k81_2]
+advanced_combination_game_elo_rcc_k81_3:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k81_3]
+advanced_combination_game_elo_rcc_k81_4:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k81_4]
+advanced_combination_game_elo_rcc_k81_5:
+    solver: cgi_drl.problem.advanced_combination_game.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/advanced_combination_game/elo_rcc/config/solver.yaml, k81_5]
+
+age_of_empires_ii_elo_rcc_k3_1:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k3_1]
+age_of_empires_ii_elo_rcc_k3_2:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k3_2]
+age_of_empires_ii_elo_rcc_k3_3:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k3_3]
+age_of_empires_ii_elo_rcc_k3_4:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k3_4]
+age_of_empires_ii_elo_rcc_k3_5:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k3_5]
+age_of_empires_ii_elo_rcc_k9_1:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k9_1]
+age_of_empires_ii_elo_rcc_k9_2:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k9_2]
+age_of_empires_ii_elo_rcc_k9_3:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k9_3]
+age_of_empires_ii_elo_rcc_k9_4:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k9_4]
+age_of_empires_ii_elo_rcc_k9_5:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k9_5]
+age_of_empires_ii_elo_rcc_k27_1:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k27_1]
+age_of_empires_ii_elo_rcc_k27_2:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k27_2]
+age_of_empires_ii_elo_rcc_k27_3:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k27_3]
+age_of_empires_ii_elo_rcc_k27_4:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k27_4]
+age_of_empires_ii_elo_rcc_k27_5:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k27_5]
+age_of_empires_ii_elo_rcc_k81_1:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k81_1]
+age_of_empires_ii_elo_rcc_k81_2:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k81_2]
+age_of_empires_ii_elo_rcc_k81_3:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k81_3]
+age_of_empires_ii_elo_rcc_k81_4:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k81_4]
+age_of_empires_ii_elo_rcc_k81_5:
+    solver: cgi_drl.problem.age_of_empires_ii.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/age_of_empires_ii/elo_rcc/config/solver.yaml, k81_5]
+
+hearthstone_elo_rcc_k3_1:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k3_1]
+hearthstone_elo_rcc_k3_2:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k3_2]
+hearthstone_elo_rcc_k3_3:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k3_3]
+hearthstone_elo_rcc_k3_4:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k3_4]
+hearthstone_elo_rcc_k3_5:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k3_5]
+hearthstone_elo_rcc_k9_1:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k9_1]
+hearthstone_elo_rcc_k9_2:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k9_2]
+hearthstone_elo_rcc_k9_3:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k9_3]
+hearthstone_elo_rcc_k9_4:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k9_4]
+hearthstone_elo_rcc_k9_5:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k9_5]
+hearthstone_elo_rcc_k27_1:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k27_1]
+hearthstone_elo_rcc_k27_2:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k27_2]
+hearthstone_elo_rcc_k27_3:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k27_3]
+hearthstone_elo_rcc_k27_4:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k27_4]
+hearthstone_elo_rcc_k27_5:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k27_5]
+hearthstone_elo_rcc_k81_1:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k81_1]
+hearthstone_elo_rcc_k81_2:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k81_2]
+hearthstone_elo_rcc_k81_3:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k81_3]
+hearthstone_elo_rcc_k81_4:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k81_4]
+hearthstone_elo_rcc_k81_5:
+    solver: cgi_drl.problem.hearthstone.elo_rcc.solver
+    config: [cgi_drl.default_config, Default, problem/hearthstone/elo_rcc/config/solver.yaml, k81_5]

@@ -312,3 +312,4 @@ platform/cgi_drl/versions
 
 !infrastructure/GameExecutables/*.zip
 infrastructure/GameExecutables/VisualFoodCollectorSingle/*
+platform/build
