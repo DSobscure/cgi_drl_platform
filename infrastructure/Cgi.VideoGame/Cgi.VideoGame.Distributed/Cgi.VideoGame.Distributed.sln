@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cgi.VideoGame.Distributed.Server", "Cgi.VideoGame.Distributed.Server\Cgi.VideoGame.Distributed.Server.csproj", "{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cgi.VideoGame.Distributed.Protocol", "Cgi.VideoGame.Distributed.Protocol\Cgi.VideoGame.Distributed.Protocol.csproj", "{5B398CCF-98CE-4022-9384-2B033C20A2B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Debug|x64.Build.0 = Debug|Any CPU
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Release|x64.ActiveCfg = Release|x64
+		{FE9026DD-956C-45BF-A7B4-0A14531DF3FF}.Release|x64.Build.0 = Release|x64
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Debug|x64.Build.0 = Debug|Any CPU
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Release|x64.ActiveCfg = Release|x64
+		{5B398CCF-98CE-4022-9384-2B033C20A2B5}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2077C4CB-11C4-4658-9936-ACC9D0422E94}
+	EndGlobalSection
+EndGlobal
