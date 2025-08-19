@@ -10,7 +10,7 @@ class EncoderTrainer():
         self.hierarchy_count = config["hierarchy_count"]
         self.encoder_model = EncoderModel(network_settings).to(self.device)
         self.observation_prodiver = config["observation_prodiver"]
-        self.compressed_observation_prodiver = config["compressed_observation_prodiver"]
+        # self.compressed_observation_prodiver = config["compressed_observation_prodiver"]
         self.hierarchy_usage_provider = config["hierarchy_usage_provider"]
         self.action_prodiver = config["action_prodiver"]
         self.optimizer = torch.optim.Adam(self.encoder_model.parameters())
@@ -36,8 +36,9 @@ class EncoderTrainer():
 
     def update(self, observations, compressed_observations, actions, batch_size, learning_rate):
         self.encoder_model.train()
+        batch_size = len(actions)
         observation_inputs = self.observation_prodiver(observations, self.device)
-        compressed_observation_inputs = self.compressed_observation_prodiver(compressed_observations, self.device)
+        # compressed_observation_inputs = self.compressed_observation_prodiver(compressed_observations, self.device)
         hierarchy_usages = self.hierarchy_usage_provider(np.random.uniform(0, 1, [batch_size, self.hierarchy_count - 1]), self.device)
         actions = self.action_prodiver(actions, self.device)
 
@@ -53,11 +54,11 @@ class EncoderTrainer():
             vq_embedding_means.append(vq_embedding_mean)
 
         z_e_q_pairs, discrete_states, reconstructed_observation, policy = self.encoder_model(observation_inputs, hierarchy_usages)
-        
         policy_loss = torch.nn.functional.cross_entropy(policy, actions)
         compression_loss = 0
         for key in reconstructed_observation:
-            compression_loss += self.distance_loss_fn(reconstructed_observation[key], compressed_observation_inputs[key])
+            # compression_loss += self.distance_loss_fn(reconstructed_observation[key], compressed_observation_inputs[key])
+            compression_loss += self.distance_loss_fn(reconstructed_observation[key], observation_inputs[key])
         compression_loss /= len(reconstructed_observation)
 
         vq_loss = 0

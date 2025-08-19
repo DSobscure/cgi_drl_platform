@@ -42,6 +42,7 @@ class AgentPoolManager:
         self._default_rating = config[
             "default_score_rating" if self._use_score_rating else "default_elo_rating"
         ]
+        self.fixed_agent_list = config.get("fixed_agent_list", [])
 
         # For rating (e.g., Elo rating)
         self._k_factor = config["k_factor"]
@@ -179,6 +180,9 @@ class AgentPoolManager:
         name = list(score_dict.keys())
         if len(name) == 1:
             return
+        if len(name) > 2:
+            print(score_dict)
+            raise RuntimeError("Currently not support more than 2 player ratings.")
 
         actual_scores = np.array([score for score in score_dict.values()])
         if use_softmax_score:
@@ -193,7 +197,8 @@ class AgentPoolManager:
 
         update_result = {}
         for name, r, diff_r in zip(score_dict.keys(), new_rating, diff_rating):
-            self._agent_pool[name] = self._agent_pool[name]._replace(rating=r)
+            if name not in self.fixed_agent_list:
+                self._agent_pool[name] = self._agent_pool[name]._replace(rating=r)
             update_result[name] = [r, diff_r]
 
         return update_result

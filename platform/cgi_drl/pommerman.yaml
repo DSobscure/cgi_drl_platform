@@ -1,20 +1,37 @@
 # Pommerman
-pommerman_train:
-    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer
-    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, default]
-
 pommerman_eval_test:
     solver: cgi_drl.problem.pommerman.multi_agent_solver.evaluator
-    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_evaluator_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_evaluator.yaml, default]
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_evaluator_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_evaluator.yaml, test]
+pommerman_eval_test_torch:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.evaluator_torch
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_evaluator_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_evaluator.yaml, test]
 
-pommerman_eval:
-    solver: cgi_drl.problem.pommerman.multi_agent_solver.evaluator
-    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_evaluator_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_evaluator.yaml, eval]
-
-pommerman_train_strong_exploration:
+pommerman_ppo_baseline:
     solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer
-    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, strong_exploration]
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, ppo_baseline] 
+pommerman_ppo_baseline_torch:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer_torch
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, ppo_baseline_torch] 
+pommerman_qr_rainbow_baseline_torch:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer_torch
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, qr_rainbow_baseline_torch] 
 
-pommerman_train_strong_exploration_selfplay:
-    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer
-    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, strong_exploration_selfplay]
+
+pommerman_ppo_uniform_selfplay_torch:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer_torch
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, SelfplayTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, ppo_uniform_selfplay_torch] 
+pommerman_ppo_pfsp_torch:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer_torch
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, SelfplayTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, ppo_pfsp_torch] 
+
+pommerman_ppo_demonstration_generation_torch:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.generator_torch
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_evaluator_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_evaluator.yaml, generation_torch]
+
+pommerman_hsd:
+    solver: cgi_drl.problem.pommerman.hierarchical_state_discretization.solver_torch
+    config: [cgi_drl.default_config, Default, problem/pommerman/hierarchical_state_discretization/config/solver.yaml, one_vs_one]
+
+pommerman2v2_ppo_baseline_torch:
+    solver: cgi_drl.problem.pommerman.multi_agent_solver.trainer_torch
+    config: [cgi_drl.problem.pommerman.multi_agent_solver.config.multi_agent_solver_template, DefaultTemplate, problem/pommerman/multi_agent_solver/config/multi_agent_solver.yaml, 2v2_ppo_baseline_torch] 

@@ -1,4 +1,5 @@
 import numpy as np
+import gc
 
 class GaeSampleMemory(object):
     class Path(object):
@@ -16,6 +17,10 @@ class GaeSampleMemory(object):
             if len(self.trajectories) == 0 or self.trajectories[-1].transitions["done"][-1]:
                 self.trajectories.append(GaeSampleMemory.Trajectory(self.sequence_length))
             self.trajectories[-1].append(sample) 
+            
+        def early_terminate(self):
+            if len(self.trajectories) > 0:
+                self.trajectories[-1].early_terminate() 
 
         def get_keys(self):
             return self.trajectories[0].get_keys()
@@ -84,6 +89,9 @@ class GaeSampleMemory(object):
                         self.transitions[key][obs_key].append(sample[key][obs_key])
                 else:
                     self.transitions[key].append(sample[key])
+        def early_terminate(self):
+            if len(self.transitions["done"]) > 0:
+                self.transitions["done"][-1] = True
 
         def get_keys(self):
             return ["observation", "action", "reward", "value", "done"]
@@ -132,10 +140,14 @@ class GaeSampleMemory(object):
         if len(self) > 0:
             for index in range(self.config["agent_count"]):
                 self.paths[index].clear()
+        gc.collect()
 
     def append(self, index, sample):
         self.paths[index].append(sample)
         self._sample_count += 1
+        
+    def early_terminate(self, index):
+        self.paths[index].early_terminate()
     
     def duplicate(self, index, times):
         self.paths[index].duplicate(times)

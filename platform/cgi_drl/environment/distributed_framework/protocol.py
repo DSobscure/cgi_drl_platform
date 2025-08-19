@@ -53,6 +53,7 @@ class EnvironmentRequesterOperationCode(IntEnum):
     Step = 8
     RestartEnvironment = 9
     NeedRestart = 10
+    Render = 11
 
 class EnvironmentProviderOperationCode(IntEnum):
     Launch = 0
@@ -63,6 +64,7 @@ class EnvironmentProviderOperationCode(IntEnum):
     Step = 5
     ServerLaunch = 6
     NeedRestart = 7
+    Render = 8
     
 # AllocateEnvironment
 class AllocateEnvironmentRequesterRequestParameterCode(IntEnum):
@@ -155,3 +157,11 @@ class NeedRestartRequesterResponseParameterCode(IntEnum):
     Result = 0
 class NeedRestartProviderResponseParameterCode(IntEnum):
     Result = 0
+
+# Render
+class RenderRequesterRequestParameterCode(IntEnum):
+    Index = 0
+class RenderRequesterResponseParameterCode(IntEnum):
+    Images = 0
+class RenderProviderResponseParameterCode(IntEnum):
+    Images = 0

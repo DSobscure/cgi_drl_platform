@@ -1,0 +1,44 @@
+default:
+    available_actions: [0, 1, 2, 3, 4, 5]
+
+no_bomb:
+    available_actions: [0, 1, 2, 3, 4]
+
+mix:
+    is_mixed: true
+    agent_candidates: 
+        - Camp
+        - Roam
+        - SimpleNoBomb
+        - Simple
+    available_actions: [0, 1, 2, 3, 4, 5]
+
+mix1:
+    is_mixed: true
+    agent_candidates: 
+        - Camp
+    available_actions: [0, 1, 2, 3, 4, 5]
+
+mix2:
+    is_mixed: true
+    agent_candidates: 
+        - Camp
+        - Roam
+    available_actions: [0, 1, 2, 3, 4, 5]
+
+mix3:
+    is_mixed: true
+    agent_candidates: 
+        - Camp
+        - Roam
+        - SimpleNoBomb
+    available_actions: [0, 1, 2, 3, 4, 5]
+
+mix4:
+    is_mixed: true
+    agent_candidates: 
+        - Camp
+        - Roam
+        - SimpleNoBomb
+        - Simple
+    available_actions: [0, 1, 2, 3, 4, 5]

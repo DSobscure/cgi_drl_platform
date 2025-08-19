@@ -4,7 +4,7 @@ from tensorboardX import SummaryWriter
 from collections import deque, defaultdict
 
 class QrDqnSolver(DqnSolver):
-    def initialize(self):
+    def initialize(self, **kwargs):
         if self.epoch_steps % self.get_agent_count() != 0:
             raise AssertionError(f"epoch_steps should be divisible by agent count epoch_steps: {self.epoch_steps}, agent_count: {self.get_agent_count()}")
         if self.update_step_frequent % self.get_agent_count() != 0:
@@ -63,6 +63,7 @@ class QrDqnSolver(DqnSolver):
             state_batch, action_batch, reward_batch, done_batch, next_state_batch, random_indexes, importance_sampling_weights = self.replay_buffer.sample_mini_batch(self.batch_size, importance_sampling_beta)
         else:
             state_batch, action_batch, reward_batch, done_batch, next_state_batch = self.replay_buffer.sample_mini_batch(self.batch_size)
+        reward_batch = np.asarray(reward_batch)
 
         if self.policy.use_rnn:
             target_q_value, target_q_distribution, _ = self.policy.get_target_q_values_and_distributions(next_state_batch)

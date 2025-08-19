@@ -11,17 +11,17 @@ class PommermanObservationPreprocessor(ObservationPreprocessor):
         if self.environment_id.startswith("One"):
             self.observation_space = {
                 "observation_visual": (8, 8, 12 * self.frame_stack_size),
-                "observation_vector": (3 * self.frame_stack_size,),
+                "observation_vector": (4 * self.frame_stack_size,),
             }
         elif self.environment_id.startswith("PommeFFA"):
             self.observation_space = {
                 "observation_visual": (11, 11, 12 * self.frame_stack_size),
-                "observation_vector": (3 * self.frame_stack_size,),
+                "observation_vector": (4 * self.frame_stack_size,),
             }
         elif self.environment_id.startswith("PommeTeam"):
             self.observation_space = {
                 "observation_visual": (11, 11, 13 * self.frame_stack_size),
-                "observation_vector": (3 * self.frame_stack_size,),
+                "observation_vector": (4 * self.frame_stack_size,),
             }
         else:
             raise NotImplementedError("Unknown observation_space.")
@@ -69,7 +69,7 @@ class PommermanObservationPreprocessor(ObservationPreprocessor):
                 ]:
                     features_2d[0][i, j] = 1
 
-        position = np.zeros(board.shape)
+        position = np.zeros(board.shape, dtype=np.float)
         position[observation["position"]] = 1
         features_2d.append(position)
 
@@ -78,10 +78,10 @@ class PommermanObservationPreprocessor(ObservationPreprocessor):
             features_2d.append(
                 board == observation["teammate"].value
                 if observation["teammate"].value in observation["alive"]
-                else np.zeros_like(board)
+                else np.zeros_like(board, dtype=np.float)
             )
 
-        enemies = np.zeros(board.shape)
+        enemies = np.zeros(board.shape, dtype=np.float)
         for enemy in observation["enemies"]:
             enemies[(board == enemy.value)] = 1
         features_2d.append(enemies)

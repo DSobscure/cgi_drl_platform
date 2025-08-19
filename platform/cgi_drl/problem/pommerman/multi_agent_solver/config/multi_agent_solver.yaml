@@ -1,3 +1,208 @@
+ppo_baseline_torch:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_32]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_32-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                - Player1: PPO_Baseline
+                  Player2: MixAgent1
+            - # Stage 1
+                - Player1: PPO_Baseline
+                  Player2: MixAgent2
+            - # Stage 2
+                - Player1: PPO_Baseline
+                  Player2: MixAgent3
+            - # Stage 3
+                - Player1: PPO_Baseline
+                  Player2: MixAgent4
+
+        eval:
+            - # Stage 0
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+            - # Stage 1
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+            - # Stage 2
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+            - # Stage 3
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+
+    single_solvers:
+        PPO_Baseline:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer_torch, PommermanPpoSolver]
+            static_solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver_torch, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, DefaultTemplate, problem/pommerman/ppo_solver/config/solver.yaml, default_torch]
+            anchor: PPO_Baseline
+        CampAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        RoamAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+        SimpleAgent_NoBomb:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, no_bomb]
+        SimpleAgent:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, default]
+        MixAgent1:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix1]
+        MixAgent2:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix2]
+        MixAgent3:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix3]
+        MixAgent4:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix4]
+
+    multi_agent_solver:
+        training_iteration_count: 200
+        agent_sampling_scheme:
+            train: uniform
+            eval: uniform
+        subphase_step_period:
+            train: 512000 # each agent run half steps
+            eval: 51200
+        change_agent_step_period:
+            train: 512000
+            eval: 51200
+        start_stage: 0
+        start_iteration: 0
+    version: versions/pommerman_ppo_baseline_torch
+
+qr_rainbow_baseline_torch:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_32]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_32-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                - Player1: QR_Raimbow_Baseline
+                  Player2: MixAgent1
+            - # Stage 1
+                - Player1: QR_Raimbow_Baseline
+                  Player2: MixAgent2
+            - # Stage 2
+                - Player1: QR_Raimbow_Baseline
+                  Player2: MixAgent3
+            - # Stage 3
+                - Player1: QR_Raimbow_Baseline
+                  Player2: MixAgent4
+
+        eval:
+            - # Stage 0
+                - Player1: QR_Raimbow_Baseline
+                  Player2: CampAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: RoamAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent
+            - # Stage 1
+                - Player1: QR_Raimbow_Baseline
+                  Player2: CampAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: RoamAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent
+            - # Stage 2
+                - Player1: QR_Raimbow_Baseline
+                  Player2: CampAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: RoamAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent
+            - # Stage 3
+                - Player1: QR_Raimbow_Baseline
+                  Player2: CampAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: RoamAgent
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: QR_Raimbow_Baseline
+                  Player2: SimpleAgent
+
+
+    single_solvers:
+        QR_Raimbow_Baseline:
+            solver: [cgi_drl.problem.pommerman.qr_dqn_solver.trainer_torch, PommermanQrDqnSolver]
+            config: [cgi_drl.problem.pommerman.qr_dqn_solver.config.solver_template, PrioritizedTrainingTemplate, problem/pommerman/qr_dqn_solver/config/solver.yaml, default_torch]
+        CampAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        RoamAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+        SimpleAgent_NoBomb:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, no_bomb]
+        SimpleAgent:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, default]
+        MixAgent1:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix1]
+        MixAgent2:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix2]
+        MixAgent3:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix3]
+        MixAgent4:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix4]
+
+    multi_agent_solver:
+        training_iteration_count: 200
+        agent_sampling_scheme:
+            train: uniform
+            eval: uniform
+        subphase_step_period:
+            train: 512000 # each agent run half steps
+            eval: 51200
+        change_agent_step_period:
+            train: 512000
+            eval: 51200
+        start_stage: 0
+        start_iteration: 0
+    version: versions/pommerman_qr_rainbow_baseline_torch
+
 default:
     environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1]
     evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
@@ -55,134 +260,248 @@ default:
         start_iteration: 0
     version: versions/pommerman_default
 
-strong_exploration:
-    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1]
-    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
-    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+ppo_uniform_selfplay_torch:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_neg_32]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_neg_32-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, selfplay]
     agent_mapping:
         train:
             - # Stage 0
-                # Subphase
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: camp_solver
-            - # Stage 1
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: roam_solver
+                - Player1: PPO_Baseline
+                  Player2: MixAgent4
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+
         eval:
             - # Stage 0
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: camp_solver
-
-                - Player1: ppo_solver
-                  Player2: roam_solver
-            - # Stage 1
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: camp_solver
-
-                - Player1: ppo_solver
-                  Player2: roam_solver
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
 
     single_solvers:
-        ppo_solver:
-            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer, PommermanPpoSolver]
-            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, StrongExploraitonTemplate, problem/pommerman/ppo_solver/config/solver.yaml, large_batch]
-        camp_solver:
+        PPO_Baseline:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer_torch, PommermanPpoSolver]
+            static_solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver_torch, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, SelfplayTemplate, problem/pommerman/ppo_solver/config/solver.yaml, pretrain_torch]
+            anchor: PPO_Baseline
+        CampAgent:
             solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
-            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
-        roam_solver:
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        RoamAgent:
             solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
-            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+        SimpleAgent_NoBomb:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, no_bomb]
+        SimpleAgent:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, default]
+        MixAgent4:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix4]
 
     multi_agent_solver:
-        training_iteration_count: 200
+        training_iteration_count: 500
+        agent_sampling_scheme:
+            train: uniform
+            eval: uniform
+        subphase_step_period:
+            train: 64000 # each agent run half steps
+            eval: 51200
+        change_agent_step_period:
+            train: 64000
+            eval: 51200
+        start_stage: 0
+        start_iteration: 0
+    version: versions/pommerman_ppo_uniform_selfplay_torch
+ppo_pfsp_torch:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_neg_32]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1_neg_32-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, selfplay]
+    agent_mapping:
+        train:
+            - # Stage 0
+                - Player1: PPO_Baseline
+                  Player2: MixAgent4
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline_#from_agent_pool
+
+        eval:
+            - # Stage 0
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+
+    single_solvers:
+        PPO_Baseline:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer_torch, PommermanPpoSolver]
+            static_solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver_torch, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, SelfplayTemplate, problem/pommerman/ppo_solver/config/solver.yaml, pretrain_torch]
+            anchor: PPO_Baseline
+        CampAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        RoamAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+        SimpleAgent_NoBomb:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, no_bomb]
+        SimpleAgent:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, default]
+        MixAgent4:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix4]
+
+    multi_agent_solver:
+        training_iteration_count: 500
         agent_sampling_scheme:
             train: prioritized
             eval: uniform
         subphase_step_period:
-            train: 512000
-            eval: 20480
+            train: 64000 # each agent run half steps
+            eval: 51200
         change_agent_step_period:
-            train: 512000
-            eval: 20480
+            train: 64000
+            eval: 51200
         start_stage: 0
         start_iteration: 0
-    version: versions/pommerman_strong_exploration
+    version: versions/pommerman_ppo_pfsp_torch
 
-strong_exploration_selfplay:
-    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1]
-    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+2v2_ppo_baseline_torch:
+    environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_2v2_32]
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_2v2_32-eval]
     agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
     agent_mapping:
         train:
             - # Stage 0
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: camp_solver
-                - Player1: camp_solver
-                  Player2: ppo_solver
-                - Player1: ppo_solver
-                  Player2: roam_solver
-                - Player1: roam_solver
-                  Player2: ppo_solver
+                - Player1: PPO_Baseline
+                  Player2: MixAgent1
             - # Stage 1
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: roam_solver
-                - Player1: roam_solver
-                  Player2: ppo_solver
-                - Player1: ppo_solver
-                  Player2: ppo_solver_#from_agent_pool
-                - Player1: ppo_solver_#from_agent_pool
-                  Player2: ppo_solver
+                - Player1: PPO_Baseline
+                  Player2: MixAgent2
+            - # Stage 2
+                - Player1: PPO_Baseline
+                  Player2: MixAgent3
+            - # Stage 3
+                - Player1: PPO_Baseline
+                  Player2: MixAgent4
+
         eval:
             - # Stage 0
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: camp_solver
-
-                - Player1: ppo_solver
-                  Player2: roam_solver
-
-                - Player1: ppo_solver
-                  Player2: ppo_solver_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
             - # Stage 1
-                # Subphase
-                - Player1: ppo_solver
-                  Player2: camp_solver
-
-                - Player1: ppo_solver
-                  Player2: roam_solver
-
-                - Player1: ppo_solver
-                  Player2: ppo_solver_#from_agent_pool
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+            - # Stage 2
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+            - # Stage 3
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
 
     single_solvers:
-        ppo_solver:
-            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer, PommermanPpoSolver]
-            static_solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver, PommermanPpoSolver]
-            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, StrongExploraitonTemplate, problem/pommerman/ppo_solver/config/solver.yaml, large_batch]
-        camp_solver:
+        PPO_Baseline:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.trainer_torch, PommermanPpoSolver]
+            static_solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver_torch, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, DefaultTemplate, problem/pommerman/ppo_solver/config/solver.yaml, 2v2_torch]
+            anchor: PPO_Baseline
+        CampAgent:
             solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
-            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
-        roam_solver:
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        RoamAgent:
             solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
-            config: [cgi_drl.problem.pommerman.roam_solver.config.solver_template, DefaultTemplate, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+        SimpleAgent_NoBomb:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, no_bomb]
+        SimpleAgent:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, default]
+        MixAgent1:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix1]
+        MixAgent2:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix2]
+        MixAgent3:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix3]
+        MixAgent4:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, mix4]
 
     multi_agent_solver:
         training_iteration_count: 200
         agent_sampling_scheme:
-            train: prioritized
+            train: uniform
             eval: uniform
         subphase_step_period:
-            train: 512000
-            eval: 40960
+            train: 512000 # each agent run 1/2 steps
+            eval: 51200
         change_agent_step_period:
-            train: 128000
-            eval: 10240
+            train: 512000
+            eval: 51200
         start_stage: 0
         start_iteration: 0
-    version: versions/pommerman_strong_exploration_selfplay
+    version: versions/pommerman2v2_ppo_baseline_torch

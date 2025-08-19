@@ -341,6 +341,8 @@ class MultiAgentTrainer:
         return self.current_iteration_count >= self.training_iteration_count
 
     def terminate(self):
+        for name in self.single_solvers:
+            self.single_solvers[name].terminate()
         self.environment.close()
         self.evaluation_environment.close()   
 
@@ -568,6 +570,8 @@ class MultiAgentEvaluator:
         })
 
     def terminate(self):
+        for name in self.single_solvers:
+            self.single_solvers[name].terminate()
         self.environment.close()   
         self.evaluation_environment.close()   
 
@@ -774,5 +778,7 @@ class MultiAgentEvaluator2:
         })
 
     def terminate(self):
+        for name in self.single_solvers:
+            self.single_solvers[name].terminate()
         self.environment.close()   
         self.evaluation_environment.close()   

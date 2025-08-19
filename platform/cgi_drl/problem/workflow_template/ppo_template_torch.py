@@ -39,6 +39,8 @@ class PpoSolver(ReinforcementLearningTrainer):
 
         self.evaluation_scores = []
         
+        self.total_time_step = self.solver_config.get("initial_time_step", 0)
+        
     def get_agent_count(self, is_train=True):
         if is_train:
             return self.environment.agent_count
@@ -68,7 +70,6 @@ class PpoSolver(ReinforcementLearningTrainer):
         print("mode: training with PPO")
         print("=" * 50)
 
-        self.total_time_step = self.solver_config.get("initial_time_step", 0)
         if self.total_time_step % self.get_agent_count() != 0:
             raise AssertionError(f"total_time_step should be divisible by agent count")
         print("Current timestep:", self.total_time_step)
@@ -84,16 +85,19 @@ class PpoSolver(ReinforcementLearningTrainer):
             False: [{} for _ in range(self.get_agent_count(is_train=False))] # for eval
         }
 
-        self.eval_trajectory_observations = [defaultdict(list) for _ in range(self.get_agent_count(is_train=False))]
-
     def terminate(self):
         self.environment.close()
         self.evaluation_environment.close()
+        self.summary_writer.close()
+        self.log_file.close()
+        self.evaluation_log_file.close()
 
     def episode_initiate(self, dones, is_valid_agent, is_train=True):
         for i in range(self.get_agent_count(is_train)):
             if is_valid_agent[i] and dones[i]:
                 dones[i] = False
+                if i == 0 and not is_train:
+                    self.eval_first_trajectory_observations = defaultdict(list)
                 observation = self.observation_preprocessor.process(self.get_environment(is_train).reset(i))
                 for key in observation:
                     observation[key] = self.observation_preprocessor.observation_aggregator(key, None, observation[key][0], True)
@@ -114,8 +118,6 @@ class PpoSolver(ReinforcementLearningTrainer):
                         self.observations[is_train]["observation_previous_action"] = [None for _ in range(self.get_agent_count(is_train))]
                     self.observations[is_train]["observation_previous_action"][i] = np.zeros(len(self.policy.action_space), dtype=np.float32)
                 self.agent_statistics[is_train][i] = {}
-                if not is_train:
-                    self.eval_trajectory_observations[i] = defaultdict(list)
         return dones
 
     def episode_terminate(self, dones, is_valid_agent, is_train=True):
@@ -139,8 +141,8 @@ class PpoSolver(ReinforcementLearningTrainer):
                     self.log_file.write(log_str+'\n')
                 else:
                     self.evaluation_log_file.write(log_str)
-                    if len(self.evaluation_scores) == 0 or self.agent_statistics[is_train][i]["Cumulated Extrinsic Reward"] > max(self.evaluation_scores):
-                        self.evaluation_best_observations = self.eval_trajectory_observations[i]
+                    if i == 0:
+                        self.evaluation_first_observations = self.eval_first_trajectory_observations
                     self.evaluation_scores.append(self.agent_statistics[is_train][i]["Cumulated Extrinsic Reward"])
 
     def update(self):
@@ -236,7 +238,7 @@ class PpoSolver(ReinforcementLearningTrainer):
             decision = {
                 "actions": actions,
                 "values": values,
-                "memories": memories,
+                "memory": memories,
             }
         else:
             actions, values = self.policy.sample_actions_and_get_values(self.observations[is_train])
@@ -250,7 +252,7 @@ class PpoSolver(ReinforcementLearningTrainer):
         actions = decision["actions"]
         values = decision["values"]
         if self.policy.use_rnn:
-            memories = decision["memories"]
+            memories = decision["memory"]
 
         next_observations, rewards, dones, infos = self.get_environment(is_train).step(actions) 
         next_observations = self.observation_preprocessor.process(next_observations)
@@ -311,9 +313,8 @@ class PpoSolver(ReinforcementLearningTrainer):
         while episode_count < self.evaluation_episode_count:
             dones = self.episode_initiate(dones, is_valid_agent, is_train=False)
             while not any(dones):
-                for i in range(self.get_agent_count(False)):
-                    for key in self.observations[False]:
-                        self.eval_trajectory_observations[i][key].append(self.observations[False][key][i])
+                for key in self.observations[False]:
+                    self.eval_first_trajectory_observations[key].append(self.observations[False][key][0])
                 decision = self.decide_agent_actions(is_valid_agent, is_train=False)
                 dones = self.on_time_step(decision, is_valid_agent, is_train=False)
             episode_count += dones.count(True)

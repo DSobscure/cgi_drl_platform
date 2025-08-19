@@ -1,2 +1,15 @@
 default:
     environment_id: OneVsOne-v0
+
+no_stack:
+    environment_id: OneVsOne-v0
+    frame_stack_size: 1
+
+stack4:
+    environment_id: OneVsOne-v0
+    frame_stack_size: 4
+
+
+team_stack4:
+    environment_id: PommeTeamCompetition-v0
+    frame_stack_size: 4

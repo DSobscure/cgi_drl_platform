@@ -1,3 +1,11 @@
 default:
     horizon: 128
+    sequence_length: 1
+
+long_horizon:
+    horizon: 400
+    sequence_length: 1
+
+long_horizon_seq8:
+    horizon: 400
     sequence_length: 8

@@ -72,12 +72,12 @@ class MultiAgentEnvironmentBroker:
                     episode_infos.append(infos[total_offset])
                 else:
                     sub_env_offset = self.environment_index_agent_offset[name][i_e][offset]
-                    self.sub_environments[name].observations[sub_env_offset] = {}
+                    self.sub_environments[name].observations[sub_env_offset] = observations[total_offset]
                     self.sub_environments[name].rewards[sub_env_offset] = 0
                     self.sub_environments[name].dones[sub_env_offset] = False
                     infos[total_offset]["agent_name"] = name
-                    self.sub_environments[name].infos[sub_env_offset] = {}
-                    episode_infos.append({})
+                    self.sub_environments[name].infos[sub_env_offset] = infos[total_offset]
+                    episode_infos.append(infos[total_offset])
                 offsets[name] += 1
                 total_offset += 1
             if len(episode_dones) == 0:
@@ -167,6 +167,9 @@ class MultiAgentEnvironmentBroker:
 
     def restart(self, environment_index):
         return self.environment_wrapper.restart(environment_index)
+    
+    def render(self, index):
+        return self.environment_wrapper.render(index)
 
     class SubEnvironmentWrapper(EnvironmentWrapper):
         def __init__(self, main_environment, agent_count):

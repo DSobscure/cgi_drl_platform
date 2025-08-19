@@ -1,0 +1,7 @@
+default_torch:
+    model_define_path: decision_model.qr_dqn.nn_model.pommerman.default_model_torch
+    use_rnn: False
+
+lstm:
+    model_define_path: decision_model.qr_dqn.nn_model.pommerman.dueling_network_lstm_torch
+    use_rnn: True

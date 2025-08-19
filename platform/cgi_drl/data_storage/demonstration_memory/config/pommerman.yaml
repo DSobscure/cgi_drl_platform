@@ -1,0 +1,6 @@
+one_vs_one_generation:
+  is_generation: true
+
+
+one_vs_one_training:
+  demonstration_file_path: /root/PPO_Baseline_demonstrations.pkl.gz

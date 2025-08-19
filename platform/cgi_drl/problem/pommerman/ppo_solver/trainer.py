@@ -36,6 +36,8 @@ class PommermanPpoSolver(PpoSolver):
     def on_time_step(self, decision, is_valid_agent, is_train=True):
         actions = decision["actions"]
         values = decision["values"]
+        if self.policy.use_rnn:
+            memory_outputs = decision["memory"]
 
         next_observations, rewards, dones, infos = self.get_environment(is_train).step(actions) 
         next_observations = self.observation_preprocessor.process(next_observations)

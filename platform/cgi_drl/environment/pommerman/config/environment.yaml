@@ -2,8 +2,55 @@ pommerman_1v1:
     environment_id: OneVsOne-v0 
     environment_count: 8
     agent_names : [Player1, Player2]
+    randomized_team_position: true
 
 pommerman_1v1-eval:
     environment_id: OneVsOne-v0 
     environment_count: 8
     agent_names : [Player1, Player2]
+
+pommerman_1v1_32:
+    environment_id: OneVsOne-v0 
+    environment_count: 32 
+    agent_names : [Player1, Player2]
+    randomized_team_position: true
+
+pommerman_1v1_32-eval:
+    environment_id: OneVsOne-v0 
+    environment_count: 32 
+    agent_names : [Player1, Player2]
+
+pommerman_1v1_neg_32:
+    environment_id: OneVsOne-v0 
+    environment_count: 32 
+    agent_names : [Player1, Player2]
+    randomized_team_position: true
+    use_negative_reward: true
+
+pommerman_1v1_neg_32-eval:
+    environment_id: OneVsOne-v0 
+    environment_count: 32 
+    agent_names : [Player1, Player2]
+    use_negative_reward: true
+
+pommerman_2v2_32:
+    environment_id: PommeTeamCompetition-v0
+    environment_count: 16 
+    agent_names : [Player1, Player2, Player1, Player2]
+    randomized_team_position: true
+
+pommerman_2v2_32-eval:
+    environment_id: PommeTeamCompetition-v0
+    environment_count: 16 
+    agent_names : [Player1, Player2, Player1, Player2]
+
+pommerman_2v2_individual_32:
+    environment_id: PommeTeamCompetition-v0
+    environment_count: 16 
+    agent_names : [Player1, Player2, Player3, Player4]
+    randomized_team_position: true
+
+pommerman_2v2_individual_32-eval:
+    environment_id: PommeTeamCompetition-v0
+    environment_count: 16 
+    agent_names : [Player1, Player2, Player3, Player4]

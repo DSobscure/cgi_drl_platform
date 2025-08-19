@@ -124,9 +124,9 @@ class EncoderModel(nn.Module):
         cnn_z_q0_high_level = x.view(-1, *self.hidden_dimensions[0])
 
         # cnn decoder
-        cnn_z_e0 = hierarchy_usages[:,0].view(-1, 1, 1, 1) * cnn_z_q0_low_level + (1 - hierarchy_usages[:,0].view(-1, 1, 1, 1)) * cnn_z_q0_high_level
-        x = cnn_z_e0
+        combined_x = hierarchy_usages[:,0].view(-1, 1, 1, 1) * cnn_z_q0_low_level + (1 - hierarchy_usages[:,0].view(-1, 1, 1, 1)) * cnn_z_q0_high_level
         
+        x = combined_x
         for layer in self.cnn_decoder_hidden_layers:
             x = F.leaky_relu(layer(x), negative_slope=0.01)
         x = torch.sigmoid(self.cnn_decoder_output_layers(x))
@@ -134,7 +134,7 @@ class EncoderModel(nn.Module):
         reconstructed_observation = {"observation_2d" : reconstructed_observation}
 
         # policy decoder
-        x = cnn_z_e0.view(-1, np.prod(self.hidden_dimensions[0]))
+        x = combined_x.view(-1, np.prod(self.hidden_dimensions[0]))
         x = F.leaky_relu(self.policy_hidden_layer(x), negative_slope=0.01)
         x = self.policy_output_layer(x)
         policy = x

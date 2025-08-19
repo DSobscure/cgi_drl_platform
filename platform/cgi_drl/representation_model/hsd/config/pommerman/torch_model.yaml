@@ -1,0 +1,7 @@
+torch-one-vs-one:
+    model_define_path: representation_model.hsd.nn_model.pommerman.torch_encoder_model
+    network_settings:
+        vq_embedding_sizes: [[128, 128], [4, 16]]
+    hierarchy_count: 2
+    vq_beta: 0.25
+    vq_mean_beta: 0.25

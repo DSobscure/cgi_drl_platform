@@ -1,0 +1,10 @@
+one_vs_one:
+    hsd: [cgi_drl.representation_model.hsd.config.pommerman.torch_model_template, TorchTemplate, representation_model/hsd/config/pommerman/torch_model.yaml, torch-one-vs-one]
+    training_demo: [cgi_drl.default_config, Default, data_storage/demonstration_memory/config/pommerman.yaml, one_vs_one_training]
+
+    version: versions/HSD_torch_pommerman_one_vs_one
+    batch_size: 256
+    initial_learning_rate: 0.00025
+    is_load_encoder: False
+    start_epoch_number: 1
+    end_epoch_number : 100

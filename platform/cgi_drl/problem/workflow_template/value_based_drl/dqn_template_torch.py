@@ -247,6 +247,8 @@ class DqnSolver(ReinforcementLearningTrainer):
             
         random_values = np.random.uniform(0, 1, agent_count)
         random_actions = self.get_environment(is_train).sample()
+        print(random_actions)
+        exit()
         actions = []
         
         for i in range(agent_count):

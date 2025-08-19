@@ -1,3 +1,36 @@
+test:
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                # Subphase
+                # Subphase
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline2
+        eval:
+            - # Stage 0
+                # Subphase
+                - Player1: PPO_Baseline
+                  Player2: PPO_Baseline2
+
+    single_solvers:
+        PPO_Baseline:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver_torch, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, SelfplayTemplate, problem/pommerman/ppo_solver/config/solver.yaml, pretrain_torch]
+        PPO_Baseline2:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.static_solver_torch, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, SelfplayTemplate, problem/pommerman/ppo_solver/config/solver.yaml, pretrain_torch]
+
+    multi_agent_solver:
+        agent_sampling_scheme:
+            eval: uniform
+        subphase_episode_count:
+            eval: 50
+        change_agent_episode_count:
+            eval: 200
+    version: versions/pommerman_simple_agent_eval_test
+
 default:
     evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
     agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
@@ -89,3 +122,60 @@ eval:
         change_agent_episode_count:
             eval: 200
     version: versions/pommerman_eval
+
+generation_torch:
+    evaluation_environment: [cgi_drl.environment.pommerman.config.environment_template, DefaultTemplate, environment/pommerman/config/environment.yaml, pommerman_1v1-eval]
+    agent_pool_manager: [cgi_drl.multi_agent_system.agent_pool.config.pommerman, DefaultTemplate, multi_agent_system/agent_pool/config/pommerman.yaml, default]
+    agent_mapping:
+        train:
+            - # Stage 0
+                # Subphase
+                # Subphase
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+        eval:
+            - # Stage 0
+                # Subphase
+                - Player1: PPO_Baseline
+                  Player2: CampAgent
+                - Player1: PPO_Baseline
+                  Player2: RoamAgent
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent_NoBomb
+                - Player1: PPO_Baseline
+                  Player2: SimpleAgent
+
+                - Player1: CampAgent
+                  Player2: PPO_Baseline
+                - Player1: RoamAgent
+                  Player2: PPO_Baseline
+                - Player1: SimpleAgent_NoBomb
+                  Player2: PPO_Baseline
+                - Player1: SimpleAgent
+                  Player2: PPO_Baseline
+
+    single_solvers:
+        PPO_Baseline:
+            solver: [cgi_drl.problem.pommerman.ppo_solver.generator_torch, PommermanPpoSolver]
+            config: [cgi_drl.problem.pommerman.ppo_solver.config.solver_template, DefaultTemplate, problem/pommerman/ppo_solver/config/solver.yaml, generator_torch]
+        CampAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, camp_default]
+        RoamAgent:
+            solver: [cgi_drl.problem.pommerman.roam_solver.solver, RoamSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/roam_solver/config/solver.yaml, roam_default]
+        SimpleAgent_NoBomb:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, no_bomb]
+        SimpleAgent:
+            solver: [cgi_drl.problem.pommerman.simple_solver.simple_solver, SimpleSolver]
+            config: [cgi_drl.default_config, Default, problem/pommerman/simple_solver/config/solver.yaml, default]
+
+    multi_agent_solver:
+        agent_sampling_scheme:
+            eval: uniform
+        subphase_episode_count:
+            eval: 100
+        change_agent_episode_count:
+            eval: 20000
+    version: versions/pommerman_ppo_baseline_generation_torch

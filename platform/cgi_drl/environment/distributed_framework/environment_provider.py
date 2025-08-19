@@ -160,6 +160,14 @@ class EnvironmentProvider(SocketClient):
                 {NeedRestartProviderResponseParameterCode.Result : result}, 
                 ""
             )
+        elif request_code == EnvironmentProviderOperationCode.Render:
+            result = self.render()
+            self._send_environment_provider_response(
+                EnvironmentProviderOperationCode.Render, 
+                OperationReturnCode.Successiful, 
+                {RenderProviderResponseParameterCode.Images : pickle.dumps(result)}, 
+                ""
+            )
         else:
             print("Error,Provider receive {}".format(request_code))
             exit(0)
@@ -194,6 +202,9 @@ class EnvironmentProvider(SocketClient):
 
     def need_restart(self):
         return self.environment_wrapper.need_restart()
+    
+    def render(self):
+        return self.environment_wrapper.render()
 
 if __name__ == '__main__':
     import sys

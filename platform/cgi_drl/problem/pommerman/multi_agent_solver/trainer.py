@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 from cgi_drl.multi_agent_system.agent_pool.agent_pool_manager import AgentPoolManager
 import time
+from cgi_drl.visualization_tool.gif_maker import make_video
 
 def launch(problem_config):
     load = problem_config["load_function"]
@@ -146,6 +147,10 @@ class PommermanMultiAgentSolver(MultiAgentTrainer):
 
             step_count = 0
             next_matchmaking_step = 0
+            
+            is_recoreded_video = False
+            first_evaluation_images = []
+            
             while step_count < self.subphase_step_period["eval"]:
                 if step_count >= next_matchmaking_step:
                     next_matchmaking_step = step_count + self.change_agent_step_period["eval"]
@@ -201,6 +206,8 @@ class PommermanMultiAgentSolver(MultiAgentTrainer):
                         agent_name: decisions[agent_name]["actions"]
                         for agent_name in participant_solvers
                     })
+                    if not is_recoreded_video:
+                        first_evaluation_images.append(self.evaluation_environment.render(0))
                     self.evaluation_phase_statistics_aggregator(evaluation_phase_results, race_schedule, game_dones, game_infos)
                     for agent_name, single_solver in participant_solvers.items():
                         is_valid_agent = self.evaluation_environment.agent_turn[agent_name]
@@ -218,6 +225,11 @@ class PommermanMultiAgentSolver(MultiAgentTrainer):
                 
                 for i in range(self.evaluation_environment.environment_count):
                     if game_dones[i]:
+                        if not is_recoreded_video and i == 0: 
+                            first_evaluation_images.append(self.evaluation_environment.render(0))
+                            is_recoreded_video = True
+                            make_video(first_evaluation_images, f"{self.video_path}/Stage{self.current_stage}Iteration{self.current_iteration_count}Subphase{subphase}.mp4", duration=len(first_evaluation_images) / 2)
+                            first_evaluation_images = []
                         score_dict = {}
                         for info in game_infos[i]:
                             if "result" in info:

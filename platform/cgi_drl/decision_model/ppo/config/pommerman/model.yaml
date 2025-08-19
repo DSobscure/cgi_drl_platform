@@ -1,3 +1,27 @@
 default:
     model_define_path: decision_model.ppo.nn_model.pommerman.default_model
     use_rnn: False
+default_torch:
+    model_define_path: decision_model.ppo.nn_model.pommerman.default_model_torch
+    use_rnn: False
+large_torch:
+    model_define_path: decision_model.ppo.nn_model.pommerman.large_model_torch
+    use_rnn: False
+
+gru:
+    model_define_path: decision_model.ppo.nn_model.pommerman.gru_model
+    use_rnn: True
+    rnn_sequence_length: 8
+    rnn_burn_in_length: 4
+    memory_size: 512
+
+lstm_torch: 
+    model_define_path: decision_model.ppo.nn_model.pommerman.lstm_model_torch
+    use_rnn: True
+    rnn_sequence_length: 8
+    rnn_burn_in_length: 4
+    memory_size: 1024
+
+team_torch:
+    model_define_path: decision_model.ppo.nn_model.pommerman.team_model_torch
+    use_rnn: False

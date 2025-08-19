@@ -290,6 +290,22 @@ class EnvironmentRequester(SocketClient):
                 print(EnvironmentRequesterOperationCode(operationCode) == EnvironmentRequesterOperationCode.NeedRestart, OperationReturnCode(returnCode) == OperationReturnCode.NotExisted)
                 print("NeedRestart error returnCode: {}, operationMessage: {}".format(returnCode, operationMessage))
                 exit(0)
+                
+    def render(self, index):
+        env_index, agent_index = self.look_up_environment_and_agent_index(index)
+        self._send_environment_requester_request(EnvironmentRequesterOperationCode.Render, 
+            {
+                RenderRequesterRequestParameterCode.Index : env_index,
+            }
+        )
+        operationCode, returnCode, parameters, operationMessage = self._receive_environment_requester_response()
+        if EnvironmentRequesterOperationCode(operationCode) == EnvironmentRequesterOperationCode.Render and OperationReturnCode(returnCode) == OperationReturnCode.Successiful:
+            return pickle.loads(parameters[RenderRequesterResponseParameterCode.Images])
+        elif EnvironmentRequesterOperationCode(operationCode) == EnvironmentRequesterOperationCode.Render and OperationReturnCode(returnCode) == OperationReturnCode.NotExisted:
+            return None
+        else:
+            print("Render error returnCode: {}, operationMessage: {}".format(returnCode, operationMessage))
+            exit(0)
 
 # test
 if __name__ == '__main__':

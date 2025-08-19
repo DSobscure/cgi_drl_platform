@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 from cgi_drl.multi_agent_system.agent_pool.agent_pool_manager import AgentPoolManager
 import time
+from cgi_drl.visualization_tool.gif_maker import make_video
 
 def launch(problem_config):
     load = problem_config["load_function"]
@@ -45,6 +46,9 @@ class PommermanMultiAgentEvaluator(MultiAgentEvaluator2):
             episode_count = 0
             next_matchmaking_episode = 0
             done_count = 0
+            
+            is_recoreded_video = False
+            first_evaluation_images = []
             
             while done_count < self.evaluation_environment.environment_count:
                 print("Evaluation Progress - subphase: ", subphase, "Episdoe:", episode_count, "/", self.subphase_episode_count["eval"], end='\r')
@@ -104,6 +108,8 @@ class PommermanMultiAgentEvaluator(MultiAgentEvaluator2):
                         agent_name: decisions[agent_name]["actions"]
                         for agent_name in participant_solvers
                     })
+                    if not is_recoreded_video:
+                        first_evaluation_images.append(self.evaluation_environment.render(0))
                     self.evaluation_phase_statistics_aggregator(evaluation_phase_results, race_schedule, game_dones, game_infos)
                     for agent_name, single_solver in participant_solvers.items():
                         is_valid_agent = self.evaluation_environment.agent_turn[agent_name]
@@ -113,6 +119,11 @@ class PommermanMultiAgentEvaluator(MultiAgentEvaluator2):
                     for i in range(self.evaluation_environment.environment_count):
                         if game_dones[i]:
                             episode_count += 1
+                            if not is_recoreded_video and i == 0: 
+                                first_evaluation_images.append(self.evaluation_environment.render(0))
+                                is_recoreded_video = True
+                                make_video(first_evaluation_images, f"{self.video_path}/Stage{self.current_stage}Subphase{subphase}.mp4", duration=len(first_evaluation_images) / 2)
+                                first_evaluation_images = []
                     need_restarts = self.evaluation_environment.need_restart()
                     for i in range(self.evaluation_environment.environment_count):
                         if need_restarts[i]:
